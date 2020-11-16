@@ -41,9 +41,18 @@ namespace Bladiator.Entities.Enemies
         {
             // Move towards target player.
 
-            Vector3 direction = m_TargetPlayer.transform.position - transform.position;
+            Vector3 direction = (m_TargetPlayer.transform.position - transform.position).normalized;
+            //print(direction);
 
             m_RigidBody.MovePosition(transform.position + (direction * Time.deltaTime * m_Movespeed));
+
+            LookAtTargetPlayer();
+        }
+
+        private void LookAtTargetPlayer()
+        {
+            // Look at "m_TargetPlayer". (improve it so it lerps).
+            transform.LookAt(m_TargetPlayer.transform.position);
         }
     }
 }
