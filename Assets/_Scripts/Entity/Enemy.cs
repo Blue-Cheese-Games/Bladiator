@@ -1,4 +1,5 @@
 ﻿using Bladiator.Entities;
+using Bladiator.Entity.Player;
 using Bladiator.Managers;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace Bladiator.Entities.Enemies
             foreach (Player player in players)
             {
                 currentDistance = Vector3.Distance(player.transform.position, transform.position);
-                if (currentDistance > shortestDistance)
+                if (currentDistance < shortestDistance)
                 {
                     m_TargetPlayer = player;
                     shortestDistance = currentDistance;
