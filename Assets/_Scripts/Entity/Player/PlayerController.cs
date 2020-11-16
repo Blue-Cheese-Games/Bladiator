@@ -1,5 +1,3 @@
-using System;
-using Bladiator.Entities;
 using UnityEngine;
 
 namespace Bladiator.Entity.Player
