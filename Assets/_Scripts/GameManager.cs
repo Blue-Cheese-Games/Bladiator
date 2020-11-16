@@ -1,6 +1,5 @@
-﻿using Bladiator.Entities;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Bladiator.Entity.Player;
 using UnityEngine;
 
 namespace Bladiator.Managers
