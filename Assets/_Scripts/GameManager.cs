@@ -1,4 +1,4 @@
-﻿using Baldiator.Entities;
+﻿using Bladiator.Entities;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +10,7 @@ namespace Bladiator.Managers
         public static GameManager Instance;
 
         // List containing all the active players.
-        private List<EntityBase> m_Players = new List<EntityBase>();
+        private List<Player> m_Players = new List<Player>();
 
         private void Awake()
         {
@@ -20,7 +20,7 @@ namespace Bladiator.Managers
             }
         }
 
-        public void AddPlayer(EntityBase playerToAdd)
+        public void AddPlayer(Player playerToAdd)
         {
             m_Players.Add(playerToAdd);
         }
@@ -29,7 +29,7 @@ namespace Bladiator.Managers
         /// Get the list of all active players.
         /// </summary>
         /// <returns></returns>
-        public List<EntityBase> GetPlayers()
+        public List<Player> GetPlayers()
         {
             return m_Players;
         }

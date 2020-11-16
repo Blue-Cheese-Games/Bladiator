@@ -1,4 +1,4 @@
-﻿using Baldiator.Entities;
+﻿using Bladiator.Entities;
 using Bladiator.Managers;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,19 +9,23 @@ namespace Bladiator.Entities.Enemies
     [RequireComponent(typeof(Rigidbody))]
     public class Enemy : EntityBase
     {
-        private EntityBase m_TargetPlayer = null; // Could be changed to Player type later.
+        private Player m_TargetPlayer = null; // Could be changed to Player type later.
         private Rigidbody m_RigidBody = null;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
+
             m_RigidBody = GetComponent<Rigidbody>();
 
-            List<EntityBase> players = GameManager.Instance.GetPlayers();
+
+            // Find the nearest player and set it as "m_TargetPlayer".
+            List<Player> players = GameManager.Instance.GetPlayers();
 
             float shortestDistance = 1000f;
             float currentDistance = 0;
 
-            foreach (EntityBase player in players)
+            foreach (Player player in players)
             {
                 currentDistance = Vector3.Distance(player.transform.position, transform.position);
                 if (currentDistance > shortestDistance)
