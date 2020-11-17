@@ -17,7 +17,7 @@ namespace Bladiator.Entity.Player
 			m_PlayerController = GetComponent<PlayerController>();
 		}
 
-		public override void Move()
+		protected override void Update()
 		{
 			m_PlayerController.MoveHandle();
 		}
