@@ -27,7 +27,7 @@ namespace Bladiator.Weapons
                 if (ChargeTimer())
                 {
                     // Damage the entity
-                    IDestructable damageable = entity.GetComponent<IDestructable>();
+                    IDamageable damageable = entity.GetComponent<IDamageable>();
                     damageable.Damage((int)m_Weapon.Damage);
 
                     OnEntityAttack?.Invoke(m_Weapon);

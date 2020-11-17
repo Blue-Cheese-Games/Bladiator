@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Bladiator.Entity.Player
@@ -7,7 +8,7 @@ namespace Bladiator.Entity.Player
 	{
 		public void MoveHandle()
 		{
-			
+
 		}
 	}
 }

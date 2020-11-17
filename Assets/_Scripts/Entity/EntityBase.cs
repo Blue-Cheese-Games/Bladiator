@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Bladiator.Entities
 {
-    public class EntityBase : MonoBehaviour, IDestructable
+    public class EntityBase : MonoBehaviour, IDamageable
     {
         public Action<int> OnDamage;
 

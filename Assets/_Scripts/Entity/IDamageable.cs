@@ -1,6 +1,6 @@
 ﻿namespace Bladiator.Entity
 {
-	public interface IDestructable
+	public interface IDamageable
 	{
 		void Damage(int amount);
 	}
