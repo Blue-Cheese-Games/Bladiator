@@ -1,92 +1,43 @@
-﻿using System;
-using System.Collections;
-using Bladiator.Entities;
-using Bladiator.Entity;
-using Bladiator.Entity.Player;
+﻿using Bladiator.Entities;
 using Bladiator.Managers;
 using UnityEngine;
 
 namespace Bladiator.Weapons
 {
-    [RequireComponent(typeof(Animator))]
     public class WeaponBase : MonoBehaviour
     {
-        public static event Action<Weapon> OnEntityAttack = null;
-
-        [SerializeField] private Player m_WeaponHolder = null;
-        [SerializeField] private Weapon m_Weapon = new Weapon();
-
-        private bool m_CanAttack = true;
-        private bool m_AttackTimerIsRunning = false;
+        private MouseManager m_MouseManager = null;
         
-        /// <summary>
-        /// Attack an entity
-        /// </summary>
-        public void Fire()
+        protected Sprite SetSprite(Weapon weapon)
+            => weapon.WeaponObject.WeaponAestheticData.Sprite;
+        
+        protected float GetDamage(Weapon weapon)
+            => weapon.WeaponObject.WeaponCoreData.Damage;
+
+        protected void DealDamage(Weapon weapon, EntityBase entity)
         {
-            if (!m_CanAttack)
-                return;
-
-            try
-            {
-                // Damage the entity
-                //IDamageable damageable = entity.GetComponent<IDamageable>();
-                //damageable.Damage((int)m_Weapon.Damage);
-
-                OnEntityAttack?.Invoke(m_Weapon);
-                m_CanAttack = false;
-                m_AttackTimerIsRunning = false;
-            }
-            catch (Exception exception)
-            {
-                Debug.Log($"Did not deal damage: {exception}");
-            }
-        }
-
-        /// <summary>
-        /// Countdown the 'UseCooldown' timer on a weapon
-        /// </summary>
-        private IEnumerator AttackTimer()
-        {
-            float cooldown = m_Weapon.UseCooldown;
-            yield return new WaitForSeconds(cooldown);
-            m_CanAttack = true;
-        }
-
-        private void Update()
-        {
-#if UNITY_EDITOR
-            if (Input.GetMouseButtonDown(0))
-                Fire();
-#endif
-
-            if (!m_CanAttack && !m_AttackTimerIsRunning)
-            {
-                m_AttackTimerIsRunning = true;
-                StartCoroutine(AttackTimer());
-            }
+            entity.Damage((int)weapon.WeaponObject.WeaponCoreData.Damage);
         }
         
         /// <summary>
-        /// Set the weapon sprite onto the player
+        /// Set the position of the weapon object equal to the mouse
         /// </summary>
-        /// <param name="playerWeaponSpriteRenderer"> Weapon holder sprite on the player </param>
-        private void SetWeaponSprite(SpriteRenderer playerWeaponSpriteRenderer)
+        /// <param name="weapon"> Weapon object </param>
+        protected void SetPosition(Weapon weapon)
         {
-            playerWeaponSpriteRenderer.sprite = m_Weapon.SpriteAsset;
+            Vector2 position = new Vector2()
+            {
+                x = m_MouseManager.GetMouseAxisAsVector().x,
+                y = m_MouseManager.GetMouseAxisAsVector().y
+            };
+
+            weapon.transform.Translate(position * 
+                                       (weapon.WeaponObject.WeaponCoreData.acceleration * Time.deltaTime));
         }
-    }
 
-    [Serializable]
-    public struct Weapon
-    {
-        public Sprite SpriteAsset;
-        public float Damage;
-        public float MaxHitDistance;
-
-        /// <summary>
-        /// The time it takes before you can use the weapon again
-        /// </summary>
-        public float UseCooldown;
+        private void Awake()
+        {
+            m_MouseManager = FindObjectOfType<MouseManager>();
+        }
     }
 }
