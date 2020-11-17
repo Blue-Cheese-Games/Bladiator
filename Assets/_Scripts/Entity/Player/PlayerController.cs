@@ -6,6 +6,7 @@ namespace Bladiator.Entity.Player
 	{
 		[SerializeField] float m_MovementSpeed = 1f;
 		[SerializeField] GameObject m_SpriteObject;
+		
 		public void MoveHandle()
 		{
 			if (Camera.main == null || m_SpriteObject == null) return;
@@ -25,7 +26,6 @@ namespace Bladiator.Entity.Player
 			if (axis != Vector3.zero)
 			{
 				Vector3 targetPos = axis * (m_MovementSpeed * Time.deltaTime);
-				targetPos.y = transform.position.y;
 
 				transform.position += targetPos;
 			}
