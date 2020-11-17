@@ -6,12 +6,12 @@ namespace Bladiator.Managers
     {
         private MouseAxis m_MouseAxis = new MouseAxis();
 
-        public MouseAxis GetMouseAxis()
-            => m_MouseAxis;
-
         public Vector2 GetMouseAxisAsVector()
             => new Vector2(GetMouseAxis().MouseX, GetMouseAxis().MouseY);
-
+        
+        private MouseAxis GetMouseAxis()
+            => m_MouseAxis;
+        
         private void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
