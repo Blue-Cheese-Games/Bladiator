@@ -16,19 +16,16 @@ namespace Bladiator.Entities.Enemies
         [Header("Enemy Settings")]
         [Tooltip("The range in units in which enemies will be added to this enemy's group.")]
         [SerializeField] private float m_GroupingRange;
+
         [Tooltip("The amount of degrees that this enemy can turn every second.")]
         [SerializeField] private float rotationSpeed;
 
-        [Header("Attacks:")]
+        [Space()]
+        [Tooltip("The objects that contains all the attacks for this enemy.")]
+        [SerializeField] private GameObject m_AttacksParent = null;
+        private List<EnemyAttackBase> m_Attacks = new List<EnemyAttackBase>();
 
-        // Standard "Melee Attack"
-        [SerializeField] private int m_MeleeDamage = 2;
-        [SerializeField] private int m_MeleeKnockback = 2;
-        [SerializeField] private float m_MeleeCooldown = 2f;
-        [SerializeField] private float m_MeleeRecoveryTime = 1f;
-        private float m_MeleeLastUseTimeStamp = 0f;
-
-        private Player m_TargetPlayer = null; // Could be changed to Player type later.
+        private Player m_TargetPlayer = null;
         private Rigidbody m_RigidBody = null;
 
         private EnemyState m_State = EnemyState.LOOKING_FOR_GROUP;
@@ -50,10 +47,11 @@ namespace Bladiator.Entities.Enemies
             m_EnemyManager = FindObjectOfType<EnemyManager>();
             m_EnemyManager.AddEnemy(this);
 
+            // Get all the attacks from the "m_AttacksParent" object.
+            m_AttacksParent.GetComponentsInChildren<EnemyAttackBase>(m_Attacks);
+
             FindNearsestPlayerAndSetAsTarget();
         }
-
-        
 
         protected override void Update()
         {
@@ -150,8 +148,6 @@ namespace Bladiator.Entities.Enemies
             // Move towards the "m_GroupGatheringPoint".
             MoveForward();
             LookAtTarget(m_GroupGatheringPoint);
-
-
         }
 
         private void LookAtTarget(Vector3 target)
@@ -195,26 +191,13 @@ namespace Bladiator.Entities.Enemies
         /// </summary>
         protected virtual void AttackCheck()
         {
-            if(GetState() == EnemyState.RECOVERING_FROM_ATTACK) { return; }
-
-            // Standard "Melee Attack".
-            if((m_MeleeLastUseTimeStamp + m_MeleeCooldown) < Time.time)
+            foreach (EnemyAttackBase attack in m_Attacks)
             {
-                if(Vector3.Distance(transform.position, m_TargetPlayer.transform.position) < 1.5f)
+                if(attack.TryActivate(this, m_TargetPlayer))
                 {
-                    // Damage the player.
-                    m_TargetPlayer.GetComponent<IDamageable>().Damage(m_MeleeDamage);
-
-                    // push the player back with knockback.
-                    Vector3 direction = m_TargetPlayer.transform.position - transform.position;
-                    m_TargetPlayer.GetComponent<Rigidbody>().AddForce(direction * m_MeleeKnockback, ForceMode.Impulse);
-
-                    // Set the timestamp of this use.
-                    m_MeleeLastUseTimeStamp = Time.time;
-
-                    m_currentAttackRecoveryTime = m_MeleeRecoveryTime;
+                    // Attack was activated.
+                    m_currentAttackRecoveryTime = attack.GetStats().RecoveryTime;
                     SetState(EnemyState.RECOVERING_FROM_ATTACK);
-
                 }
             }
         }

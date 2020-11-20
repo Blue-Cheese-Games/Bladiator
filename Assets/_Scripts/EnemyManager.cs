@@ -9,7 +9,7 @@ namespace Bladiator.Managers.EnemyManager
 {
     public class EnemyManager : MonoBehaviour
     {
-        [Tooltip("")]
+        [Tooltip("The delay between creating a group, and initiating it's attack.")]
         [SerializeField] private float m_GroupAttackDelay = 3f;
 
         private List<Enemy> m_ActiveEnemies = new List<Enemy>();
