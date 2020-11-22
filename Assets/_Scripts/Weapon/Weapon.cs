@@ -11,13 +11,15 @@ namespace Bladiator.Weapons
 
         private void OnTriggerEnter(Collider other)
         {
+            if(other.CompareTag("Player")) return;
+            
             try
             {
                 DealDamage(this, other.GetComponent<EntityBase>());
             }
             catch (Exception exception)
             {
-                Debug.Log("No entity object attached.");
+                Debug.Log("No entity object attached.", other.gameObject);
             }
         }
 
