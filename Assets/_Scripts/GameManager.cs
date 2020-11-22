@@ -1,15 +1,32 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Bladiator.Entity.Player;
+using Bladiator.Managers.EnemyManager;
 using UnityEngine;
 
 namespace Bladiator.Managers
 {
+    public enum GameState
+    {
+        Idle,
+        Fighting,
+        Ending
+    }
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance;
 
+        public Action<GameState> OnGameStateChange;
+        
+        [SerializeField] private GameState m_State;
+        
         // List containing all the active players.
         private List<Player> m_Players = new List<Player>();
+
+        public GameState GameState
+        {
+            get => m_State;
+        }
 
         private void Awake()
         {
@@ -17,6 +34,29 @@ namespace Bladiator.Managers
             {
                 Instance = this;
             }
+        }
+
+        private void Start()
+        {
+            EnemyManager.EnemyManager.Instance.OnAllEnemiesDied += OnAllEnemiesDied;
+        }
+
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.Space) && m_State == GameState.Idle) ChangeState(GameState.Fighting);
+        }
+
+        private void OnAllEnemiesDied()
+        {
+            print("Enemies died");
+            ChangeState(GameState.Idle);
+        }
+
+        void ChangeState(GameState state)
+        {
+            print($"State changed to: {state.ToString()}");
+            m_State = state;
+            OnGameStateChange?.Invoke(state);
         }
 
         public void AddPlayer(Player playerToAdd)
