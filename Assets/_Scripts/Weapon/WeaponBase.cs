@@ -28,7 +28,7 @@ namespace Bladiator.Weapons
             Vector3 position = new Vector3()
             {   
                 x = m_MouseManager.GetMouseAxisAsVector().x,
-                y = transform.position.y,
+                y = 0,
                 z = m_MouseManager.GetMouseAxisAsVector().y
             };
 
