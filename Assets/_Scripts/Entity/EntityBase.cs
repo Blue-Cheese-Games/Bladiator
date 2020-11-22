@@ -26,12 +26,12 @@ namespace Bladiator.Entities
 
         }
 
-        public void Damage(int _damage)
+        public void Damage(int damage)
         {
             // Damage the entity.
-            m_Health -= _damage;
+            m_Health -= damage;
 
-            OnDamage?.Invoke(_damage);
+            OnDamage?.Invoke(damage);
 
             if(m_Health <= 0)
             {
