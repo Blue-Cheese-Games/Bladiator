@@ -83,7 +83,7 @@ namespace Bladiator
 
 		public void SpawnBoss()
 		{
-			if (m_WaveCount % 5 == 1)
+			if (m_WaveCount % 5 == 0)
 			{
 				// Mini boss
 				Instantiate(m_MiniBoss, m_BossSpawnPoint.position, m_BossSpawnPoint.rotation);
