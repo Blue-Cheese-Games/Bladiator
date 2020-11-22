@@ -25,8 +25,8 @@ namespace Bladiator.Entity.Player
 
 		private void InputHandle()
 		{
-			float horizontalAxis = -Input.GetAxisRaw("Horizontal");
-			float verticalAxis = -Input.GetAxisRaw("Vertical");
+			float horizontalAxis = Input.GetAxisRaw("Horizontal");
+			float verticalAxis = Input.GetAxisRaw("Vertical");
 			
 			Vector3 axis = new Vector3(horizontalAxis, 0, verticalAxis);
 			
