@@ -1,5 +1,6 @@
 using System;
 using System.Security.Cryptography;
+using Bladiator.Managers;
 using UnityEngine;
 
 namespace Bladiator
@@ -8,6 +9,7 @@ namespace Bladiator
 	{
 		public static WaveSystem Instance;
 		public Action OnSpawnStarted, OnSpawnDone;
+		public Action<int> OnNextWave;
 
 		[Range(0.01f, 1f)] [SerializeField] private float m_SpawnInterval = 0.25f;
 		[SerializeField] private int m_SpawnIncrease = 8;
@@ -17,8 +19,8 @@ namespace Bladiator
 
 		private bool m_IsSpawning;
 
-		private int m_SpawnCount;
 		private int m_TargetSpawnAmount;
+		private int m_SpawnCount;
 		private int m_WaveCount;
 
 		private float m_SpawnTimer;
@@ -35,11 +37,21 @@ namespace Bladiator
 			Instance = this;
 		}
 
+		void Start()
+		{
+			GameManager.Instance.OnGameStateChange += OnGameStateChange;
+		}
+
+		private void OnGameStateChange(GameState obj)
+		{
+			if(obj == GameState.Fighting) StartSpawn();
+		}
+
 		void Update()
 		{
 			if (!m_IsSpawning) return;
-
-			if (m_WaveCount % 5 != 1 || m_WaveCount % 10 != 1)
+			
+			if (m_WaveCount % 5 != 0 || m_WaveCount % 10 != 0)
 				Spawner();
 			else
 				SpawnBoss();
@@ -90,6 +102,7 @@ namespace Bladiator
 			m_WaveCount++;
 			m_TargetSpawnAmount += m_SpawnIncrease;
 			
+			OnNextWave?.Invoke(m_WaveCount);
 			OnSpawnStarted?.Invoke();
 			m_IsSpawning = true;
 		}
