@@ -2,6 +2,7 @@ using System;
 using System.Security.Cryptography;
 using Bladiator.Entities.Enemies;
 using Bladiator.Managers;
+using Bladiator.Managers.EnemyManager;
 using UnityEngine;
 
 namespace Bladiator
@@ -64,7 +65,7 @@ namespace Bladiator
 			{
 				for (int i = 0; i < m_SpawnPoints.Length; i++)
 				{
-					if (m_SpawnCount > m_TargetSpawnAmount)
+					if (m_SpawnCount >= m_TargetSpawnAmount)
 					{
 						StopSpawn();
 						return;
@@ -114,6 +115,7 @@ namespace Bladiator
 		{
 			OnSpawnDone?.Invoke();
 			m_IsSpawning = false;
+			m_SpawnCount = 0;
 		}
 	}
 }
