@@ -23,10 +23,12 @@ namespace Bladiator
 
 		private int m_TargetSpawnAmount;
 		private int m_SpawnCount;
-		private int m_WaveCount;
+		
+		private int m_WaveCount = 1;
 
 		private float m_SpawnTimer;
-		
+
+		public int WaveCount => m_WaveCount;
 
 		private void Awake()
 		{
@@ -38,17 +40,7 @@ namespace Bladiator
 
 			Instance = this;
 		}
-
-		void Start()
-		{
-			GameManager.Instance.OnGameStateChange += OnGameStateChange;
-		}
-
-		private void OnGameStateChange(GameState obj)
-		{
-			if(obj == GameState.Fighting) StartSpawn();
-		}
-
+		
 		void Update()
 		{
 			if (!m_IsSpawning) return;
