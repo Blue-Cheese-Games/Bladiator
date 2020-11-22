@@ -66,6 +66,7 @@ namespace Bladiator.Managers.EnemyManager
             enemyToAdd.SetGroupID(groupToAddTo);
 
             m_ActiveGroups.Find(g => g.ID == groupToAddTo).Enemies.Add(enemyToAdd);
+            if(m_ActiveGroups.Count <= 0) OnAllEnemiesDied?.Invoke();
         }
 
         /// <summary>
@@ -81,7 +82,18 @@ namespace Bladiator.Managers.EnemyManager
         public void AddEnemy(Enemy enemyToAdd)
         {
             m_ActiveEnemies.Add(enemyToAdd);
-            enemyToAdd.OnDeath += RemoveEnemyFromLisitings;
+            enemyToAdd.OnDeath += OnDeath;
+        }
+
+        private void OnDeath(EntityBase entity)
+        {
+            if (entity.TryGetComponent(out Enemy enemy))
+            {
+                print("A");
+                m_ActiveEnemies.Remove(enemy);
+                
+                if(m_ActiveEnemies.Count <= 0) OnAllEnemiesDied?.Invoke();
+            }
         }
 
         public List<Enemy> GetActiveEnemies()
