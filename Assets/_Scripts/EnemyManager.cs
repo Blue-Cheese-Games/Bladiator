@@ -9,12 +9,27 @@ namespace Bladiator.Managers.EnemyManager
 {
     public class EnemyManager : MonoBehaviour
     {
+        public static EnemyManager Instance;
+        
         [Tooltip("The delay between creating a group, and initiating it's attack.")]
         [SerializeField] private float m_GroupAttackDelay = 3f;
 
         private List<Enemy> m_ActiveEnemies = new List<Enemy>();
         [SerializeField] private List<EnemyGroup> m_ActiveGroups = new List<EnemyGroup>();
 
+        public Action OnAllEnemiesDied;
+
+        void Awake()
+        {
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+        }
+        
         /// <summary>
         /// Remove "enemyToRemove" from the "m_ActiveEnemies" & "m_ActiveGroups" lists.
         /// </summary>
