@@ -20,8 +20,6 @@ namespace Bladiator.Entity.Player
 		{
 			if (Camera.main == null || m_SpriteObject == null) return;
 			
-			// m_SpriteObject.transform.forward = -Camera.main.transform.forward;
-			
 			InputHandle();
 		}
 
@@ -34,11 +32,7 @@ namespace Bladiator.Entity.Player
 			
 			if (axis != Vector3.zero)
 			{
-				m_Rig.velocity = axis * m_MovementSpeed;
-			}
-			else
-			{
-				m_Rig.velocity = Vector3.zero;
+				m_Rig.MovePosition(m_Rig.position + axis * (m_MovementSpeed * Time.deltaTime));
 			}
 		}
 	}
