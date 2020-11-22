@@ -25,10 +25,11 @@ namespace Bladiator.Weapons
         /// <param name="weapon"> Weapon object </param>
         protected void SetPosition(Weapon weapon)
         {
-            Vector2 position = new Vector2()
-            {
+            Vector3 position = new Vector3()
+            {   
                 x = m_MouseManager.GetMouseAxisAsVector().x,
-                y = m_MouseManager.GetMouseAxisAsVector().y
+                y = transform.position.y,
+                z = m_MouseManager.GetMouseAxisAsVector().y
             };
 
             weapon.transform.Translate(position * 
