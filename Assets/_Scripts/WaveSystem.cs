@@ -1,5 +1,6 @@
 using System;
 using System.Security.Cryptography;
+using Bladiator.Entities.Enemies;
 using Bladiator.Managers;
 using UnityEngine;
 
@@ -69,7 +70,9 @@ namespace Bladiator
 						return;
 					}
 
-					Instantiate(m_Enemy, m_SpawnPoints[i].position, m_SpawnPoints[i].rotation);
+					Enemy e = Instantiate(m_Enemy, m_SpawnPoints[i].position, m_SpawnPoints[i].rotation).GetComponent<Enemy>();
+					e.SetState(EnemyState.MOVE_TOWARDS_PLAYER);
+					
 					m_SpawnCount++;
 				}
 
