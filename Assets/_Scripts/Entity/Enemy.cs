@@ -44,7 +44,7 @@ namespace Bladiator.Entities.Enemies
 
             OnDeath += EnemyDeath;
 
-            m_EnemyManager = FindObjectOfType<EnemyManager>();
+            m_EnemyManager = EnemyManager.Instance;
             m_EnemyManager.AddEnemy(this);
 
             // Get all the attacks from the "m_AttacksParent" object.
