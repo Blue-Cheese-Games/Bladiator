@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558657414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.98, y: 0, z: 0}
+  m_LocalPosition: {x: 5.98, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -207,7 +207,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617248898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5.42}
+  m_LocalPosition: {x: 0, y: 0.6, z: 5.42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -285,7 +285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924358258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.2, y: 0, z: 0}
+  m_LocalPosition: {x: -6.2, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -789,7 +789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367882134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -6.28}
+  m_LocalPosition: {x: 0, y: 0.6, z: -6.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1578,9 +1578,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_SpawnInterval
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
       propertyPath: m_BossSpawnPoint
       value: 
       objectReference: {fileID: 566190988}
+    - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_DetectionBox.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_DetectionBox.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_DetectionBox.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_DetectionMasks.m_Bits
+      value: 768
+      objectReference: {fileID: 0}
     - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
       propertyPath: m_SpawnPoints.Array.data[0]
       value: 
