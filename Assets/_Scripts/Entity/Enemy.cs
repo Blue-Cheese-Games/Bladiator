@@ -36,9 +36,9 @@ namespace Bladiator.Entities.Enemies
 
         private float m_currentAttackRecoveryTime = 0f;
 
-        protected override void Awake()
+        protected override void Start()
         {
-            base.Awake();
+            base.Start();
 
             m_RigidBody = GetComponent<Rigidbody>();
 
