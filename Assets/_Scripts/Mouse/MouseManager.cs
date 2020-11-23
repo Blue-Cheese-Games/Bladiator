@@ -31,7 +31,8 @@ namespace Bladiator.Managers
             // Shoot a raycast from the camera pov to the mouse position
             if (Physics.Raycast(ray, out RaycastHit raycastHit, rayLength))
             {
-                if (raycastHit.collider.CompareTag("Arena Ground"))
+                if (raycastHit.collider.CompareTag("Arena Ground") ||
+                    raycastHit.collider.CompareTag("Player"))
                     return raycastHit.point;
             }
 
