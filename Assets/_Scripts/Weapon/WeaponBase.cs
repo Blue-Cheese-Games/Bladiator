@@ -36,7 +36,7 @@ namespace Bladiator.Weapons
                                        (weapon.WeaponObject.WeaponCoreData.acceleration * Time.deltaTime));
         }
 
-        private void Awake()
+        private void Start()
         {
             m_MouseManager = MouseManager.Instance;
         }
