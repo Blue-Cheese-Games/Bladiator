@@ -4,47 +4,69 @@ namespace Bladiator.Managers
 {
     public class MouseManager : MonoBehaviour
     {
-        public static MouseManager Instance;
+        public static MouseManager Instance = null;
         
-        private MouseAxis m_MouseAxis = new MouseAxis();
-
-        public Vector2 GetMouseAxisAsVector()
-            => new Vector2(GetMouseAxis().MouseX, GetMouseAxis().MouseY);
+        private KeyCode m_ToggleCursorLockMode = KeyCode.Mouse1;
+        private CursorLockMode m_CursorLockMode = CursorLockMode.None;
         
-        private MouseAxis GetMouseAxis()
-            => m_MouseAxis;
-
-        void Awake()
+        private Camera m_MainCamera = null;
+        
+        /// <summary>
+        /// Has the raycast hit something
+        /// </summary>
+        /// <returns> True or false based on the mouse hit </returns>
+        public bool HasHit() 
+            => RaycastMousePosition() != Vector3.zero;
+        
+        /// <summary>
+        /// Return the vector3 position that the mouse hits with a raycast
+        /// </summary>
+        /// <returns> Vector3 mouse position </returns>
+        public Vector3 RaycastMousePosition()
         {
-            if (Instance != null)
+            float rayLength = 35f;
+            Ray ray = m_MainCamera.ScreenPointToRay(Input.mousePosition);
+            Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.blue);
+            
+            // Shoot a raycast from the camera pov to the mouse position
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, rayLength))
             {
-                Destroy(gameObject);
-                return;
+                if (raycastHit.collider.CompareTag("Arena Ground"))
+                    return raycastHit.point;
             }
 
-            Instance = this;
+            return Vector3.zero;
         }
         
-        private void Start()
+        private void Awake()
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            // Create a singleton
+            if (Instance == null)
+                Instance = this;
+            
+            m_MainCamera = Camera.main;
+            ChangeCursorLockMode(m_CursorLockMode);
         }
 
         private void Update()
         {
-            SetMouseAxis();
+            // Change the lock mode of the cursor
+            if (Input.GetKeyDown(m_ToggleCursorLockMode))
+            {
+                ChangeCursorLockMode(m_CursorLockMode == CursorLockMode.None
+                    ? CursorLockMode.Locked
+                    : CursorLockMode.None);
+            }
         }
 
-        private void SetMouseAxis()
+        /// <summary>
+        /// Set the lock mode of the cursor
+        /// </summary>
+        /// <param name="mode"> The lock mode of the cursor </param>
+        private void ChangeCursorLockMode(CursorLockMode mode)
         {
-            m_MouseAxis.MouseX = Input.GetAxis("Mouse X");
-            m_MouseAxis.MouseY = Input.GetAxis("Mouse Y");
+            Cursor.lockState = mode;
+            m_CursorLockMode = mode;
         }
-    }
-    
-    public struct MouseAxis
-    {
-        public float MouseX;
-        public float MouseY;
     }
 }
