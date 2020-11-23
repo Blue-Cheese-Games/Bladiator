@@ -925,7 +925,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f55702b8a05ead4f961fddfa99c1116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RotateSpeed: 5
+  m_MouseXCurrent: 0
+  m_MouseXPrevious: 0
 --- !u!1 &1532116684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,7 +1307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1935317962}
   - component: {fileID: 1935317963}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Ground Collider
   m_TagString: Arena Ground
   m_Icon: {fileID: 0}
@@ -1741,6 +1742,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5184465393877325567, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_LayerMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
 --- !u!1001 &6539039470860834482
@@ -1760,7 +1765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2583498417540277441, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.39
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2583498417540277441, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
       propertyPath: m_LocalPosition.z
