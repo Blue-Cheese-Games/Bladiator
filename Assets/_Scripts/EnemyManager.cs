@@ -89,7 +89,6 @@ namespace Bladiator.Managers.EnemyManager
         {
             if (entity.TryGetComponent(out Enemy enemy))
             {
-                print("A");
                 m_ActiveEnemies.Remove(enemy);
                 
                 if(m_ActiveEnemies.Count <= 0) OnAllEnemiesDied?.Invoke();
