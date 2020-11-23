@@ -36,9 +36,9 @@ namespace Bladiator.Weapons
         private void Move()
         {
             Vector3 position = MouseManager.Instance.RaycastMousePosition();
-            position.y += 2;
+            position.y += 1;
 
-            transform.Translate(position);
+            transform.position = position;
         }
     }
 }
