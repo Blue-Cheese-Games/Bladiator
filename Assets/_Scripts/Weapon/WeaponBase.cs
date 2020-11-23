@@ -38,7 +38,7 @@ namespace Bladiator.Weapons
 
         private void Awake()
         {
-            m_MouseManager = FindObjectOfType<MouseManager>();
+            m_MouseManager = MouseManager.Instance;
         }
     }
 }

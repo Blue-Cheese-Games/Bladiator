@@ -4,6 +4,8 @@ namespace Bladiator.Managers
 {
     public class MouseManager : MonoBehaviour
     {
+        public static MouseManager Instance;
+        
         private MouseAxis m_MouseAxis = new MouseAxis();
 
         public Vector2 GetMouseAxisAsVector()
@@ -11,6 +13,17 @@ namespace Bladiator.Managers
         
         private MouseAxis GetMouseAxis()
             => m_MouseAxis;
+
+        void Awake()
+        {
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+        }
         
         private void Start()
         {
