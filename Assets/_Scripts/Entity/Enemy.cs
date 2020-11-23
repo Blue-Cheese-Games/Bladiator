@@ -1,6 +1,6 @@
 ﻿using Bladiator.Entities;
-using Bladiator.Entity;
-using Bladiator.Entity.Player;
+using Bladiator.Entities;
+using Bladiator.Entities.Players;
 using Bladiator.Managers;
 using Bladiator.Managers.EnemyManager;
 using System;

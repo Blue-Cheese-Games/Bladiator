@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Bladiator.Entity.Player
+namespace Bladiator.Entities.Players
 {
 	[RequireComponent(typeof(Rigidbody))]
 	public class PlayerController : MonoBehaviour

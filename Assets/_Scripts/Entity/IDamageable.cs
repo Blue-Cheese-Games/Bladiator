@@ -1,4 +1,4 @@
-﻿namespace Bladiator.Entity
+﻿namespace Bladiator.Entities
 {
 	public interface IDamageable
 	{

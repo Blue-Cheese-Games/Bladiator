@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2292c599ad7cab74b83645314c4b47e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Maxhealth: 5
-  m_Health: 5
+  m_Maxhealth: 2
+  m_Health: 2
   m_Movespeed: 5
   m_GroupingRange: 5
   rotationSpeed: 15

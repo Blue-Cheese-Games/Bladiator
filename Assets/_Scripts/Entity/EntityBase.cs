@@ -1,4 +1,4 @@
-﻿using Bladiator.Entity;
+﻿using Bladiator.Entities;
 using System;
 using System.Collections;
 using System.Collections.Generic;

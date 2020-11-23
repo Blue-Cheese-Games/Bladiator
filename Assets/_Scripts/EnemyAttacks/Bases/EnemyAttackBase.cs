@@ -1,6 +1,6 @@
 ﻿using Bladiator.EnemyAttacks;
 using Bladiator.Entities.Enemies;
-using Bladiator.Entity.Player;
+using Bladiator.Entities.Players;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

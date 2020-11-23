@@ -2,7 +2,7 @@
 using Bladiator.Managers;
 using UnityEngine;
 
-namespace Bladiator.Entity.Player
+namespace Bladiator.Entities.Players
 {
 	[RequireComponent(typeof(PlayerController))]
 	public class Player : EntityBase
