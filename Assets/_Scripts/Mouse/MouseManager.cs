@@ -28,13 +28,13 @@ namespace Bladiator.Managers
             Ray ray = m_MainCamera.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.blue);
             
+            // Only cast rays in a certain layer
+            int layerMask = 1 << 10;
+            layerMask = ~layerMask;
+            
             // Shoot a raycast from the camera pov to the mouse position
-            if (Physics.Raycast(ray, out RaycastHit raycastHit, rayLength))
-            {
-                if (raycastHit.collider.CompareTag("Arena Ground") ||
-                    raycastHit.collider.CompareTag("Player"))
-                    return raycastHit.point;
-            }
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, rayLength, layerMask))
+                return raycastHit.point;
 
             return Vector3.zero;
         }
