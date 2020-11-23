@@ -1,4 +1,6 @@
-﻿using Bladiator.Managers;
+﻿using System;
+using Bladiator.Entities;
+using Bladiator.Managers;
 using UnityEngine;
 
 namespace Bladiator.Weapons
@@ -18,12 +20,25 @@ namespace Bladiator.Weapons
                 Move();
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            try
+            {
+                EntityBase entity = other.GetComponent<EntityBase>();
+                entity.Damage((int) m_Weapon.WeaponObject.WeaponData.Damage);
+            }
+            catch (Exception exception)
+            {
+                Debug.Log("Object is not an entity");
+            }
+        }
+
         private void Move()
         {
             Vector3 position = MouseManager.Instance.RaycastMousePosition();
-            position.y += 1;
-            
-            gameObject.transform.position = position;
+            position.y += 2;
+
+            transform.Translate(position);
         }
     }
 }
