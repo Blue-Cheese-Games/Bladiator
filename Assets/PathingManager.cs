@@ -45,7 +45,7 @@ namespace Bladiator.Pathing
         /// Check if the line of sight "self" to "to" doesn't collide with anything (true = collision, false = no collision).
         /// </summary>
         /// <returns>true = collision, false = no collision</returns>
-        private bool CheckForCollision(Vector3 self, Vector3 to)
+        public bool CheckForCollision(Vector3 self, Vector3 to)
         {
             RaycastHit[] hits;
 

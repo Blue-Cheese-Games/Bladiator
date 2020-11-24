@@ -24,18 +24,11 @@ namespace Bladiator.Pathing
             return Vector3.Distance(transform.position, target);
         }
 
-        public PathNode GetContinuedNodeClosestToGoal(PathNode goal, ref List<PathNode> excludes, ref Stack<BackTrack> backTrack)
+        public PathNode GetContinuedNodeClosestToGoal(PathNode goal, ref List<PathNode> excludes, ref Stack<BackTrack> backTrack, ref List<PathNode> visitedNodes)
         {
-            // DEBUG >>>>>>>>>>>
-            if (name.Contains("6"))
-            {
-
-            }
-            // <<<<<<<<<<<<
-
             PathNode closestNodeFound = null;
-
             List<PathNode> continuedNodesFiltered = new List<PathNode>(m_ContinuedNodes);
+
 
             // Filter the nodes.
             continuedNodesFiltered = FilterNodeList(continuedNodesFiltered, excludes.ToArray());
@@ -53,12 +46,45 @@ namespace Bladiator.Pathing
             if(closestNodeFound != null)
             {
                 // A node was found without using the "backtrack" or "excludes".
+
+                if(backTrack.Count <= 1)
+                {
+                    return closestNodeFound;
+                }
+
+                // Check if this node is currently backtracking.
+                if (visitedNodes.Contains(this))
+                {
+                    // Backtracking.
+
+                    //exclude and pop this node.
+                    excludes.Add(this);
+                    backTrack.Pop();
+
+                    // Check if the backtracking node before this one, is closer to the chosen node.
+                    if (backTrack.Peek().choiceNode.GetDistanceToTarget(closestNodeFound.transform.position) < GetDistanceToTarget(closestNodeFound.transform.position))
+                    {
+                        // The previous backtracking node is closer to the chosen node then this node.
+                        
+                        // Check if there is a clear line-of-sight between the previous backtracking node and the chosenNode.
+                        if (PathingManager.Instance.CheckForCollision(backTrack.Peek().choiceNode.transform.position, closestNodeFound.transform.position));
+                        {
+                            // choose the backtracking node before this one.
+                            closestNodeFound = backTrack.Peek().choiceNode;
+                        }
+                    }
+                }
+
+                visitedNodes.Add(this);
                 return closestNodeFound;
             }
             else
             {
                 // No node could be found, backtrack to the previous node, and exclude this node.
+
                 excludes.Add(this);
+
+                visitedNodes.Add(this);
                 return backTrack.Peek().choiceNode;
             }
         }
@@ -89,7 +115,6 @@ namespace Bladiator.Pathing
 
                 if (activeDistance < closestToGoalDistance)
                 {
-
                     closestToGoalDistance = activeDistance;
                     closestNode = node;
                 }

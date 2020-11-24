@@ -19,6 +19,8 @@ namespace Bladiator.Pathing
             // List to keep track of paths that lead to a deadend.
             List<PathNode> excludedNodes = new List<PathNode>();
 
+            // A list containg all the nodes that have been visited.
+            List<PathNode> visitedNodes = new List<PathNode>();
 
             PathNode start = PathingManager.Instance.FindNearestNodeTo(from, true);
             PathNode goal = PathingManager.Instance.FindNearestNodeTo(to, true);
@@ -27,7 +29,7 @@ namespace Bladiator.Pathing
             if(start == null) { Debug.Log($"No PathNode could be found as a start for the path of \"{name}\""); return; }
             if(goal == null) { Debug.Log($"No PathNode could be found as a goal for the path of \"{name}\""); return; }
 
-            PathNode current = start;
+            PathNode head = start;
 
             // DEBUG >>>>>>>>>>>>>>>>>>>>>>
             print("start: " + start.name);
@@ -36,23 +38,23 @@ namespace Bladiator.Pathing
             int counter = 0; 
             // <<<<<<<<<<<<<<<<<<<<<<<<<<
 
-            while(current != goal)
+            while(head != goal)
             {
                 // DEBUG >>>
                 if(counter >= 100) { print("broke"); break; }
                 counter += 1;
+
+                print(head.gameObject.name);
                 // <<<
 
-                print(current.gameObject.name);
-
-                PathNode nextNode = current.GetContinuedNodeClosestToGoal(goal, ref excludedNodes, ref backTracks);
+                PathNode nextNode = head.GetContinuedNodeClosestToGoal(goal, ref excludedNodes, ref backTracks, ref visitedNodes);
                 
                 if(backTracks.Count > 0)
                 {
-                    backTracks.Peek().passedNodesSinceChoice.Push(current);
+                    backTracks.Peek().passedNodesSinceChoice.Push(head);
                 }
                 
-                current = nextNode;
+                head = nextNode;
             }
 
             print($"reached goal: {goal.gameObject.name}");
@@ -60,27 +62,28 @@ namespace Bladiator.Pathing
             // The final path to be returned.
             Stack<PathNode> path = new Stack<PathNode>();
 
-            //while (backTrackToLastChoiceNode.Count > 0)
-            //{
-            //    path.Push(backTrackToLastChoiceNode.Pop());
-            //}
+
+            while (backTracks.Count > 0)
+            {
+                while(backTracks.Peek().passedNodesSinceChoice.Count > 0)
+                {
+                    if (!excludedNodes.Contains(backTracks.Peek().passedNodesSinceChoice.Peek()))
+                    {
+                        path.Push(backTracks.Peek().passedNodesSinceChoice.Pop());
+                    }
+                    else
+                    {
+                        backTracks.Peek().passedNodesSinceChoice.Pop();
+                    }
+                }
+                backTracks.Pop();
+            }
 
             string result = "Final Path: ";
 
             foreach (PathNode node in path)
             {
                 result += $" {node.gameObject.name} ";
-            }
-
-            result += " ----- ChoiceNodes: ";
-
-            foreach (BackTrack backTrack in backTracks)
-            {
-                result += $" node: {backTrack.choiceNode} ";
-                foreach (PathNode node in backTrack.passedNodesSinceChoice)
-                {
-                    result += $" {node.gameObject.name} ";
-                }
             }
 
             print(result);
