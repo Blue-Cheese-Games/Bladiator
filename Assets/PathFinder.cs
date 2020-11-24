@@ -13,8 +13,8 @@ namespace Bladiator.Pathing
 
         public void FindPath(Vector3 from, Vector3 to)
         {
-            // Stack used to backtrack when hit a deadend.
-            Stack<PathNode> backTrackingStack = new Stack<PathNode>();
+            // Stack of "BackTrack"'s which will make the head backtrack when hitting a deadend.
+            Stack<BackTrack> backTracks = new Stack<BackTrack>();
 
             // List to keep track of paths that lead to a deadend.
             List<PathNode> excludedNodes = new List<PathNode>();
@@ -45,9 +45,12 @@ namespace Bladiator.Pathing
 
                 print(current.gameObject.name);
 
-                PathNode nextNode = current.GetContinuedNodeClosestToGoal(goal, ref excludedNodes, ref backTrackingStack);
+                PathNode nextNode = current.GetContinuedNodeClosestToGoal(goal, ref excludedNodes, ref backTracks);
                 
-                backTrackingStack.Push(current);
+                if(backTracks.Count > 0)
+                {
+                    backTracks.Peek().passedNodesSinceChoice.Push(current);
+                }
                 
                 current = nextNode;
             }
@@ -57,10 +60,10 @@ namespace Bladiator.Pathing
             // The final path to be returned.
             Stack<PathNode> path = new Stack<PathNode>();
 
-            while (backTrackingStack.Count > 0)
-            {
-                path.Push(backTrackingStack.Pop());
-            }
+            //while (backTrackToLastChoiceNode.Count > 0)
+            //{
+            //    path.Push(backTrackToLastChoiceNode.Pop());
+            //}
 
             string result = "Final Path: ";
 
@@ -69,7 +72,28 @@ namespace Bladiator.Pathing
                 result += $" {node.gameObject.name} ";
             }
 
+            result += " ----- ChoiceNodes: ";
+
+            foreach (BackTrack backTrack in backTracks)
+            {
+                result += $" node: {backTrack.choiceNode} ";
+                foreach (PathNode node in backTrack.passedNodesSinceChoice)
+                {
+                    result += $" {node.gameObject.name} ";
+                }
+            }
+
             print(result);
         }
     }   
+
+    public struct BackTrack
+    {
+        // The node that made a choice.
+        public PathNode choiceNode;
+
+
+        // The nodes that the head passed since passing "choiceNode".
+        public Stack<PathNode> passedNodesSinceChoice;
+    }
 }

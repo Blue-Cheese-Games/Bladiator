@@ -108,8 +108,6 @@ namespace Bladiator.Pathing
                 }
             }
 
-
-
             return closestNode;
         }
 

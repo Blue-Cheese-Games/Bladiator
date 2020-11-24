@@ -24,7 +24,7 @@ namespace Bladiator.Pathing
             return Vector3.Distance(transform.position, target);
         }
 
-        public PathNode GetContinuedNodeClosestToGoal(PathNode goal, ref List<PathNode> excludes, ref Stack<PathNode> backTrack)
+        public PathNode GetContinuedNodeClosestToGoal(PathNode goal, ref List<PathNode> excludes, ref Stack<BackTrack> backTrack)
         {
             // DEBUG >>>>>>>>>>>
             if (name.Contains("6"))
@@ -35,10 +35,20 @@ namespace Bladiator.Pathing
 
             PathNode closestNodeFound = null;
 
-            // Filter the nodes! (excludes backtracks). <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-            List<PathNode> continuedNodesFiltered = FilterNodeList(backTrack.ToArray(), excludes.ToArray());
+            List<PathNode> continuedNodesFiltered = new List<PathNode>(m_ContinuedNodes);
 
-            closestNodeFound = FindClosestNodeFromList(goal, continuedNodesFiltered);
+            // Filter the nodes.
+            continuedNodesFiltered = FilterNodeList(continuedNodesFiltered, excludes.ToArray());
+
+            if (backTrack.Count > 0)
+            {
+                foreach (BackTrack b in backTrack)
+                {
+                    continuedNodesFiltered = FilterNodeList(continuedNodesFiltered, b.passedNodesSinceChoice.ToArray());
+                }
+            }
+
+            closestNodeFound = FindClosestNodeFromList(goal, continuedNodesFiltered, ref backTrack);
 
             if(closestNodeFound != null)
             {
@@ -47,17 +57,14 @@ namespace Bladiator.Pathing
             }
             else
             {
-                // No node could be found, backtrack to the previous list, and exclude this node.
+                // No node could be found, backtrack to the previous node, and exclude this node.
                 excludes.Add(this);
-                return backTrack.Pop();
-
+                return backTrack.Peek().choiceNode;
             }
         }
 
-        private List<PathNode> FilterNodeList(params PathNode[][] filterLists)
+        private List<PathNode> FilterNodeList(List<PathNode> filteredNodes, params PathNode[][] filterLists)
         {
-            List<PathNode> filteredNodes = new List<PathNode>(m_ContinuedNodes);
-
             foreach (PathNode[] filterList in filterLists)
             {
                 foreach (PathNode nodeToFilter in filterList)
@@ -69,7 +76,7 @@ namespace Bladiator.Pathing
             return filteredNodes;
         }
 
-        private PathNode FindClosestNodeFromList(PathNode goal, List<PathNode> nodesToCheck)
+        private PathNode FindClosestNodeFromList(PathNode goal, List<PathNode> nodesToCheck, ref Stack<BackTrack> backTrack)
         {
             float closestToGoalDistance = float.MaxValue;
             PathNode closestNode = null;
@@ -79,11 +86,24 @@ namespace Bladiator.Pathing
             foreach (PathNode node in nodesToCheck)
             {
                 activeDistance = Vector3.Distance(node.transform.position, goal.transform.position);
+
                 if (activeDistance < closestToGoalDistance)
                 {
+
                     closestToGoalDistance = activeDistance;
                     closestNode = node;
                 }
+            }
+
+            if(m_ContinuedNodes.Count > 1)
+            {
+                BackTrack newBackTrack = new BackTrack()
+                {
+                    choiceNode = this,
+                    passedNodesSinceChoice = new Stack<PathNode>()
+                };
+
+                backTrack.Push(newBackTrack);
             }
 
             return closestNode;
