@@ -27,8 +27,16 @@ namespace Bladiator.Entities.Players
 		{
 			float horizontalAxis = Input.GetAxisRaw("Horizontal");
 			float verticalAxis = Input.GetAxisRaw("Vertical");
-			
-			Vector3 axis = new Vector3(horizontalAxis, 0, verticalAxis);
+
+			Vector3 forward = Camera.main.transform.forward;
+			Vector3 right = Camera.main.transform.right;
+
+			forward.y = 0;
+			right.y = 0;
+			forward.Normalize();
+			right.Normalize();
+
+			Vector3 axis = forward * verticalAxis + right * horizontalAxis;
 			
 			if (axis != Vector3.zero)
 			{

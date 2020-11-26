@@ -10,6 +10,8 @@ namespace Bladiator.Managers
         private CursorLockMode m_CursorLockMode = CursorLockMode.None;
         
         private Camera m_MainCamera = null;
+
+        [SerializeField] private LayerMask m_LayerMask;
         
         /// <summary>
         /// Has the raycast hit something
@@ -27,13 +29,9 @@ namespace Bladiator.Managers
             float rayLength = 35f;
             Ray ray = m_MainCamera.ScreenPointToRay(Input.mousePosition);
             Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.blue);
-            
-            // Only cast rays in a certain layer
-            int layerMask = 1 << 10;
-            layerMask = ~layerMask;
-            
+
             // Shoot a raycast from the camera pov to the mouse position
-            if (Physics.Raycast(ray, out RaycastHit raycastHit, rayLength, layerMask))
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, rayLength, m_LayerMask))
                 return raycastHit.point;
 
             return Vector3.zero;

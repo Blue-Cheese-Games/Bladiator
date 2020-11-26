@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public enum CameraState
 {
@@ -14,11 +15,18 @@ public class CameraController : MonoBehaviour
 
     public CameraState CameraState => m_CameraState;
 
+    private void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(2))
         {
+            Cursor.visible = true;
             m_MouseXPrevious = Input.mousePosition.x;
             m_MouseXCurrent = Input.mousePosition.x;
             m_CameraState = CameraState.Moving;
@@ -36,6 +44,7 @@ public class CameraController : MonoBehaviour
 
         if (Input.GetMouseButtonUp(2))
         {
+            Cursor.visible = false;
             m_CameraState = CameraState.Idle;
         }
     }
