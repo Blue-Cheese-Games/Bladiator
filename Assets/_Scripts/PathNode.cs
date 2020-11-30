@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Bladiator.Collisions;
 
 namespace Bladiator.Pathing
 {
@@ -64,10 +65,10 @@ namespace Bladiator.Pathing
                     // Check if the backtracking node before this one, is closer to the chosen node.
                     if (backTrack.Peek().choiceNode.GetDistanceToTarget(closestNodeFound.transform.position) < GetDistanceToTarget(closestNodeFound.transform.position))
                     {
-                        // The previous backtracking node is closer to the chosen node then this node.
+                        // The previous backtracking node is clossder to the chosen node then this node.
                         
                         // Check if there is a clear line-of-sight between the previous backtracking node and the chosenNode.
-                        if (PathingManager.Instance.CheckForCollision(backTrack.Peek().choiceNode.transform.position, closestNodeFound.transform.position));
+                        if (CollisionCheck.CheckForCollision(backTrack.Peek().choiceNode.transform.position, closestNodeFound.transform.position, PathingManager.Instance.GetIgnoreLayers()));
                         {
                             // choose the backtracking node before this one.
                             closestNodeFound = backTrack.Peek().choiceNode;

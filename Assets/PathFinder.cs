@@ -6,12 +6,8 @@ namespace Bladiator.Pathing
 {
     public class PathFinder : MonoBehaviour
     {
-        private void Start()
-        {
-            FindPath(transform.position, FindObjectOfType<Bladiator.Entities.Players.Player>().transform.position); // DEBUG ----------
-        }
-
-        public void FindPath(Vector3 from, Vector3 to)
+        #region "FindPath"
+        public Stack<PathNode> FindPath(Vector3 from, Vector3 to)
         {
             // Stack of "BackTrack"'s which will make the head backtrack when hitting a deadend.
             Stack<BackTrack> backTracks = new Stack<BackTrack>();
@@ -26,8 +22,8 @@ namespace Bladiator.Pathing
             PathNode goal = PathingManager.Instance.FindNearestNodeTo(to, true);
 
             // Check if both a start & goal node could be found.
-            if(start == null) { Debug.Log($"No PathNode could be found as a start for the path of \"{name}\""); return; }
-            if(goal == null) { Debug.Log($"No PathNode could be found as a goal for the path of \"{name}\""); return; }
+            if(start == null) { Debug.Log($"No PathNode could be found as a start for the path of \"{name}\""); return new Stack<PathNode>(); }
+            if(goal == null) { Debug.Log($"No PathNode could be found as a goal for the path of \"{name}\""); return new Stack<PathNode>(); }
 
             PathNode head = start;
 
@@ -41,10 +37,13 @@ namespace Bladiator.Pathing
             while(head != goal)
             {
                 // DEBUG >>>
-                if(counter >= 100) { print("broke"); break; }
+                if(counter >= 100) 
+                {
+                    print("broke");
+                    break;
+                }
                 counter += 1;
 
-                print(head.gameObject.name);
                 // <<<
 
                 PathNode nextNode = head.GetContinuedNodeClosestToGoal(goal, ref excludedNodes, ref backTracks, ref visitedNodes);
@@ -62,6 +61,7 @@ namespace Bladiator.Pathing
             // The final path to be returned.
             Stack<PathNode> path = new Stack<PathNode>();
 
+            path.Push(goal);
 
             while (backTracks.Count > 0)
             {
@@ -79,6 +79,8 @@ namespace Bladiator.Pathing
                 backTracks.Pop();
             }
 
+            path.Push(start);
+
             string result = "Final Path: ";
 
             foreach (PathNode node in path)
@@ -87,8 +89,10 @@ namespace Bladiator.Pathing
             }
 
             print(result);
+            return path;
         }
-    }   
+        #endregion
+    }
 
     public struct BackTrack
     {

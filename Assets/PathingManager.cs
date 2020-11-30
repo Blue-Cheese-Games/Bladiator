@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Bladiator.Collisions;
 
 namespace Bladiator.Pathing
 {
@@ -30,7 +31,7 @@ namespace Bladiator.Pathing
                 {
                     if (selected == target) { continue; }
 
-                    if(!CheckForCollision(m_Nodes[selected].transform.position, m_Nodes[target].transform.position))
+                    if(!CollisionCheck.CheckForCollision(m_Nodes[selected].transform.position, m_Nodes[target].transform.position, m_IgnoredCollisionCheckLayers))
                     {
                         // "selected" has a clear sight to "target".
 
@@ -39,36 +40,6 @@ namespace Bladiator.Pathing
                 }
             }
         }
-
-        #region "CheckForCollision" check if there is a clear line-of-sight from "from" to "to".
-        /// <summary>
-        /// Check if the line of sight "self" to "to" doesn't collide with anything (true = collision, false = no collision).
-        /// </summary>
-        /// <returns>true = collision, false = no collision</returns>
-        public bool CheckForCollision(Vector3 self, Vector3 to)
-        {
-            RaycastHit[] hits;
-
-            Vector3 direction = to - self;
-
-            float distanceBetweenToAndFrom = Vector3.Distance(to, self);
-
-            hits = Physics.RaycastAll(self, direction, distanceBetweenToAndFrom, ~m_IgnoredCollisionCheckLayers);
-
-            foreach (RaycastHit hit in hits)
-            {
-                // Check if the collision is the "from" or "to", if so, skip the collision check, as it is intended.
-                if(hit.transform.position == self || hit.transform.position == to) { continue; }
-
-                if (hit.collider != null)
-                {
-                    return true;
-                }
-            }
-            
-            return false;
-        }
-        #endregion
 
         /// <summary>
         /// Finds the closest node to "target" and returns it (can also check for a clear line-of-sight).
@@ -88,7 +59,7 @@ namespace Bladiator.Pathing
                 switch (checkCollisions)
                 {
                     case true:
-                        if (!CheckForCollision(node.transform.position, target))
+                        if (!CollisionCheck.CheckForCollision(node.transform.position, target, m_IgnoredCollisionCheckLayers))
                         {
                             if (activeDistance < closestDistance)
                             {
@@ -119,6 +90,11 @@ namespace Bladiator.Pathing
         public bool IsSetup()
         {
             return m_setup;
+        }
+
+        public LayerMask GetIgnoreLayers()
+        {
+            return m_IgnoredCollisionCheckLayers;
         }
     }
 }
