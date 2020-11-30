@@ -7,7 +7,6 @@ namespace Bladiator.Weapons
 {
     public class WeaponBase : MonoBehaviour
     {
-        [SerializeField] private GameObject m_Player = null;
         private Weapon m_Weapon = null;
 
         private void Awake()
@@ -29,6 +28,7 @@ namespace Bladiator.Weapons
             {
                 EntityBase entity = other.GetComponent<EntityBase>();
                 entity.Damage((int) m_Weapon.WeaponObject.WeaponData.Damage);
+                m_Weapon.HitParticle.Play();
             }
             catch (Exception exception)
             {
@@ -39,14 +39,14 @@ namespace Bladiator.Weapons
         private void Move()
         {
             Vector3 position = MouseManager.Instance.RaycastMousePosition();
-            position.y += 1;
+            position.y += 0.5f;
 
             transform.position = position;
         }
 
         private void Rotate()
         {
-            Vector3 direction = transform.position - m_Player.transform.position;
+            Vector3 direction = m_Weapon.Player.transform.position - transform.position;
             transform.rotation = Quaternion.LookRotation(direction);
         }
     }

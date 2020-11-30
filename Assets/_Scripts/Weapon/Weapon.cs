@@ -7,5 +7,9 @@ namespace Bladiator.Weapons
     {
         [Header("Weapon")]
         public WeaponObject WeaponObject = null;
+        
+        public GameObject Player = null;
+        
+        public ParticleSystem HitParticle = null;
     }
 }
