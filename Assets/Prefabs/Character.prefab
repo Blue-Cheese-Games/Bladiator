@@ -50,7 +50,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: fc23423d91a5193489415e83b62a8160, type: 3}
+  - {fileID: 2100000, guid: b30e0c708769e424a89933c97a2b8ddc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,7 +133,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: fc23423d91a5193489415e83b62a8160, type: 3}
+  - {fileID: 2100000, guid: b30e0c708769e424a89933c97a2b8ddc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 7039508210285573402}
   - component: {fileID: 3986098807941738336}
   m_Layer: 0
-  m_Name: characterrig_mix
+  m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
