@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Bladiator.Managers
+namespace Bladiator.UI
 {
 	public class IdleUi : MonoBehaviour
 	{

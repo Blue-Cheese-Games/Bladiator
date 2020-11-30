@@ -25,7 +25,7 @@ namespace Bladiator
 
 		private int m_TargetSpawnAmount;
 		private int m_SpawnCount;
-		
+
 		private int m_WaveCount = 1;
 
 		private float m_SpawnTimer;
@@ -43,11 +43,11 @@ namespace Bladiator
 			Instance = this;
 			print(15 % 5);
 		}
-		
+
 		void Update()
 		{
 			if (!m_IsSpawning) return;
-			
+
 			if (m_WaveCount % 5 == 0 || m_WaveCount % 10 == 0)
 				SpawnBoss();
 			else
@@ -66,15 +66,17 @@ namespace Bladiator
 						return;
 					}
 
-					Collider[] output = Physics.OverlapBox(m_SpawnPoints[i].position, m_DetectionBox * 2, m_SpawnPoints[i].rotation, m_DetectionMasks);
+					Collider[] output = Physics.OverlapBox(m_SpawnPoints[i].position, m_DetectionBox,
+						m_SpawnPoints[i].rotation, m_DetectionMasks);
 					if (output.Length > 0)
 					{
 						continue;
 					}
 
-					Enemy e = Instantiate(m_Enemy, m_SpawnPoints[i].position, m_SpawnPoints[i].rotation).GetComponent<Enemy>();
+					Enemy e = Instantiate(m_Enemy, m_SpawnPoints[i].position, m_SpawnPoints[i].rotation)
+						.GetComponent<Enemy>();
 					e.SetState(EnemyState.MOVE_TOWARDS_PLAYER);
-					
+
 					m_SpawnCount++;
 				}
 
@@ -98,14 +100,14 @@ namespace Bladiator
 				// Mini boss
 				Instantiate(m_MiniBoss, m_BossSpawnPoint.position, m_BossSpawnPoint.rotation);
 			}
-			
+
 			StopSpawn();
 		}
 
 		public void StartSpawn()
 		{
 			m_TargetSpawnAmount += m_SpawnIncrease;
-			
+
 			OnNextWave?.Invoke(m_WaveCount);
 			OnSpawnStarted?.Invoke();
 			m_IsSpawning = true;
@@ -119,14 +121,16 @@ namespace Bladiator
 			m_WaveCount++;
 		}
 
+	#if UNITY_EDITOR
 		private void OnDrawGizmos()
 		{
 			Gizmos.color = Color.green;
-			
+
 			for (int i = 0; i < m_SpawnPoints.Length; i++)
 			{
 				Gizmos.DrawWireCube(m_SpawnPoints[i].position, m_DetectionBox / 2);
 			}
 		}
+	#endif
 	}
 }
