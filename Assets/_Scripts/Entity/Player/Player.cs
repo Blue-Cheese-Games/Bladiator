@@ -20,7 +20,13 @@ namespace Bladiator.Entities.Players
 		protected override void Start()
 		{
 			base.Start();
+			GameManager.Instance.ResetEvent += ResetEvent;
+		}
 
+		private void ResetEvent()
+		{
+			GameManager.Instance.AddPlayer(this);
+			m_Health = m_Maxhealth;
 		}
 
 		private void OnPlayerDied(EntityBase entity)
