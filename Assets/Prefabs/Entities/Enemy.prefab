@@ -47,6 +47,7 @@ MonoBehaviour:
   m_ActivationConditions:
   - {fileID: 11400000, guid: 435d9ecd15398a646b999d3bec5958a4, type: 2}
   - {fileID: 11400000, guid: 74817196f4a3ff748beb88290436a681, type: 2}
+  m_KnockbackDuration: 0.5
 --- !u!1 &3381852006826516460
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +455,6 @@ MonoBehaviour:
   m_RotationSpeed: 40
   m_AttacksParent: {fileID: 1618647274}
   m_ReroutePathInterval: 0.5
-  m_State: 2
 --- !u!54 &7399407736380867226
 Rigidbody:
   m_ObjectHideFlags: 0

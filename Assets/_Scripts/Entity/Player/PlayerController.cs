@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Bladiator.Managers;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ namespace Bladiator.Entities.Players
 		private Vector3 m_SpawnPosition;
 
 		private Rigidbody m_Rig;
+
+		private bool m_AllowedToMove = true;
 
 		private void Start()
 		{
@@ -30,7 +33,24 @@ namespace Bladiator.Entities.Players
 		{
 			if (Camera.main == null) return;
 			
+			if(!m_AllowedToMove) { return; }
+
 			InputHandle();
+		}
+
+		public void Knockback(Vector3 knockback, float knockbackDuration)
+		{
+			m_Rig.velocity = Vector3.zero;
+			m_Rig.AddForce(knockback, ForceMode.Impulse);
+			m_AllowedToMove = false;
+			StartCoroutine(ResetAllowedToMove(knockbackDuration));
+		}
+
+		private IEnumerator ResetAllowedToMove(float duration)
+		{
+			yield return new WaitForSeconds(duration);
+			m_AllowedToMove = true;
+
 		}
 
 		private void InputHandle()
@@ -47,10 +67,11 @@ namespace Bladiator.Entities.Players
 			right.Normalize();
 
 			Vector3 axis = forward * verticalAxis + right * horizontalAxis;
-			
+
 			if (axis != Vector3.zero)
 			{
-				m_Rig.MovePosition(m_Rig.position + axis * (m_MovementSpeed * Time.deltaTime));
+				//m_Rig.MovePosition(m_Rig.position + axis * (m_MovementSpeed * Time.deltaTime));
+				m_Rig.velocity = axis * m_MovementSpeed;
 			}
 		}
 	}

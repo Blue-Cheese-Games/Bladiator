@@ -9,6 +9,8 @@ namespace Bladiator.EnemyAttacks
 {
     public class EnemyMeleeAttack : EnemyAttackBase
     {
+        [SerializeField] private float m_KnockbackDuration;
+
         // Override "Activate" to do a melee attack.
         protected override void Activate(Enemy enemy, Player player)
         {
@@ -18,7 +20,7 @@ namespace Bladiator.EnemyAttacks
             // push the player back with knockback.
             Vector3 direction = player.transform.position - transform.position;
             direction.y = 0;
-            player.GetComponent<Rigidbody>().AddForce(direction * GetStats().Knockback, ForceMode.Impulse);
+            player.GetComponent<PlayerController>().Knockback(direction * GetStats().Knockback, m_KnockbackDuration);
         }
     }
 }
