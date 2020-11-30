@@ -13,7 +13,7 @@ namespace Bladiator.Pathing
 
         private List<PathNode> m_Nodes = new List<PathNode>();
 
-        private bool m_setup;
+        private bool m_Setup;
 
         private void Awake()
         {
@@ -89,7 +89,7 @@ namespace Bladiator.Pathing
 
         public bool IsSetup()
         {
-            return m_setup;
+            return m_Setup;
         }
 
         public LayerMask GetIgnoreLayers()

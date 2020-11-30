@@ -19,7 +19,7 @@ namespace Bladiator.Entities.Enemies
         [SerializeField] private float m_GroupingRange;
 
         [Tooltip("The amount of degrees that this enemy can turn every second.")]
-        [SerializeField] private float rotationSpeed;
+        [SerializeField] private float m_RotationSpeed;
 
         [Space()]
         [Tooltip("The objects that contains all the attacks for this enemy.")]
@@ -30,12 +30,12 @@ namespace Bladiator.Entities.Enemies
 
         // Attacks
         private List<EnemyAttackBase> m_Attacks = new List<EnemyAttackBase>();
-        private float m_currentAttackRecoveryTime = 0f;
+        private float m_CurrentAttackRecoveryTime = 0f;
 
         // Components on the enemy.
         private Player m_TargetPlayer = null;
         private Rigidbody m_RigidBody = null;
-        private PathFinder m_pathFinder = null;
+        private PathFinder m_PathFinder = null;
 
         private EnemyManager m_EnemyManager;
 
@@ -46,7 +46,7 @@ namespace Bladiator.Entities.Enemies
         private int m_GroupID = -1; // -1 means "no group".
 
         // Pathing
-        protected Stack<PathNode> m_pathTowardsPlayer = new Stack<PathNode>();
+        protected Stack<PathNode> m_PathTowardsPlayer = new Stack<PathNode>();
         protected Coroutine m_ReroutingCoroutine;
 
         protected override void Awake()
@@ -57,7 +57,7 @@ namespace Bladiator.Entities.Enemies
 
             OnDeath += EnemyDeath;
 
-            m_pathFinder = GetComponent<PathFinder>();
+            m_PathFinder = GetComponent<PathFinder>();
 
             m_EnemyManager = EnemyManager.Instance;
             m_EnemyManager.AddEnemy(this);
@@ -167,7 +167,7 @@ namespace Bladiator.Entities.Enemies
             Quaternion targetRotation = Quaternion.LookRotation(direction);
 
             // Lerp from this object's current rotation to the "targetRotation" using "rotationSpeed".
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, (rotationSpeed / 360));
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, (m_RotationSpeed / 360));
         }
 
         protected void FindNearsestPlayerAndSetAsTarget()
@@ -214,7 +214,7 @@ namespace Bladiator.Entities.Enemies
             while (GetState() == EnemyState.FOLLOWING_PATH)
             {
                 yield return new WaitForSeconds(m_ReroutePathInterval);
-                m_pathFinder.RerouteToGoal(m_TargetPlayer.transform.position);
+                m_PathFinder.RerouteToGoal(m_TargetPlayer.transform.position);
             }
         }
         #endregion
@@ -235,26 +235,26 @@ namespace Bladiator.Entities.Enemies
         protected virtual void FollowAlongPath()
         {
             // If there is no path yet, get it.
-            if(m_pathTowardsPlayer.Count <= 0)
+            if(m_PathTowardsPlayer.Count <= 0)
             {
-                m_pathTowardsPlayer = m_pathFinder.FindPath(transform.position, m_TargetPlayer.transform.position);
+                m_PathTowardsPlayer = m_PathFinder.FindPath(transform.position, m_TargetPlayer.transform.position);
             }
 
-            if (m_pathTowardsPlayer.Count <= 0)
+            if (m_PathTowardsPlayer.Count <= 0)
             {
                 return; 
             }
 
-            if (Vector3.Distance(transform.position, m_pathTowardsPlayer.Peek().transform.position) < 1)
+            if (Vector3.Distance(transform.position, m_PathTowardsPlayer.Peek().transform.position) < 1)
             {
-                m_pathTowardsPlayer.Pop();
-                if(m_pathTowardsPlayer.Count <= 0)
+                m_PathTowardsPlayer.Pop();
+                if(m_PathTowardsPlayer.Count <= 0)
                 {
                     return;
                 }
             }
 
-            LookAtTarget(m_pathTowardsPlayer.Peek().transform.position);
+            LookAtTarget(m_PathTowardsPlayer.Peek().transform.position);
             MoveForward();
 
             if(!CollisionCheck.CheckForCollision(transform.position, m_TargetPlayer.transform.position, PathingManager.Instance.GetIgnoreLayers()))
@@ -273,7 +273,7 @@ namespace Bladiator.Entities.Enemies
                 if(attack.TryActivate(this, m_TargetPlayer))
                 {
                     // Attack was activated.
-                    m_currentAttackRecoveryTime = attack.GetStats().RecoveryTime;
+                    m_CurrentAttackRecoveryTime = attack.GetStats().RecoveryTime;
                     SetState(EnemyState.RECOVERING_FROM_ATTACK);
                 }
             }
@@ -281,9 +281,9 @@ namespace Bladiator.Entities.Enemies
 
         protected virtual void RecoverFromAttack()
         {
-            m_currentAttackRecoveryTime -= Time.deltaTime;
+            m_CurrentAttackRecoveryTime -= Time.deltaTime;
 
-            if(m_currentAttackRecoveryTime <= 0)
+            if(m_CurrentAttackRecoveryTime <= 0)
             {
                 SetState(EnemyState.MOVE_TOWARDS_PLAYER);
             }
@@ -324,7 +324,7 @@ namespace Bladiator.Entities.Enemies
                     {
                         // There is a collision, pathfind towards the player.
                         m_State = EnemyState.FOLLOWING_PATH;
-                        m_pathTowardsPlayer = new Stack<PathNode>();
+                        m_PathTowardsPlayer = new Stack<PathNode>();
 
                         if(m_ReroutingCoroutine != null)
                         {

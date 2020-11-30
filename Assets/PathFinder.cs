@@ -6,7 +6,7 @@ namespace Bladiator.Pathing
 {
     public class PathFinder : MonoBehaviour
     {
-        private PathNode goal = null;
+        private PathNode m_Goal = null;
 
         #region "FindPath"
         public Stack<PathNode> FindPath(Vector3 from, Vector3 to)
@@ -21,17 +21,17 @@ namespace Bladiator.Pathing
             List<PathNode> visitedNodes = new List<PathNode>();
 
             PathNode start = PathingManager.Instance.FindNearestNodeTo(from, true);
-            goal = PathingManager.Instance.FindNearestNodeTo(to, true);
+            m_Goal = PathingManager.Instance.FindNearestNodeTo(to, true);
 
             // Check if both a start & goal node could be found.
             if(start == null) { return new Stack<PathNode>(); }
-            if(goal == null) { return new Stack<PathNode>(); }
+            if(m_Goal == null) { return new Stack<PathNode>(); }
 
             PathNode head = start;
 
             // Counter just to be sure the game doesnt crash if a path couldn't be found.
             int counter = 0; 
-            while(head != goal)
+            while(head != m_Goal)
             {
                 if(counter >= 100) 
                 {
@@ -40,7 +40,7 @@ namespace Bladiator.Pathing
                 }
                 counter += 1;
 
-                PathNode nextNode = head.GetContinuedNodeClosestToGoal(goal, ref excludedNodes, ref backTracks, ref visitedNodes);
+                PathNode nextNode = head.GetContinuedNodeClosestToGoal(m_Goal, ref excludedNodes, ref backTracks, ref visitedNodes);
                 
                 if(backTracks.Count > 0)
                 {
@@ -53,7 +53,7 @@ namespace Bladiator.Pathing
             // The final path to be returned.
             Stack<PathNode> path = new Stack<PathNode>();
 
-            path.Push(goal);
+            path.Push(m_Goal);
 
             while (backTracks.Count > 0)
             {
@@ -83,7 +83,7 @@ namespace Bladiator.Pathing
 
             if (newGoal != null)
             {
-                goal = newGoal;
+                m_Goal = newGoal;
             }
         }
     }
