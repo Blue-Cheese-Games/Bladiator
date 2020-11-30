@@ -1658,11 +1658,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3808665043834504313, guid: 0217e882be0a4f146bdc1e08d5f53851, type: 3}
       propertyPath: m_MovementSpeed
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3808665043834504314, guid: 0217e882be0a4f146bdc1e08d5f53851, type: 3}
       propertyPath: m_Health
-      value: 10000
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3808665043834504315, guid: 0217e882be0a4f146bdc1e08d5f53851, type: 3}
       propertyPath: m_Name
