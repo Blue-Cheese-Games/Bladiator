@@ -11,7 +11,7 @@ namespace Bladiator.Collisions
         /// Check if the line of sight "self" to "to" doesn't collide with anything (true = collision, false = no collision).
         /// </summary>
         /// <returns>true = collision, false = no collision</returns>
-        public static bool CheckForCollision(Vector3 self, Vector3 to, LayerMask ignoredCollisionCheckLayers)
+        public static bool CheckForCollision(Vector3 self, Vector3 to, LayerMask ignoredCollisionCheckLayers = new LayerMask())
         {
             RaycastHit[] hits;
 

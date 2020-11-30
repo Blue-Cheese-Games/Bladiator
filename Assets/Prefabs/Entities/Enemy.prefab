@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1618647276}
   - component: {fileID: 1618647275}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Attacks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 7399407736380867226}
   - component: {fileID: 2876759679903999486}
   - component: {fileID: 94849170482712547}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,9 +149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Maxhealth: 2
   m_Health: 2
-  m_Movespeed: 5
-  m_GroupingRange: 10
-  rotationSpeed: 15
+  m_Movespeed: 8
+  m_GroupingRange: 15
+  rotationSpeed: 40
   m_AttacksParent: {fileID: 1618647274}
   m_ReroutePathInterval: 0.5
 --- !u!54 &7399407736380867226
@@ -169,7 +169,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!65 &2876759679903999486
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 7399407736697917774}
   - component: {fileID: 7399407736697921203}
   - component: {fileID: 7399407736697921200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

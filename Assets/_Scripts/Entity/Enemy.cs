@@ -141,6 +141,9 @@ namespace Bladiator.Entities.Enemies
 
                     if (distanceBetweenGatheringPositionAndEnemy > m_GroupingRange) { continue; }
 
+                    // Check if there is a collision between the grouping point and the other enemy.
+                    if(CollisionCheck.CheckForCollision(m_EnemyManager.GetEnemyGroup(m_GroupID).GetGatheringPosition(), otherEnemy.transform.position)) { continue; }
+
                     // Other enemy is withing grouping range.
                     m_EnemyManager.AddEnemyToGroup(otherEnemy, m_GroupID);
                 }
@@ -239,7 +242,7 @@ namespace Bladiator.Entities.Enemies
 
             if (m_pathTowardsPlayer.Count <= 0)
             {
-                return;
+                return; 
             }
 
             if (Vector3.Distance(transform.position, m_pathTowardsPlayer.Peek().transform.position) < 1)
