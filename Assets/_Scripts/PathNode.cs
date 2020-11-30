@@ -42,7 +42,7 @@ namespace Bladiator.Pathing
                 }
             }
 
-            closestNodeFound = FindClosestNodeFromList(goal, continuedNodesFiltered, ref backTrack);
+            closestNodeFound = FindClosestNodeFromList(goal, continuedNodesFiltered, visitedNodes, ref backTrack);
 
             if(closestNodeFound != null)
             {
@@ -63,9 +63,9 @@ namespace Bladiator.Pathing
                     backTrack.Pop();
 
                     // Check if the backtracking node before this one, is closer to the chosen node.
-                    if (backTrack.Peek().choiceNode.GetDistanceToTarget(closestNodeFound.transform.position) < GetDistanceToTarget(closestNodeFound.transform.position))
+                    if (backTrack.Peek().choiceNode.GetDistanceToTarget(closestNodeFound.transform.position) <= GetDistanceToTarget(closestNodeFound.transform.position))
                     {
-                        // The previous backtracking node is clossder to the chosen node then this node.
+                        // The previous backtracking node is closer to the chosen node then this node.
                         
                         // Check if there is a clear line-of-sight between the previous backtracking node and the chosenNode.
                         if (CollisionCheck.CheckForCollision(backTrack.Peek().choiceNode.transform.position, closestNodeFound.transform.position, PathingManager.Instance.GetIgnoreLayers()));
@@ -103,7 +103,7 @@ namespace Bladiator.Pathing
             return filteredNodes;
         }
 
-        private PathNode FindClosestNodeFromList(PathNode goal, List<PathNode> nodesToCheck, ref Stack<BackTrack> backTrack)
+        private PathNode FindClosestNodeFromList(PathNode goal, List<PathNode> nodesToCheck, List<PathNode> visitedNodes, ref Stack<BackTrack> backTrack)
         {
             float closestToGoalDistance = float.MaxValue;
             PathNode closestNode = null;
@@ -121,7 +121,7 @@ namespace Bladiator.Pathing
                 }
             }
 
-            if(m_ContinuedNodes.Count > 1)
+            if(m_ContinuedNodes.Count > 1 && !visitedNodes.Contains(this) && closestNode != null)
             {
                 BackTrack newBackTrack = new BackTrack()
                 {
@@ -130,6 +130,12 @@ namespace Bladiator.Pathing
                 };
 
                 backTrack.Push(newBackTrack);
+            }
+
+            if(closestNode == null && visitedNodes.Contains(this))
+            {
+                print($"popped {name}");
+                backTrack.Pop();
             }
 
             return closestNode;
