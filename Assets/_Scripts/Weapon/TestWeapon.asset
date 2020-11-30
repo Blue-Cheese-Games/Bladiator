@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TestWeapon
   m_EditorClassIdentifier: 
   WeaponData:
-    Damage: 1
+    Damage: 2
     DragVelocity: 0
     Reach: 0
