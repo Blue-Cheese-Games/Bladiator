@@ -70,8 +70,11 @@ namespace Bladiator.Entities.Players
 
 			if (axis != Vector3.zero)
 			{
-				//m_Rig.MovePosition(m_Rig.position + axis * (m_MovementSpeed * Time.deltaTime));
 				m_Rig.velocity = axis * m_MovementSpeed;
+			}
+			else
+			{
+				m_Rig.velocity = Vector3.zero;
 			}
 		}
 	}
