@@ -1,7 +1,8 @@
-﻿using TMPro;
+﻿using Bladiator.Managers;
+using TMPro;
 using UnityEngine;
 
-namespace Bladiator.Managers
+namespace Bladiator.UI
 {
 	public class UiManager : MonoBehaviour
 	{
