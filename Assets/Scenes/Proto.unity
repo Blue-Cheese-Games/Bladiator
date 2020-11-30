@@ -684,6 +684,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90ba1a606ebf46ce875c3c38c602bd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1295756963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3808665043834504315, guid: 0217e882be0a4f146bdc1e08d5f53851, type: 3}
+  m_PrefabInstance: {fileID: 3808665045219081675}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1340583596
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,6 +1606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3808665043834504315, guid: 0217e882be0a4f146bdc1e08d5f53851, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3808665043834504319, guid: 0217e882be0a4f146bdc1e08d5f53851, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1644,6 +1653,10 @@ PrefabInstance:
     - target: {fileID: 3808665043834504319, guid: 0217e882be0a4f146bdc1e08d5f53851, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3808665043906386175, guid: 0217e882be0a4f146bdc1e08d5f53851, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0217e882be0a4f146bdc1e08d5f53851, type: 3}
@@ -1811,6 +1824,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon
       objectReference: {fileID: 0}
+    - target: {fileID: 2583498417540277453, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1295756963}
     - target: {fileID: 6539039469422868249, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
       propertyPath: m_IsTrigger
       value: 1

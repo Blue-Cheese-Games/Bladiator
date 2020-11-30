@@ -24,6 +24,8 @@ namespace Bladiator.Weapons
 
         private void OnTriggerEnter(Collider other)
         {
+            if (other.CompareTag("Player")) return;
+            
             try
             {
                 EntityBase entity = other.GetComponent<EntityBase>();
