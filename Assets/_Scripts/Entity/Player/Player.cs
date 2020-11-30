@@ -29,11 +29,6 @@ namespace Bladiator.Entities.Players
 			m_Health = m_Maxhealth;
 		}
 
-		private void OnPlayerDied(EntityBase entity)
-		{
-			
-		}
-
 		protected override void Update()
 		{
 			m_PlayerController.MoveHandle();
