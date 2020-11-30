@@ -29,7 +29,23 @@ namespace Bladiator.Managers.EnemyManager
 
             Instance = this;
         }
-        
+
+        private void Start()
+        {
+            GameManager.Instance.ResetEvent += ResetEvent;
+        }
+
+        private void ResetEvent()
+        {
+            foreach (Enemy enemy in m_ActiveEnemies)
+            {
+                Destroy(enemy.gameObject);
+            }
+            
+            m_ActiveGroups.Clear();
+            m_ActiveEnemies.Clear();
+        }
+
         /// <summary>
         /// Remove "enemyToRemove" from the "m_ActiveEnemies" & "m_ActiveGroups" lists.
         /// </summary>
@@ -89,7 +105,6 @@ namespace Bladiator.Managers.EnemyManager
         {
             if (entity.TryGetComponent(out Enemy enemy))
             {
-                print("A");
                 m_ActiveEnemies.Remove(enemy);
                 
                 if(m_ActiveEnemies.Count <= 0) OnAllEnemiesDied?.Invoke();

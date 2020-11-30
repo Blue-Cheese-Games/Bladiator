@@ -49,16 +49,15 @@ namespace Bladiator.Entities.Enemies
         protected Stack<PathNode> m_PathTowardsPlayer = new Stack<PathNode>();
         protected Coroutine m_ReroutingCoroutine;
 
-        protected override void Awake()
+        protected override void Start()
         {
-            base.Awake();
+            base.Start();
 
             m_RigidBody = GetComponent<Rigidbody>();
 
             OnDeath += EnemyDeath;
-
+            
             m_PathFinder = GetComponent<PathFinder>();
-
             m_EnemyManager = EnemyManager.Instance;
             m_EnemyManager.AddEnemy(this);
 

@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413678c945f4443d950f13dc98192213, type: 3}
   m_Name: TestWeapon
   m_EditorClassIdentifier: 
-  WeaponCoreData:
+  WeaponData:
     Damage: 1
-    acceleration: 50
-  WeaponAestheticData:
-    Sprite: {fileID: 21300000, guid: 2f27c79ff88cc9949a44eca529aea251, type: 3}
-    HitParticle: {fileID: 0}
-    HitAudio: {fileID: 0}
+    DragVelocity: 0
+    Reach: 0

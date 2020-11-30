@@ -17,6 +17,18 @@ namespace Bladiator.Entities.Players
 			m_PlayerController = GetComponent<PlayerController>();
 		}
 
+		protected override void Start()
+		{
+			base.Start();
+			GameManager.Instance.ResetEvent += ResetEvent;
+		}
+
+		private void ResetEvent()
+		{
+			GameManager.Instance.AddPlayer(this);
+			m_Health = m_Maxhealth;
+		}
+
 		protected override void Update()
 		{
 			m_PlayerController.MoveHandle();
