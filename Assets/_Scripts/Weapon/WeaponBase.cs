@@ -7,6 +7,7 @@ namespace Bladiator.Weapons
 {
     public class WeaponBase : MonoBehaviour
     {
+        [SerializeField] private GameObject m_Player = null;
         private Weapon m_Weapon = null;
 
         private void Awake()
@@ -18,6 +19,8 @@ namespace Bladiator.Weapons
         {
             if (MouseManager.Instance.HasHit())
                 Move();
+
+            Rotate();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -39,6 +42,12 @@ namespace Bladiator.Weapons
             position.y += 1;
 
             transform.position = position;
+        }
+
+        private void Rotate()
+        {
+            Vector3 direction = transform.position - m_Player.transform.position;
+            transform.rotation = Quaternion.LookRotation(direction);
         }
     }
 }
