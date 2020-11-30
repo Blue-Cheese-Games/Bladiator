@@ -1,8 +1,6 @@
 using System;
-using System.Security.Cryptography;
 using Bladiator.Entities.Enemies;
 using Bladiator.Managers;
-using Bladiator.Managers.EnemyManager;
 using UnityEngine;
 
 namespace Bladiator
@@ -42,6 +40,19 @@ namespace Bladiator
 
 			Instance = this;
 			print(15 % 5);
+		}
+
+		void Start()
+		{
+			GameManager.Instance.ResetEvent += ResetEvent;
+		}
+
+		private void ResetEvent()
+		{
+			m_IsSpawning = false;
+			m_SpawnCount = 0;
+			m_WaveCount = 1;
+			m_TargetSpawnAmount = 0;
 		}
 
 		void Update()

@@ -17,6 +17,17 @@ namespace Bladiator.Entities.Players
 			m_PlayerController = GetComponent<PlayerController>();
 		}
 
+		protected override void Start()
+		{
+			base.Start();
+
+		}
+
+		private void OnPlayerDied(EntityBase entity)
+		{
+			
+		}
+
 		protected override void Update()
 		{
 			m_PlayerController.MoveHandle();

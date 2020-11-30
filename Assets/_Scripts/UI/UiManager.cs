@@ -25,9 +25,17 @@ namespace Bladiator.UI
 		private void Start()
 		{
 			GameManager.Instance.OnGameStateChange += OnGameStateChange;
+			GameManager.Instance.ResetEvent += ResetEvent;
 
 			if (GameManager.Instance.GameState == GameState.Idle)
 				m_Idle.Play("Idle");
+		}
+
+		private void ResetEvent()
+		{
+			m_AnnouncementObject.Play("Idle_State");
+			m_FightObject.Play("Idle_State");
+			m_Idle.Play("Idle_State");
 		}
 
 		private void OnGameStateChange(GameState obj)

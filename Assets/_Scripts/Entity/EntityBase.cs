@@ -12,8 +12,7 @@ namespace Bladiator.Entities
         public Action<EntityBase> OnDeath;
 
         [SerializeField] protected float m_Maxhealth = 10f;
-        [SerializeField] protected float m_CurrentHealth = 10f;
-        [SerializeField] protected float m_TargetHealth = 10f;
+        [SerializeField] protected float m_Health = 10f;
 
         [SerializeField] protected float m_Movespeed = 5f;
 
@@ -37,11 +36,11 @@ namespace Bladiator.Entities
         public void Damage(int damage)
         {
             // Damage the entity.
-            m_TargetHealth -= damage;
+            m_Health -= damage;
 
             OnDamage?.Invoke(damage);
 
-            if(m_TargetHealth <= 0)
+            if(m_Health <= 0)
             {
                 OnDeath?.Invoke(this);
             }

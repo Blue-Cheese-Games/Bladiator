@@ -1,4 +1,5 @@
 using System;
+using Bladiator.Managers;
 using UnityEngine;
 
 namespace Bladiator.Entities.Players
@@ -7,18 +8,27 @@ namespace Bladiator.Entities.Players
 	public class PlayerController : MonoBehaviour
 	{
 		[SerializeField] private float m_MovementSpeed = 1f;
-		[SerializeField] private GameObject m_SpriteObject;
+
+		private Vector3 m_SpawnPosition;
 
 		private Rigidbody m_Rig;
 
 		private void Start()
 		{
 			m_Rig = GetComponent<Rigidbody>();
+			m_SpawnPosition = transform.position;
+			GameManager.Instance.ResetEvent += ResetEvent;
+		}
+
+		private void ResetEvent()
+		{
+			m_Rig.velocity = Vector3.zero;
+			m_Rig.position = m_SpawnPosition;
 		}
 
 		public void MoveHandle()
 		{
-			if (Camera.main == null || m_SpriteObject == null) return;
+			if (Camera.main == null) return;
 			
 			InputHandle();
 		}
