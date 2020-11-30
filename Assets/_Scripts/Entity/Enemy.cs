@@ -39,7 +39,7 @@ namespace Bladiator.Entities.Enemies
 
         private EnemyManager m_EnemyManager;
 
-        [SerializeField] private EnemyState m_State = EnemyState.LOOKING_FOR_GROUP;
+        private EnemyState m_State = EnemyState.LOOKING_FOR_GROUP;
 
         // Grouping
         private Vector3 m_GroupGatheringPoint = Vector3.zero;
@@ -47,7 +47,7 @@ namespace Bladiator.Entities.Enemies
 
         // Pathing
         protected Stack<PathNode> m_pathTowardsPlayer = new Stack<PathNode>();
-        protected Coroutine m_reroutingCoroutine;
+        protected Coroutine m_ReroutingCoroutine;
 
         protected override void Awake()
         {
@@ -98,11 +98,12 @@ namespace Bladiator.Entities.Enemies
 
             AttackCheck();
         }
-
+        
+        #region Non-overrideble but calleable methods for derived enemies
         /// <summary>
         /// Move towards "target".
         /// </summary>
-        private void MoveForward()
+        protected void MoveForward()
         {
             m_RigidBody.transform.localPosition = (transform.position + (transform.forward * Time.deltaTime) * m_Movespeed);
         }
@@ -110,7 +111,7 @@ namespace Bladiator.Entities.Enemies
         /// <summary>
         /// Makes sure the enemy is assigned and setup in a group, if the enemy is not already assigned and setup in one, it creates a new group.
         /// </summary>
-        private void InitializeGroup()
+        protected void InitializeGroup()
         {
             // If the enemy already has a group, it doesn't need to find one. (-1 means "no group").
             if (m_GroupID == -1)
@@ -149,7 +150,7 @@ namespace Bladiator.Entities.Enemies
             m_GroupGatheringPoint = m_EnemyManager.GetEnemyGroup(m_GroupID).GetGatheringPosition();
         }
 
-        private void LookAtTarget(Vector3 target)
+        protected void LookAtTarget(Vector3 target)
         {
             // Look at "target".
 
@@ -166,7 +167,7 @@ namespace Bladiator.Entities.Enemies
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, (rotationSpeed / 360));
         }
 
-        private void FindNearsestPlayerAndSetAsTarget()
+        protected void FindNearsestPlayerAndSetAsTarget()
         {
             // Find the nearest player and set it as "m_TargetPlayer".
             List<Player> players = GameManager.Instance.GetPlayers();
@@ -185,6 +186,37 @@ namespace Bladiator.Entities.Enemies
             }
         }
 
+        /// <summary>
+        /// Move towards the groups gathering point.
+        /// </summary>
+        protected void GroupUpWithGroup()
+        {
+            // Get the "m_GroupGatheringPoint" if it is not already set.
+            if (m_GroupGatheringPoint == null)
+            {
+                m_GroupGatheringPoint = m_EnemyManager.GetEnemyGroup(m_GroupID).GetGatheringPosition();
+            }
+
+            // Move towards the "m_GroupGatheringPoint".
+            MoveForward();
+            LookAtTarget(m_GroupGatheringPoint);
+        }
+
+        /// <summary>
+        /// Coroutine for rerouting the PathFinder to target the player again.
+        /// </summary>
+        /// <returns></returns>
+        protected IEnumerator RerouteInterval()
+        {
+            while (GetState() == EnemyState.FOLLOWING_PATH)
+            {
+                yield return new WaitForSeconds(m_ReroutePathInterval);
+                m_pathFinder.RerouteToGoal(m_TargetPlayer.transform.position);
+            }
+        }
+        #endregion
+
+        #region Methods that can be overridden by derived enemies
         protected virtual void MoveTowardsPlayer()
         {
             LookAtTarget(m_TargetPlayer.transform.position);
@@ -197,22 +229,6 @@ namespace Bladiator.Entities.Enemies
             }
         }
 
-        /// <summary>
-        /// Move towards the groups gathering point.
-        /// </summary>
-        private void GroupUpWithGroup()
-        {
-            // Get the "m_GroupGatheringPoint" if it is not already set.
-            if (m_GroupGatheringPoint == null) 
-            { 
-                m_GroupGatheringPoint = m_EnemyManager.GetEnemyGroup(m_GroupID).GetGatheringPosition(); 
-            }
-
-            // Move towards the "m_GroupGatheringPoint".
-            MoveForward();
-            LookAtTarget(m_GroupGatheringPoint);
-        }
-
         protected virtual void FollowAlongPath()
         {
             // If there is no path yet, get it.
@@ -221,15 +237,25 @@ namespace Bladiator.Entities.Enemies
                 m_pathTowardsPlayer = m_pathFinder.FindPath(transform.position, m_TargetPlayer.transform.position);
             }
 
-            if(Vector3.Distance(transform.position, m_pathTowardsPlayer.Peek().transform.position) < 1)
+            if (m_pathTowardsPlayer.Count <= 0)
+            {
+                return;
+            }
+
+            if (Vector3.Distance(transform.position, m_pathTowardsPlayer.Peek().transform.position) < 1)
             {
                 m_pathTowardsPlayer.Pop();
+                if(m_pathTowardsPlayer.Count <= 0)
+                {
+                    return;
+                }
             }
 
             LookAtTarget(m_pathTowardsPlayer.Peek().transform.position);
             MoveForward();
 
-            if(!CollisionCheck.CheckForCollision(transform.position, m_TargetPlayer.transform.position, PathingManager.Instance.GetIgnoreLayers())){
+            if(!CollisionCheck.CheckForCollision(transform.position, m_TargetPlayer.transform.position, PathingManager.Instance.GetIgnoreLayers()))
+            {
                 SetState(EnemyState.MOVE_TOWARDS_PLAYER);
             }
         }
@@ -264,6 +290,7 @@ namespace Bladiator.Entities.Enemies
         {
             Destroy(gameObject);
         }
+        #endregion
 
         public void SetGroupID(int newGroupID)
         {
@@ -295,10 +322,16 @@ namespace Bladiator.Entities.Enemies
                         // There is a collision, pathfind towards the player.
                         m_State = EnemyState.FOLLOWING_PATH;
                         m_pathTowardsPlayer = new Stack<PathNode>();
+
+                        if(m_ReroutingCoroutine != null)
+                        {
+                            StopCoroutine(m_ReroutingCoroutine);
+                        }
+                        m_ReroutingCoroutine = StartCoroutine(RerouteInterval());
                     }
                     break;
             }
-        }   
+        }
     }
 
     public enum EnemyState

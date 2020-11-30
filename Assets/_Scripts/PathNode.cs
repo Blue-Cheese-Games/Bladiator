@@ -134,7 +134,6 @@ namespace Bladiator.Pathing
 
             if(closestNode == null && visitedNodes.Contains(this))
             {
-                print($"popped {name}");
                 backTrack.Pop();
             }
 

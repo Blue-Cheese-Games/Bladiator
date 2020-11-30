@@ -142,7 +142,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7399407736380867222}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2292c599ad7cab74b83645314c4b47e5, type: 3}
   m_Name: 
@@ -150,9 +150,10 @@ MonoBehaviour:
   m_Maxhealth: 2
   m_Health: 2
   m_Movespeed: 5
-  m_GroupingRange: 5
+  m_GroupingRange: 10
   rotationSpeed: 15
   m_AttacksParent: {fileID: 1618647274}
+  m_ReroutePathInterval: 0.5
 --- !u!54 &7399407736380867226
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -22,7 +22,7 @@ namespace Bladiator.Pathing
                 Instance = this;
             }
         }
-
+        
         private void Start()
         {
             for (int selected = 0; selected < m_Nodes.Count; selected++)

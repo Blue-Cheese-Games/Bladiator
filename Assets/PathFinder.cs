@@ -6,6 +6,8 @@ namespace Bladiator.Pathing
 {
     public class PathFinder : MonoBehaviour
     {
+        private PathNode goal = null;
+
         #region "FindPath"
         public Stack<PathNode> FindPath(Vector3 from, Vector3 to)
         {
@@ -19,32 +21,24 @@ namespace Bladiator.Pathing
             List<PathNode> visitedNodes = new List<PathNode>();
 
             PathNode start = PathingManager.Instance.FindNearestNodeTo(from, true);
-            PathNode goal = PathingManager.Instance.FindNearestNodeTo(to, true);
+            goal = PathingManager.Instance.FindNearestNodeTo(to, true);
 
             // Check if both a start & goal node could be found.
-            if(start == null) { Debug.Log($"No PathNode could be found as a start for the path of \"{name}\""); return new Stack<PathNode>(); }
-            if(goal == null) { Debug.Log($"No PathNode could be found as a goal for the path of \"{name}\""); return new Stack<PathNode>(); }
+            if(start == null) { return new Stack<PathNode>(); }
+            if(goal == null) { return new Stack<PathNode>(); }
 
             PathNode head = start;
 
-            // DEBUG >>>>>>>>>>>>>>>>>>>>>>
-            print("start: " + start.name);
-            print("goal: " + goal.name);
-
+            // Counter just to be sure the game doesnt crash if a path couldn't be found.
             int counter = 0; 
-            // <<<<<<<<<<<<<<<<<<<<<<<<<<
-
             while(head != goal)
             {
-                // DEBUG >>>
                 if(counter >= 100) 
                 {
                     print("broke");
                     break;
                 }
                 counter += 1;
-
-                // <<<
 
                 PathNode nextNode = head.GetContinuedNodeClosestToGoal(goal, ref excludedNodes, ref backTracks, ref visitedNodes);
                 
@@ -55,8 +49,6 @@ namespace Bladiator.Pathing
                 
                 head = nextNode;
             }
-
-            print($"reached goal: {goal.gameObject.name}");
 
             // The final path to be returned.
             Stack<PathNode> path = new Stack<PathNode>();
@@ -81,17 +73,19 @@ namespace Bladiator.Pathing
 
             path.Push(start);
 
-            string result = "Final Path: ";
-
-            foreach (PathNode node in path)
-            {
-                result += $" {node.gameObject.name} ";
-            }
-
-            print(result);
             return path;
         }
         #endregion
+
+        public void RerouteToGoal(Vector3 newTarget)
+        {
+            PathNode newGoal = PathingManager.Instance.FindNearestNodeTo(newTarget, true);
+
+            if (newGoal != null)
+            {
+                goal = newGoal;
+            }
+        }
     }
 
     public struct BackTrack
