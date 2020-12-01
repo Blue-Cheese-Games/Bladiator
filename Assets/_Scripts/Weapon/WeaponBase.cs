@@ -42,12 +42,12 @@ namespace Bladiator.Weapons
 
         private void Move()
         {
-            Vector3 mousePos = m_Weapon.Player.transform.position;
-            Vector3 newPos = MouseManager.Instance.RaycastMousePosition() + mousePos;
+            Vector3 playerPos = m_Weapon.Player.transform.position;
+            Vector3 newPos = MouseManager.Instance.RaycastMousePosition() + playerPos;
 
             // Clamp the weapon position inside a circle
-            Vector3 offset = newPos - mousePos;
-            Vector3 position = mousePos + Vector3.ClampMagnitude(offset, m_Weapon.WeaponObject.WeaponData.Reach);
+            Vector3 offset = newPos - playerPos;
+            Vector3 position = playerPos + Vector3.ClampMagnitude(offset, m_Weapon.WeaponObject.WeaponData.Reach);
 
             position.y = 0.5f;
             transform.position = Vector3.Lerp(transform.position, 
