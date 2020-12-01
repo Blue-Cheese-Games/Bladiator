@@ -21,6 +21,22 @@ namespace Bladiator.Entities.Players
 			m_Rig = GetComponent<Rigidbody>();
 			m_SpawnPosition = transform.position;
 			GameManager.Instance.ResetEvent += ResetEvent;
+			GameManager.Instance.OnGameStateChange += OnGameStateChange;
+		}
+
+		private Vector3 m_Velocity;
+		private void OnGameStateChange(GameState obj)
+		{
+			if (obj == GameState.Pause)
+			{
+				m_Velocity = m_Rig.velocity;
+				m_Rig.isKinematic = true;
+			}
+			else
+			{
+				m_Rig.isKinematic = false;
+				m_Rig.velocity = m_Velocity;
+			}
 		}
 
 		private void ResetEvent()
@@ -33,7 +49,7 @@ namespace Bladiator.Entities.Players
 		{
 			if (Camera.main == null) return;
 			
-			if(!m_AllowedToMove) { return; }
+			if(!m_AllowedToMove || GameManager.Instance.GameState == GameState.Pause) { return; }
 
 			InputHandle();
 		}

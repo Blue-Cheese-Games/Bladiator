@@ -16,6 +16,8 @@ namespace Bladiator.Weapons
 
         private void Update()
         {
+            if (GameManager.Instance.GameState == GameState.Pause) return;
+            
             if (MouseManager.Instance.HasHit())
                 Move();
 

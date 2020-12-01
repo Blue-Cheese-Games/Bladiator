@@ -40,7 +40,7 @@ namespace Bladiator.UI
 
 		private void OnGameStateChange(GameState obj)
 		{
-			if (obj == GameState.Fighting)
+			if (obj == GameState.Animating)
 			{
 				// Reset the idle animator to the idle state
 				m_Idle.Play("Idle_State");
@@ -58,8 +58,15 @@ namespace Bladiator.UI
 				m_FightObject.Play("Idle_State");
 				m_Idle.Play("Idle_State");
 
+
 				// Start the idle animator
 				m_Idle.Play("Idle");
+			} else if (obj == GameState.Pause)
+			{
+				// Resetting all animators to their default idle state
+				m_AnnouncementObject.Play("Idle_State");
+				m_FightObject.Play("Idle_State");
+				m_Idle.Play("Idle_State");
 			}
 		}
 
@@ -71,6 +78,7 @@ namespace Bladiator.UI
 		public void AnimationDone()
 		{
 			WaveSystem.Instance.StartSpawn();
+			GameManager.Instance.AnimationDone();
 		}
 	}
 }

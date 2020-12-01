@@ -12,6 +12,7 @@ namespace Bladiator.Managers
 		MainMenu,
 		Pause,
 		Idle,
+		Animating,
 		Fighting,
 		Ending
 	}
@@ -48,7 +49,7 @@ namespace Bladiator.Managers
 
 		private void Update()
 		{
-			if (Input.GetKeyDown(KeyCode.Space) && m_State == GameState.Idle) ChangeState(GameState.Fighting);
+			if (Input.GetKeyDown(KeyCode.Space) && m_State == GameState.Idle) ChangeState(GameState.Animating);
 			if(Input.GetKeyDown(KeyCode.Escape) && m_State != GameState.MainMenu) PauseGame();
 		}
 
@@ -60,6 +61,7 @@ namespace Bladiator.Managers
 
 		private void ChangeState(GameState state)
 		{
+			m_PreviousState = m_State;
 			print($"State changed to: {state.ToString()}");
 			m_State = state;
 			OnGameStateChange?.Invoke(state);
@@ -110,10 +112,14 @@ namespace Bladiator.Managers
 
 		private GameState m_PreviousState;
 
-		void PauseGame()
+		public void PauseGame()
 		{
 			ChangeState(m_State == GameState.Pause ? m_PreviousState : GameState.Pause);
-			m_PreviousState = m_State;
+		}
+
+		public void AnimationDone()
+		{
+			ChangeState(GameState.Fighting);
 		}
 	}
 }

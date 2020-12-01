@@ -34,7 +34,14 @@ public class MenuManager : MonoBehaviour
 
 	public void StartGame()
 	{
+		m_Menu.SetActive(false);
+		m_Pause.SetActive(false);
 		GameManager.Instance.StartGame();
+	}
+
+	public void ResumeGame()
+	{
+		GameManager.Instance.PauseGame();
 	}
 
 	public void QuitGame()
