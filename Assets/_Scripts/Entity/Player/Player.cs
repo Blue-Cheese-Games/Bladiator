@@ -15,6 +15,7 @@ namespace Bladiator.Entities.Players
 
 			GameManager.Instance.AddPlayer(this);
 			m_PlayerController = GetComponent<PlayerController>();
+			OnDeath += m_PlayerController.OnDeath;
 		}
 
 		protected override void Start()
