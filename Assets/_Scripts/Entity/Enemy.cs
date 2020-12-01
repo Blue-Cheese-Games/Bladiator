@@ -69,6 +69,8 @@ namespace Bladiator.Entities.Enemies
 
         protected override void Update()
         {
+            if (GameManager.Instance.GameState == GameState.Pause) return;
+            
             switch (m_State)
             {
                 // -- Movement --

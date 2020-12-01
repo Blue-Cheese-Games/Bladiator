@@ -16,6 +16,8 @@ namespace Bladiator.Weapons
 
         private void Update()
         {
+            if (GameManager.Instance.GameState == GameState.Pause) return;
+            
             if (MouseManager.Instance.HasHit())
                 Move();
 
@@ -40,10 +42,16 @@ namespace Bladiator.Weapons
 
         private void Move()
         {
-            Vector3 position = MouseManager.Instance.RaycastMousePosition();
-            position.y += 0.5f;
+            Vector3 mousePos = m_Weapon.Player.transform.position;
+            Vector3 newPos = MouseManager.Instance.RaycastMousePosition() + mousePos;
 
-            transform.position = position;
+            // Clamp the weapon position inside a circle
+            Vector3 offset = newPos - mousePos;
+            Vector3 position = mousePos + Vector3.ClampMagnitude(offset, m_Weapon.WeaponObject.WeaponData.Reach);
+
+            position.y = 0.5f;
+            transform.position = Vector3.Lerp(transform.position, 
+                position, m_Weapon.WeaponObject.WeaponData.DragVelocity * Time.deltaTime);
         }
 
         private void Rotate()
