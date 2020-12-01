@@ -36,7 +36,7 @@ namespace Bladiator.Managers
 
             return Vector3.zero;
         }
-        
+
         private void Awake()
         {
             // Create a singleton
@@ -44,6 +44,7 @@ namespace Bladiator.Managers
                 Instance = this;
             
             m_MainCamera = Camera.main;
+            Cursor.visible = true;
             ChangeCursorLockMode(m_CursorLockMode);
         }
 
