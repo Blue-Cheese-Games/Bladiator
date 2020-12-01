@@ -8,6 +8,7 @@ namespace Bladiator.Entities.Players
 	[RequireComponent(typeof(Rigidbody))]
 	public class PlayerController : MonoBehaviour
 	{
+		[SerializeField] private Animator m_Animator;
 		[SerializeField] private float m_MovementSpeed = 1f;
 
 		private Vector3 m_SpawnPosition;
@@ -23,10 +24,18 @@ namespace Bladiator.Entities.Players
 			GameManager.Instance.ResetEvent += ResetEvent;
 		}
 
+		public void OnDeath(EntityBase player)
+		{
+			m_Animator.SetBool("died", true);
+		}
+
 		private void ResetEvent()
 		{
 			m_Rig.velocity = Vector3.zero;
 			m_Rig.position = m_SpawnPosition;
+
+			m_Animator.SetBool("died", true);
+			m_Animator.SetBool("moving", false);
 		}
 
 		public void MoveHandle()
@@ -68,12 +77,31 @@ namespace Bladiator.Entities.Players
 
 			Vector3 axis = forward * verticalAxis + right * horizontalAxis;
 
+
 			if (axis != Vector3.zero)
 			{
+				m_Animator.SetBool("moving", true);
 				m_Rig.velocity = axis * m_MovementSpeed;
+
+				int rawX = axis.x.AwayFromZero();
+				int rawZ = axis.z.AwayFromZero();
+
+				print($"input, x: {rawX} - z: {rawZ}, velocity: x: {Mathf.Clamp(m_Rig.velocity.x, -1f, 1f).AwayFromZero()} - z: {Mathf.Clamp(m_Rig.velocity.z, -1f, 1f).AwayFromZero()}");
+
+				// Check if the movement input would make the player move the exact oposite way of it's current velocity.
+				if (Mathf.Clamp(m_Rig.velocity.x, -1f, 1f).AwayFromZero() - rawX != 0f)
+				{
+					if(Mathf.Clamp(m_Rig.velocity.z, -1f, 1f).AwayFromZero() - rawZ != 0f)
+					{
+						// Input is in the opposite direction from the player's velocity.
+						print("dir invert.");
+						m_Animator.SetTrigger("changeDirection");
+					}
+				}
 			}
 			else
 			{
+				m_Animator.SetBool("moving", false);
 				m_Rig.velocity = Vector3.zero;
 			}
 		}
