@@ -1760,14 +1760,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1382110302393460847, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1382110302393460847, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
-      propertyPath: InitialModule.gravityModifier.scalar
-      value: 2.7
-      objectReference: {fileID: 0}
     - target: {fileID: 2583498417540277441, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
       propertyPath: m_RootOrder
       value: 9
