@@ -57,6 +57,7 @@ namespace Bladiator.Weapons
         private void Rotate()
         {
             Vector3 direction = m_Weapon.Player.transform.position - transform.position;
+            direction.y = 0;
             transform.rotation = Quaternion.LookRotation(direction);
         }
     }

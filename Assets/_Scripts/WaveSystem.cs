@@ -76,7 +76,7 @@ namespace Bladiator
 						return;
 					}
 
-					Collider[] output = Physics.OverlapBox(m_SpawnPoints[i].position, m_DetectionBox,
+					Collider[] output = Physics.OverlapBox(m_SpawnPoints[i].position, m_DetectionBox / 2,
 						m_SpawnPoints[i].rotation, m_DetectionMasks);
 					if (output.Length > 0)
 					{
