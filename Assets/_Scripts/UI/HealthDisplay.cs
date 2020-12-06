@@ -49,5 +49,12 @@ namespace Bladiator.UI
 
 			m_HealthBar.value = m_CurrentHealth / m_MaxHealth;
 		}
+
+		public void ResetHealthBar()
+		{
+			m_TargetHealth = m_MaxHealth;
+			m_CurrentHealth = m_MaxHealth;
+			m_HealthBar.value = 1;
+		}
 	}
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Bladiator.Managers;
+using Bladiator.UI;
 using UnityEngine;
 
 namespace Bladiator.Entities.Players
@@ -94,6 +95,8 @@ namespace Bladiator.Entities.Players
 
 		private void InputHandle()
 		{
+			if (GameManager.Instance.GameState == GameState.Ending) return;
+			
 		#if UNITY_EDITOR
 			if(Input.GetKey(KeyCode.K))
 				GetComponent<Player>().Damage(9999);

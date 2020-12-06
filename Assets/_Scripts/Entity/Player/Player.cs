@@ -1,5 +1,6 @@
 ﻿using Bladiator.Entities;
 using Bladiator.Managers;
+using Bladiator.UI;
 using UnityEngine;
 
 namespace Bladiator.Entities.Players
@@ -26,6 +27,8 @@ namespace Bladiator.Entities.Players
 
 		private void ResetEvent()
 		{
+			GetComponent<HealthDisplay>().ResetHealthBar();
+			
 			GameManager.Instance.AddPlayer(this);
 			m_Health = m_Maxhealth;
 			gameObject.SetActive(true);
