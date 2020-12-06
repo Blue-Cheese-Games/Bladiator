@@ -7,160 +7,163 @@ using UnityEngine;
 
 namespace Bladiator.Managers.EnemyManager
 {
-    public class EnemyManager : MonoBehaviour
-    {
-        public static EnemyManager Instance;
-        
-        [Tooltip("The delay between creating a group, and initiating it's attack.")]
-        [SerializeField] private float m_GroupAttackDelay = 3f;
+	public class EnemyManager : MonoBehaviour
+	{
+		public static EnemyManager Instance;
 
-        private List<Enemy> m_ActiveEnemies = new List<Enemy>();
-        [SerializeField] private List<EnemyGroup> m_ActiveGroups = new List<EnemyGroup>();
+		[Tooltip("The delay between creating a group, and initiating it's attack.")]
+		[SerializeField] private float m_GroupAttackDelay = 3f;
 
-        public Action OnAllEnemiesDied;
+		private List<Enemy> m_ActiveEnemies = new List<Enemy>();
+		[SerializeField] private List<EnemyGroup> m_ActiveGroups = new List<EnemyGroup>();
 
-        void Awake()
-        {
-            if (Instance != null)
-            {
-                Destroy(gameObject);
-                return;
-            }
+		public Action OnAllEnemiesDied;
 
-            Instance = this;
-        }
+		void Awake()
+		{
+			if (Instance != null)
+			{
+				Destroy(gameObject);
+				return;
+			}
 
-        private void Start()
-        {
-            GameManager.Instance.ResetEvent += ResetEvent;
-        }
+			Instance = this;
+		}
 
-        private void ResetEvent()
-        {
-            foreach (Enemy enemy in m_ActiveEnemies)
-            {
-                Destroy(enemy.gameObject);
-            }
-            
-            m_ActiveGroups.Clear();
-            m_ActiveEnemies.Clear();
-        }
+		private void Start()
+		{
+			GameManager.Instance.OnGameStateChange += OnGameStateChange;
+		}
 
-        /// <summary>
-        /// Remove "enemyToRemove" from the "m_ActiveEnemies" & "m_ActiveGroups" lists.
-        /// </summary>
-        public void RemoveEnemyFromLisitings(EntityBase enemyToRemove)
-        {
-            Enemy enemy = (Enemy)enemyToRemove;
+		private void OnGameStateChange(GameState state)
+		{
+			if (state != GameState.Ending) return;
+			
+			foreach (Enemy enemy in m_ActiveEnemies)
+			{
+				Destroy(enemy.gameObject);
+			}
 
-            m_ActiveGroups.Find(g => g.ID == enemy.GetGroupID()).Enemies.Remove(enemy);
-        }
+			m_ActiveGroups.Clear();
+			m_ActiveEnemies.Clear();
+		}
 
-        /// <summary>
-        /// Create a new group and add "enemy" to it, returns the new groups "ID".
-        /// </summary>
-        /// <param name="enemy"></param>
-        /// <returns>The new groups ID.</returns>
-        public int CreateGroup(Enemy enemy)
-        {
-            EnemyGroup newGroup = new EnemyGroup()
-            {
-                ID = m_ActiveGroups.Count,
-                Enemies = new List<Enemy>() { enemy }
-            };
-            StartCoroutine(newGroup.InitiateAttack(m_GroupAttackDelay));
-            m_ActiveGroups.Add(newGroup);
+		/// <summary>
+		/// Remove "enemyToRemove" from the "m_ActiveEnemies" & "m_ActiveGroups" lists.
+		/// </summary>
+		public void RemoveEnemyFromLisitings(EntityBase enemyToRemove)
+		{
+			Enemy enemy = (Enemy) enemyToRemove;
 
-            return m_ActiveGroups.Count - 1;
-        }
+			m_ActiveGroups.Find(g => g.ID == enemy.GetGroupID()).Enemies.Remove(enemy);
+		}
 
-        /// <summary>
-        /// Add "enemyToAdd" to the group with ID "groupToAddTo".
-        /// </summary>
-        public void AddEnemyToGroup(Enemy enemyToAdd, int groupToAddTo)
-        {
-            enemyToAdd.SetGroupID(groupToAddTo);
+		/// <summary>
+		/// Create a new group and add "enemy" to it, returns the new groups "ID".
+		/// </summary>
+		/// <param name="enemy"></param>
+		/// <returns>The new groups ID.</returns>
+		public int CreateGroup(Enemy enemy)
+		{
+			EnemyGroup newGroup = new EnemyGroup()
+			{
+				ID = m_ActiveGroups.Count,
+				Enemies = new List<Enemy>() {enemy}
+			};
+			StartCoroutine(newGroup.InitiateAttack(m_GroupAttackDelay));
+			m_ActiveGroups.Add(newGroup);
 
-            m_ActiveGroups.Find(g => g.ID == groupToAddTo).Enemies.Add(enemyToAdd);
-            if(m_ActiveGroups.Count <= 0) OnAllEnemiesDied?.Invoke();
-        }
+			return m_ActiveGroups.Count - 1;
+		}
 
-        /// <summary>
-        /// Get the EnemyGroup with the ID "groupId".
-        /// </summary>
-        /// <returns>The found group.</returns>
-        public EnemyGroup GetEnemyGroup(int groupId)
-        {
-            return m_ActiveGroups.Find(g => g.ID == groupId);
-        }
+		/// <summary>
+		/// Add "enemyToAdd" to the group with ID "groupToAddTo".
+		/// </summary>
+		public void AddEnemyToGroup(Enemy enemyToAdd, int groupToAddTo)
+		{
+			enemyToAdd.SetGroupID(groupToAddTo);
 
-        // Add and get for "m_ActiveEnemies".
-        public void AddEnemy(Enemy enemyToAdd)
-        {
-            m_ActiveEnemies.Add(enemyToAdd);
-            enemyToAdd.OnDeath += OnDeath;
-        }
+			m_ActiveGroups.Find(g => g.ID == groupToAddTo).Enemies.Add(enemyToAdd);
+			if (m_ActiveGroups.Count <= 0) OnAllEnemiesDied?.Invoke();
+		}
 
-        private void OnDeath(EntityBase entity)
-        {
-            if (entity.TryGetComponent(out Enemy enemy))
-            {
-                m_ActiveEnemies.Remove(enemy);
-                
-                if(m_ActiveEnemies.Count <= 0) OnAllEnemiesDied?.Invoke();
-            }
-        }
+		/// <summary>
+		/// Get the EnemyGroup with the ID "groupId".
+		/// </summary>
+		/// <returns>The found group.</returns>
+		public EnemyGroup GetEnemyGroup(int groupId)
+		{
+			return m_ActiveGroups.Find(g => g.ID == groupId);
+		}
 
-        public List<Enemy> GetActiveEnemies()
-        {
-            return m_ActiveEnemies;
-        }
-    }
+		// Add and get for "m_ActiveEnemies".
+		public void AddEnemy(Enemy enemyToAdd)
+		{
+			m_ActiveEnemies.Add(enemyToAdd);
+			enemyToAdd.OnDeath += OnDeath;
+		}
 
-    /// <summary>
-    /// The object that contains a group of enemies. ( GetGatheringPosition() & InitiateAttack() )
-    /// </summary>
-    [Serializable]
-    public struct EnemyGroup
-    {
-        // The ID to the group.
-        public int ID;
+		private void OnDeath(EntityBase entity)
+		{
+			if (entity.TryGetComponent(out Enemy enemy))
+			{
+				m_ActiveEnemies.Remove(enemy);
 
-        // The active enemies in the group.
-        public List<Enemy> Enemies;
+				if (m_ActiveEnemies.Count <= 0) OnAllEnemiesDied?.Invoke();
+			}
+		}
 
-        // The gathering position of the group.
-        private Vector3 GatheringPosition;
+		public List<Enemy> GetActiveEnemies()
+		{
+			return m_ActiveEnemies;
+		}
+	}
 
-        /// <summary>
-        /// Calculate the "m_GatheringPosition" for the group and return it.
-        /// </summary>
-        public Vector3 GetGatheringPosition()
-        {
-            // Calculate the mean position of all the active enemies withing the group.
+	/// <summary>
+	/// The object that contains a group of enemies. ( GetGatheringPosition() & InitiateAttack() )
+	/// </summary>
+	[Serializable]
+	public struct EnemyGroup
+	{
+		// The ID to the group.
+		public int ID;
 
-            Vector3 meanPosition = Vector3.zero;
+		// The active enemies in the group.
+		public List<Enemy> Enemies;
 
-            foreach (Enemy enemy in Enemies)
-            {
-                meanPosition += enemy.transform.position;
-            }
-            meanPosition /= Enemies.Count;
+		// The gathering position of the group.
+		private Vector3 GatheringPosition;
 
-            return meanPosition;
-        }
+		/// <summary>
+		/// Calculate the "m_GatheringPosition" for the group and return it.
+		/// </summary>
+		public Vector3 GetGatheringPosition()
+		{
+			// Calculate the mean position of all the active enemies withing the group.
 
-        /// <summary>
-        /// Make all the enemies in the group attack their nearest player.
-        /// </summary>
-        public IEnumerator InitiateAttack(float delay)
-        {
-            yield return new WaitForSeconds(delay);
+			Vector3 meanPosition = Vector3.zero;
 
-            foreach (Enemy enemy in Enemies)
-            {
-                enemy.SetState(EnemyState.MOVE_TOWARDS_PLAYER);
-            }
-        }
-    }
+			foreach (Enemy enemy in Enemies)
+			{
+				meanPosition += enemy.transform.position;
+			}
+
+			meanPosition /= Enemies.Count;
+
+			return meanPosition;
+		}
+
+		/// <summary>
+		/// Make all the enemies in the group attack their nearest player.
+		/// </summary>
+		public IEnumerator InitiateAttack(float delay)
+		{
+			yield return new WaitForSeconds(delay);
+
+			foreach (Enemy enemy in Enemies)
+			{
+				enemy.SetState(EnemyState.MOVE_TOWARDS_PLAYER);
+			}
+		}
+	}
 }

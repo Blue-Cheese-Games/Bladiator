@@ -45,6 +45,7 @@ namespace Bladiator.Managers
 		private void Start()
 		{
 			EnemyManager.EnemyManager.Instance.OnAllEnemiesDied += OnAllEnemiesDied;
+			ResetEvent += ResetGameManager;
 		}
 
 		private void Update()
@@ -70,18 +71,17 @@ namespace Bladiator.Managers
 		public void AddPlayer(Player playerToAdd)
 		{
 			m_Players.Add(playerToAdd);
-			playerToAdd.OnDeath += PlayerDied;
+			// playerToAdd.OnDeath += PlayerDied;
 		}
 
-		private void PlayerDied(EntityBase player)
+		public void PlayerDied(EntityBase player)
 		{
 			Player p = player.GetComponent<Player>();
+			if (!m_Players.Contains(p)) return;
+			
 			m_Players.Remove(p);
 
-			// TODO Move the reset event
-			// Reset all managers
-			if (m_Players.Count <= 0) ResetEvent?.Invoke();
-			ResetGameManager();
+			if(m_Players.Count <= 0) ChangeState(GameState.Ending);
 		}
 
 		/// <summary>

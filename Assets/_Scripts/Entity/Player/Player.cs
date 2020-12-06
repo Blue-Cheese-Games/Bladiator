@@ -22,19 +22,13 @@ namespace Bladiator.Entities.Players
 		{
 			base.Start();
 			GameManager.Instance.ResetEvent += ResetEvent;
-			GameManager.Instance.OnGameStateChange += OnGameStateChange;
-		}
-
-		private void OnGameStateChange(GameState state)
-		{
-			gameObject.SetActive(state != GameState.MainMenu);
 		}
 
 		private void ResetEvent()
 		{
 			GameManager.Instance.AddPlayer(this);
 			m_Health = m_Maxhealth;
-			gameObject.SetActive(false);
+			gameObject.SetActive(true);
 		}
 
 		protected override void Update()

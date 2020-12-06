@@ -11,7 +11,7 @@ namespace Bladiator.Entities.Players
 		[SerializeField] private Animator m_Animator;
 		[SerializeField] private float m_MovementSpeed = 1f;
 
-		private Vector3 m_SpawnPosition;
+		[SerializeField] private Vector3 m_SpawnPosition;
 
 		private Rigidbody m_Rig;
 
@@ -26,39 +26,54 @@ namespace Bladiator.Entities.Players
 		}
 
 		private Vector3 m_Velocity;
-		private void OnGameStateChange(GameState obj)
+
+		private void OnGameStateChange(GameState state)
 		{
-			if (obj == GameState.Pause)
+			if (state == GameState.Pause)
 			{
 				m_Velocity = m_Rig.velocity;
+				m_Rig.isKinematic = true;
+				m_Animator.speed = 0;
+			}
+			else if (state == GameState.Ending)
+			{
+				m_AllowedToMove = false;
+				m_Rig.velocity = Vector3.zero;
 				m_Rig.isKinematic = true;
 			}
 			else
 			{
 				m_Rig.isKinematic = false;
 				m_Rig.velocity = m_Velocity;
+				m_Animator.speed = 1;
 			}
 		}
 
 		public void OnDeath(EntityBase player)
 		{
-			m_Animator.SetBool("died", true);
+			m_Animator.Play("death");
 		}
 
 		private void ResetEvent()
 		{
 			m_Rig.velocity = Vector3.zero;
-			m_Rig.position = m_SpawnPosition;
+			transform.position = m_SpawnPosition;
+			m_AllowedToMove = true;
+			m_Rig.isKinematic = false;
 
 			m_Animator.SetBool("died", false);
 			m_Animator.SetBool("moving", false);
+			m_Animator.Play("Idle");
 		}
 
 		public void MoveHandle()
 		{
 			if (Camera.main == null) return;
 
-			if (!m_AllowedToMove || GameManager.Instance.GameState == GameState.Pause) { return; }
+			if (!m_AllowedToMove || GameManager.Instance.GameState == GameState.Pause)
+			{
+				return;
+			}
 
 			InputHandle();
 		}
@@ -71,17 +86,19 @@ namespace Bladiator.Entities.Players
 			StartCoroutine(ResetAllowedToMove(knockbackDuration));
 		}
 
-
-
 		private IEnumerator ResetAllowedToMove(float delay)
 		{
 			yield return new WaitForSeconds(delay);
 			UnlockMovement();
-
 		}
 
 		private void InputHandle()
 		{
+		#if UNITY_EDITOR
+			if(Input.GetKey(KeyCode.K))
+				GetComponent<Player>().Damage(9999);
+		#endif
+			
 			float horizontalAxis = Input.GetAxisRaw("Horizontal");
 			float verticalAxis = Input.GetAxisRaw("Vertical");
 
@@ -98,7 +115,6 @@ namespace Bladiator.Entities.Players
 
 			if (axis != Vector3.zero)
 			{
-
 				Vector3 selfForward = transform.forward;
 
 				if (Vector3.Dot(selfForward, axis) < -0.5f)

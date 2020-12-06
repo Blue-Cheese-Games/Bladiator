@@ -39,7 +39,6 @@ namespace Bladiator
 			}
 
 			Instance = this;
-			print(15 % 5);
 		}
 
 		void Start()
