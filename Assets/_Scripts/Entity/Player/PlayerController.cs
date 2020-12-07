@@ -52,6 +52,9 @@ namespace Bladiator.Entities.Players
 
 		public void OnDeath(EntityBase player)
 		{
+			print("dead");
+			m_AllowedToMove = false;
+			m_Rig.velocity = Vector3.zero;
 			m_Animator.Play("death");
 		}
 
@@ -71,6 +74,11 @@ namespace Bladiator.Entities.Players
 		{
 			if (Camera.main == null) return;
 
+			#if UNITY_EDITOR
+			if (Input.GetKey(KeyCode.K))
+				GetComponent<Player>().Damage(9999);
+			#endif
+
 			if (!m_AllowedToMove || GameManager.Instance.GameState == GameState.Pause)
 			{
 				return;
@@ -81,6 +89,8 @@ namespace Bladiator.Entities.Players
 
 		public void Knockback(Vector3 knockback, float knockbackDuration)
 		{
+			if (!m_AllowedToMove) { return; }
+
 			m_Rig.velocity = Vector3.zero;
 			m_Rig.AddForce(knockback, ForceMode.Impulse);
 			LockMovement();
@@ -97,10 +107,7 @@ namespace Bladiator.Entities.Players
 		{
 			if (GameManager.Instance.GameState == GameState.Ending) return;
 			
-		#if UNITY_EDITOR
-			if(Input.GetKey(KeyCode.K))
-				GetComponent<Player>().Damage(9999);
-		#endif
+		
 			
 			float horizontalAxis = Input.GetAxisRaw("Horizontal");
 			float verticalAxis = Input.GetAxisRaw("Vertical");
