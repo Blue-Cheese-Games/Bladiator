@@ -14,6 +14,7 @@ namespace Bladiator.Managers
 		Idle,
 		Animating,
 		Fighting,
+		PlayersDied,
 		Ending
 	}
 
@@ -51,7 +52,7 @@ namespace Bladiator.Managers
 		private void Update()
 		{
 			if (Input.GetKeyDown(KeyCode.Space) && m_State == GameState.Idle) ChangeState(GameState.Animating);
-			if(Input.GetKeyDown(KeyCode.Escape) && m_State != GameState.MainMenu) PauseGame();
+			if (Input.GetKeyDown(KeyCode.Escape) && m_State != GameState.MainMenu) PauseGame();
 		}
 
 		private void OnAllEnemiesDied()
@@ -71,17 +72,22 @@ namespace Bladiator.Managers
 		public void AddPlayer(Player playerToAdd)
 		{
 			m_Players.Add(playerToAdd);
-			// playerToAdd.OnDeath += PlayerDied;
 		}
 
-		public void PlayerDied(EntityBase player)
+		public void PlayerDied()
+		{
+			if (m_Players.Count <= 0) ChangeState(GameState.Ending);
+		}
+
+		public void OnPlayerDied(EntityBase player)
 		{
 			Player p = player.GetComponent<Player>();
 			if (!m_Players.Contains(p)) return;
-			
-			m_Players.Remove(p);
 
-			if(m_Players.Count <= 0) ChangeState(GameState.Ending);
+			m_Players.Remove(p);
+			
+			if (m_Players.Count <= 0)
+				ChangeState(GameState.PlayersDied);
 		}
 
 		/// <summary>

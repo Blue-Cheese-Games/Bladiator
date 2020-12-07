@@ -56,7 +56,9 @@ namespace Bladiator
 
 		void Update()
 		{
-			if (!m_IsSpawning || GameManager.Instance.GameState == GameState.Pause) return;
+			if (!m_IsSpawning || GameManager.Instance.GameState == GameState.Pause ||
+			    GameManager.Instance.GameState == GameState.Ending ||
+			    GameManager.Instance.GameState == GameState.PlayersDied) return;
 
 			if (m_WaveCount % 5 == 0 || m_WaveCount % 10 == 0)
 				SpawnBoss();
