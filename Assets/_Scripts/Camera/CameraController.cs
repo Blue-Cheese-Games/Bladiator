@@ -1,51 +1,55 @@
 ﻿using System;
 using UnityEngine;
 
-public enum CameraState
+namespace Bladiator.CameraControlle
 {
-    Idle,
-    Moving
-}
-public class CameraController : MonoBehaviour
-{
-    private CameraState m_CameraState;
-    
-    [SerializeField] private float m_MouseXCurrent = 0;
-    [SerializeField] private float m_MouseXPrevious = 0;
+	public enum CameraState
+	{
+		Idle,
+		Moving
+	}
 
-    public CameraState CameraState => m_CameraState;
+	public class CameraController : MonoBehaviour
+	{
+		private CameraState m_CameraState;
 
-    private void Start()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
-    }
+		[SerializeField] private float m_MouseXCurrent = 0;
+		[SerializeField] private float m_MouseXPrevious = 0;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(2))
-        {
-            Cursor.visible = true;
-            m_MouseXPrevious = Input.mousePosition.x;
-            m_MouseXCurrent = Input.mousePosition.x;
-            m_CameraState = CameraState.Moving;
-        }
-        
-        if (Input.GetMouseButton(2))
-        {
-            m_MouseXCurrent = Input.mousePosition.x;
+		public CameraState CameraState => m_CameraState;
 
-            float delta = m_MouseXCurrent - m_MouseXPrevious;
-            transform.eulerAngles += new Vector3(0, delta, 0);
+		private void Start()
+		{
+			Cursor.visible = false;
+			Cursor.lockState = CursorLockMode.Confined;
+		}
 
-            m_MouseXPrevious = m_MouseXCurrent;
-        }
+		// Update is called once per frame
+		void Update()
+		{
+			if (Input.GetMouseButtonDown(2))
+			{
+				Cursor.visible = true;
+				m_MouseXPrevious = Input.mousePosition.x;
+				m_MouseXCurrent = Input.mousePosition.x;
+				m_CameraState = CameraState.Moving;
+			}
 
-        if (Input.GetMouseButtonUp(2))
-        {
-            Cursor.visible = false;
-            m_CameraState = CameraState.Idle;
-        }
-    }
+			if (Input.GetMouseButton(2))
+			{
+				m_MouseXCurrent = Input.mousePosition.x;
+
+				float delta = m_MouseXCurrent - m_MouseXPrevious;
+				transform.eulerAngles += new Vector3(0, delta, 0);
+
+				m_MouseXPrevious = m_MouseXCurrent;
+			}
+
+			if (Input.GetMouseButtonUp(2))
+			{
+				Cursor.visible = false;
+				m_CameraState = CameraState.Idle;
+			}
+		}
+	}
 }
