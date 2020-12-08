@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Bladiator.Entities;
 using Bladiator.Entities.Players;
 using Bladiator.Managers.EnemyManager;
+using Bladiator.UI;
 using UnityEngine;
 
 namespace Bladiator.Managers
@@ -57,6 +58,7 @@ namespace Bladiator.Managers
 
 		private void OnAllEnemiesDied()
 		{
+			UiManager.Instance.ShowWaveDone();
 			print("Enemies died");
 			ChangeState(GameState.Idle);
 		}

@@ -9,7 +9,7 @@ namespace Bladiator.UI
 		public static UiManager Instance;
 
 		[SerializeField] private TMP_Text m_WaveText;
-		[SerializeField] private Animator m_Idle, m_AnnouncementObject, m_FightObject, m_Transition;
+		[SerializeField] private Animator m_Idle, m_WaveDone, m_AnnouncementObject, m_FightObject, m_Transition;
 
 		private void Awake()
 		{
@@ -55,9 +55,9 @@ namespace Bladiator.UI
 			{
 				// Resetting all animators to their default idle state
 				m_AnnouncementObject.Play("Idle_State");
+				m_WaveDone.Play("Idle_State");
 				m_FightObject.Play("Idle_State");
 				m_Idle.Play("Idle_State");
-
 
 				// Start the idle animator
 				m_Idle.Play("Idle");
@@ -65,6 +65,7 @@ namespace Bladiator.UI
 			{
 				// Resetting all animators to their default idle state
 				m_AnnouncementObject.Play("Idle_State");
+				m_WaveDone.Play("Idle_State");
 				m_FightObject.Play("Idle_State");
 				m_Idle.Play("Idle_State");
 			} else if (obj == GameState.Ending)
@@ -76,6 +77,11 @@ namespace Bladiator.UI
 			}
 		}
 
+		public void ShowWaveDone()
+		{
+			m_WaveDone.Play("Wave_Done");
+		}
+		
 		public void ShowFight()
 		{
 			m_FightObject.Play("Fight");
