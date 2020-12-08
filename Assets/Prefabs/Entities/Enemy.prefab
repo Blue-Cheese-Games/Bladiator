@@ -448,8 +448,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2292c599ad7cab74b83645314c4b47e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Maxhealth: 1
-  m_Health: 1
+  m_Maxhealth: 2
+  m_Health: 2
   m_Movespeed: 3
   m_GroupingRange: 15
   m_RotationSpeed: 65
