@@ -6,6 +6,7 @@ using Bladiator.Managers.EnemyManager;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Bladiator.CameraController;
 using UnityEngine;
 using Bladiator.Collisions;
 
@@ -317,6 +318,7 @@ namespace Bladiator.Entities.Enemies
 
 		protected virtual void EnemyDeath(EntityBase enemy)
 		{
+			CamShake.Instance.ShakeCamera(.25f, 0.09f);
 			Destroy(gameObject);
 		}
 
