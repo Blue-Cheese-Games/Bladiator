@@ -52,7 +52,7 @@ namespace Bladiator.Weapons
 			Vector3 offset = newPos - playerPos;
 			Vector3 position = playerPos + Vector3.ClampMagnitude(offset, m_Weapon.WeaponObject.WeaponData.Reach);
 
-			position.y = 0.5f;
+			position.y = 1.5f;
 			transform.position = Vector3.Lerp(transform.position,
 				position, m_Weapon.WeaponObject.WeaponData.DragVelocity * Time.deltaTime);
 		}

@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Health: 6
   m_Movespeed: 3
   m_GroupingRange: 15
-  m_RotationSpeed: 40
+  m_RotationSpeed: 65
   m_AttacksParent: {fileID: 1618647274}
   m_ReroutePathInterval: 0.5
 --- !u!54 &7399407736380867226
