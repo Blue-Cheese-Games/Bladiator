@@ -267,7 +267,10 @@ namespace Bladiator.Entities.Enemies
 				return;
 			}
 
-			if (Vector3.Distance(transform.position, m_PathTowardsPlayer.Peek().transform.position) < 1)
+			Vector3 ownPosFlat = new Vector3(transform.position.x, 0, transform.position.z);
+			Vector3 nextNodePosFlat = new Vector3(m_PathTowardsPlayer.Peek().transform.position.x, 0, m_PathTowardsPlayer.Peek().transform.position.z);
+
+			if (Vector3.Distance(ownPosFlat, nextNodePosFlat) < 1)
 			{
 				m_PathTowardsPlayer.Pop();
 				if (m_PathTowardsPlayer.Count <= 0)
