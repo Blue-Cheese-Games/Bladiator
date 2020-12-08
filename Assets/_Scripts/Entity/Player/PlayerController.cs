@@ -52,7 +52,6 @@ namespace Bladiator.Entities.Players
 
 		public void OnDeath(EntityBase player)
 		{
-			print("dead");
 			m_AllowedToMove = false;
 			m_Rig.velocity = Vector3.zero;
 			m_Animator.Play("death");
