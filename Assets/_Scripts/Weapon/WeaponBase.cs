@@ -9,9 +9,18 @@ namespace Bladiator.Weapons
 	{
 		private Weapon m_Weapon = null;
 
+		private Vector3 m_TargetPosition;
+
+		private bool m_IsMoving;
+
 		private void Awake()
 		{
 			m_Weapon = GetComponent<Weapon>();
+		}
+
+		private void Start()
+		{
+			m_TargetPosition = transform.position;
 		}
 
 		private void Update()
@@ -21,6 +30,9 @@ namespace Bladiator.Weapons
 			    GameManager.Instance.GameState == GameState.PlayersDied ||
 			    GameManager.Instance.GameState == GameState.Ending) return;
 
+			if (Input.GetMouseButtonDown(0))
+				m_TargetPosition = MouseManager.Instance.RaycastMousePosition();
+
 			if (MouseManager.Instance.HasHit())
 				Move();
 
@@ -29,7 +41,7 @@ namespace Bladiator.Weapons
 
 		private void OnTriggerEnter(Collider other)
 		{
-			if (other.CompareTag("Player")) return;
+			if (other.CompareTag("Player") || !m_IsMoving) return;
 
 			try
 			{
@@ -46,15 +58,18 @@ namespace Bladiator.Weapons
 		private void Move()
 		{
 			Vector3 playerPos = m_Weapon.Player.transform.position;
-			Vector3 newPos = MouseManager.Instance.RaycastMousePosition();
+			Vector3 newPos = m_TargetPosition;
 
 			// Clamp the weapon position inside a circle
 			Vector3 offset = newPos - playerPos;
 			Vector3 position = playerPos + Vector3.ClampMagnitude(offset, m_Weapon.WeaponObject.WeaponData.Reach);
 
 			position.y = 1.5f;
+
 			transform.position = Vector3.Lerp(transform.position,
 				position, m_Weapon.WeaponObject.WeaponData.DragVelocity * Time.deltaTime);
+
+			m_IsMoving = (Vector3.Distance(transform.position, m_TargetPosition) > 0.2);
 		}
 
 		private void Rotate()
