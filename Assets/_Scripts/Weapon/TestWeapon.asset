@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponData:
     Damage: 2
-    DragVelocity: 2.85
-    Reach: 4.5
+    DragVelocity: 6.05
+    Reach: 10

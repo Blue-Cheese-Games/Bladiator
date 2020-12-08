@@ -18,6 +18,6 @@ public class PlayerAnimationEventReciever : MonoBehaviour
 
     public void OnDeathFinish()
     {
-        GameManager.Instance.PlayerDied(m_Player.GetComponent<Player>());
+        GameManager.Instance.PlayerDied();
     }
 }

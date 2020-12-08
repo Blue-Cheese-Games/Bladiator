@@ -32,13 +32,11 @@ namespace Bladiator.Managers.EnemyManager
 
 		private void Start()
 		{
-			GameManager.Instance.OnGameStateChange += OnGameStateChange;
+			GameManager.Instance.ResetEvent += ResetEvent;
 		}
 
-		private void OnGameStateChange(GameState state)
+		private void ResetEvent()
 		{
-			if (state != GameState.Ending) return;
-			
 			foreach (Enemy enemy in m_ActiveEnemies)
 			{
 				Destroy(enemy.gameObject);
