@@ -5,14 +5,62 @@ using UnityEngine;
 
 namespace Bladiator.Weapons
 {
+	[RequireComponent(typeof(Animator))]
 	public class WeaponBase : MonoBehaviour
 	{
 		private Weapon m_Weapon = null;
+
+		[SerializeField] private bool m_Attack;
+
+		private Vector3 m_StartPosition;
+		private Quaternion m_StartRotation;
+		
+		private Animator m_Animator;
 
 		private void Awake()
 		{
 			m_Weapon = GetComponent<Weapon>();
 		}
+
+		void Start()
+		{
+			m_Animator = GetComponent<Animator>();
+
+			GetComponentInChildren<Hitbox>().OnHit += OnHit;
+			
+			m_StartPosition = transform.position;
+			m_StartRotation = transform.rotation;
+			
+			GameManager.Instance.OnGameStateChange += OnGameStateChange;
+			GameManager.Instance.ResetEvent += ResetEvent;
+		}
+
+		private void ResetEvent()
+		{
+			transform.position = m_StartPosition;
+			transform.rotation = m_StartRotation;
+		}
+
+		private void OnGameStateChange(GameState obj)
+		{
+			switch (obj)
+			{
+				case GameState.Pause:
+					m_Animator.speed = 0;
+					break;
+				
+				case GameState.MainMenu:
+					m_Animator.speed = 1;
+					m_Animator.Play("idle");
+					break;
+				
+				default:
+					m_Animator.speed = 1;
+					break;
+			}
+		}
+		
+		
 
 		private void Update()
 		{
@@ -24,12 +72,19 @@ namespace Bladiator.Weapons
 			if (MouseManager.Instance.HasHit())
 				Move();
 
+			if (Input.GetMouseButtonDown(0) && !m_Attack)
+			{
+				m_Animator.Play("Attack");
+				m_Attack = true;
+			}
+				
+
 			Rotate();
 		}
 
-		private void OnTriggerEnter(Collider other)
+		private void OnHit(Collider other)
 		{
-			if (other.CompareTag("Player")) return;
+			if (other.CompareTag("Player") || !m_Attack) return;
 
 			try
 			{
@@ -62,6 +117,12 @@ namespace Bladiator.Weapons
 			Vector3 direction = m_Weapon.Player.transform.position - transform.position;
 			direction.y = 0;
 			transform.rotation = Quaternion.LookRotation(direction);
+		}
+
+		public void EndAttack()
+		{
+			m_Animator.Play("Idle");
+			m_Attack = false;
 		}
 	}
 }
