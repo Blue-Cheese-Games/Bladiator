@@ -13,6 +13,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3416408, y: 1.3399516, z: 0.074433684}
   m_Center: {x: -1.0087854, y: 0.8342704, z: 0.00000016391277}
+--- !u!114 &687662767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28243883052591419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 444cc1ab8035dc9459c8669c4c37f60f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2583498417540277446
 GameObject:
   m_ObjectHideFlags: 0
@@ -23,7 +35,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2583498417540277441}
   - component: {fileID: 2583498417540277453}
-  - component: {fileID: 1838374639}
   m_Layer: 13
   m_Name: Weapon
   m_TagString: Untagged
@@ -62,25 +73,6 @@ MonoBehaviour:
   WeaponObject: {fileID: 11400000, guid: dce8e8ae3d12f194e9f190b54e16f657, type: 2}
   Player: {fileID: 0}
   HitParticle: {fileID: 1382110302393460847}
---- !u!95 &1838374639
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2583498417540277446}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1f375b591cb2ea945865f35c705ee4b2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2978507050840270818
 GameObject:
   m_ObjectHideFlags: 0

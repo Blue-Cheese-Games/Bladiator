@@ -12,7 +12,8 @@ namespace Bladiator.Weapons
     public struct WeaponData
     {
         public float Damage;
-        public float DragVelocity;
+        public float IdleDragVelocity;
+        public float AttackDragVelocity;
         public float Reach;
     }
 }

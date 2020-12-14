@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace Bladiator.Weapons
 {
-	[RequireComponent(typeof(Animator))]
 	public class WeaponBase : MonoBehaviour
 	{
 		private Weapon m_Weapon = null;
@@ -14,8 +13,6 @@ namespace Bladiator.Weapons
 
 		private Vector3 m_StartPosition;
 		private Quaternion m_StartRotation;
-		
-		private Animator m_Animator;
 
 		private void Awake()
 		{
@@ -24,14 +21,11 @@ namespace Bladiator.Weapons
 
 		void Start()
 		{
-			m_Animator = GetComponent<Animator>();
-
 			GetComponentInChildren<Hitbox>().OnHit += OnHit;
-			
+
 			m_StartPosition = transform.position;
 			m_StartRotation = transform.rotation;
-			
-			GameManager.Instance.OnGameStateChange += OnGameStateChange;
+
 			GameManager.Instance.ResetEvent += ResetEvent;
 		}
 
@@ -40,27 +34,6 @@ namespace Bladiator.Weapons
 			transform.position = m_StartPosition;
 			transform.rotation = m_StartRotation;
 		}
-
-		private void OnGameStateChange(GameState obj)
-		{
-			switch (obj)
-			{
-				case GameState.Pause:
-					m_Animator.speed = 0;
-					break;
-				
-				case GameState.MainMenu:
-					m_Animator.speed = 1;
-					m_Animator.Play("idle");
-					break;
-				
-				default:
-					m_Animator.speed = 1;
-					break;
-			}
-		}
-		
-		
 
 		private void Update()
 		{
@@ -74,10 +47,8 @@ namespace Bladiator.Weapons
 
 			if (Input.GetMouseButtonDown(0) && !m_Attack)
 			{
-				m_Animator.Play("Attack");
 				m_Attack = true;
 			}
-				
 
 			Rotate();
 		}
@@ -98,6 +69,8 @@ namespace Bladiator.Weapons
 			}
 		}
 
+		private Vector3 m_TargetPosition;
+		
 		private void Move()
 		{
 			Vector3 playerPos = m_Weapon.Player.transform.position;
@@ -108,8 +81,30 @@ namespace Bladiator.Weapons
 			Vector3 position = playerPos + Vector3.ClampMagnitude(offset, m_Weapon.WeaponObject.WeaponData.Reach);
 
 			position.y = 1.5f;
-			transform.position = Vector3.Lerp(transform.position,
-				position, m_Weapon.WeaponObject.WeaponData.DragVelocity * Time.deltaTime);
+
+			if (m_Attack)
+			{
+				if (m_TargetPosition == Vector3.zero)
+				{
+					m_TargetPosition = position;
+				} 
+				
+				if (Vector3.Distance(transform.position, m_TargetPosition) > 0.5f)
+				{
+					transform.position = Vector3.Lerp(transform.position,
+						m_TargetPosition, m_Weapon.WeaponObject.WeaponData.AttackDragVelocity * Time.deltaTime);
+				}
+				else
+				{
+					m_TargetPosition = Vector3.zero;
+					m_Attack = false;
+				}
+			}
+			else
+			{
+				transform.position = Vector3.Lerp(transform.position,
+					position, m_Weapon.WeaponObject.WeaponData.IdleDragVelocity * Time.deltaTime);
+			}
 		}
 
 		private void Rotate()
@@ -117,12 +112,6 @@ namespace Bladiator.Weapons
 			Vector3 direction = m_Weapon.Player.transform.position - transform.position;
 			direction.y = 0;
 			transform.rotation = Quaternion.LookRotation(direction);
-		}
-
-		public void EndAttack()
-		{
-			m_Animator.Play("Idle");
-			m_Attack = false;
 		}
 	}
 }
