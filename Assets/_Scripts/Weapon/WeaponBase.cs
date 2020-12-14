@@ -9,9 +9,30 @@ namespace Bladiator.Weapons
 	{
 		private Weapon m_Weapon = null;
 
+		[SerializeField] private bool m_Attack;
+
+		private Vector3 m_StartPosition;
+		private Quaternion m_StartRotation;
+
 		private void Awake()
 		{
 			m_Weapon = GetComponent<Weapon>();
+		}
+
+		void Start()
+		{
+			GetComponentInChildren<Hitbox>().OnHit += OnHit;
+
+			m_StartPosition = transform.position;
+			m_StartRotation = transform.rotation;
+
+			GameManager.Instance.ResetEvent += ResetEvent;
+		}
+
+		private void ResetEvent()
+		{
+			transform.position = m_StartPosition;
+			transform.rotation = m_StartRotation;
 		}
 
 		private void Update()
@@ -24,12 +45,17 @@ namespace Bladiator.Weapons
 			if (MouseManager.Instance.HasHit())
 				Move();
 
+			if (Input.GetMouseButtonDown(0) && !m_Attack)
+			{
+				m_Attack = true;
+			}
+
 			Rotate();
 		}
 
-		private void OnTriggerEnter(Collider other)
+		private void OnHit(Collider other)
 		{
-			if (other.CompareTag("Player")) return;
+			if (other.CompareTag("Player") || !m_Attack) return;
 
 			try
 			{
@@ -43,6 +69,8 @@ namespace Bladiator.Weapons
 			}
 		}
 
+		private Vector3 m_TargetPosition;
+		
 		private void Move()
 		{
 			Vector3 playerPos = m_Weapon.Player.transform.position;
@@ -53,8 +81,30 @@ namespace Bladiator.Weapons
 			Vector3 position = playerPos + Vector3.ClampMagnitude(offset, m_Weapon.WeaponObject.WeaponData.Reach);
 
 			position.y = 1.5f;
-			transform.position = Vector3.Lerp(transform.position,
-				position, m_Weapon.WeaponObject.WeaponData.DragVelocity * Time.deltaTime);
+
+			if (m_Attack)
+			{
+				if (m_TargetPosition == Vector3.zero)
+				{
+					m_TargetPosition = position;
+				} 
+				
+				if (Vector3.Distance(transform.position, m_TargetPosition) > 0.5f)
+				{
+					transform.position = Vector3.Lerp(transform.position,
+						m_TargetPosition, m_Weapon.WeaponObject.WeaponData.AttackDragVelocity * Time.deltaTime);
+				}
+				else
+				{
+					m_TargetPosition = Vector3.zero;
+					m_Attack = false;
+				}
+			}
+			else
+			{
+				transform.position = Vector3.Lerp(transform.position,
+					position, m_Weapon.WeaponObject.WeaponData.IdleDragVelocity * Time.deltaTime);
+			}
 		}
 
 		private void Rotate()

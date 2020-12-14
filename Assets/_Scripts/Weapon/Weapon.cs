@@ -2,7 +2,6 @@
 
 namespace Bladiator.Weapons
 {
-    [RequireComponent(typeof(WeaponBase))]
     public class Weapon : WeaponBase
     {
         [Header("Weapon")]
