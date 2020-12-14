@@ -15,5 +15,5 @@ MonoBehaviour:
   WeaponData:
     Damage: 2
     IdleDragVelocity: 1
-    AttackDragVelocity: 5
+    AttackDragVelocity: 15
     Reach: 7

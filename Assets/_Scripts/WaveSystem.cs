@@ -11,7 +11,7 @@ namespace Bladiator
 		public Action OnSpawnStarted, OnSpawnDone;
 		public Action<int> OnNextWave;
 
-		[Range(0.01f, 1f)] [SerializeField] private float m_SpawnInterval = 0.25f;
+		[Range(0.01f, 2f)] [SerializeField] private float m_SpawnInterval = 0.25f;
 		[SerializeField] private Vector3 m_DetectionBox;
 		[SerializeField] private LayerMask m_DetectionMasks;
 		[SerializeField] private int m_SpawnIncrease = 8;

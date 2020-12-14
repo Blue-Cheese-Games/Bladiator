@@ -5209,6 +5209,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3808665043834504313, guid: 0217e882be0a4f146bdc1e08d5f53851, type: 3}
+      propertyPath: m_MovementSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3808665043834504315, guid: 0217e882be0a4f146bdc1e08d5f53851, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5323,8 +5327,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_SpawnIncrease
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
       propertyPath: m_SpawnInterval
-      value: 1
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
       propertyPath: m_BossSpawnPoint
@@ -5427,6 +5435,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2080004136965900104, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
+      propertyPath: m_Size.x
+      value: 0.48918295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080004136965900104, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
+      propertyPath: m_Size.y
+      value: 2.5194323
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080004136965900104, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
+      propertyPath: m_Center.y
+      value: 1.1388578
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080004136965900104, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
+      propertyPath: m_Center.z
+      value: 0.00000016391276
+      objectReference: {fileID: 0}
     - target: {fileID: 2583498417540277441, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -5441,7 +5465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2583498417540277441, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.63
+      value: 2.53
       objectReference: {fileID: 0}
     - target: {fileID: 2583498417540277441, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
       propertyPath: m_LocalRotation.w
