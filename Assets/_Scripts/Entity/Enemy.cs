@@ -29,6 +29,9 @@ namespace Bladiator.Entities.Enemies
 		[Tooltip("The interval at which the enemy will reroute it's path to find it's target player.")]
 		[SerializeField] private float m_ReroutePathInterval;
 
+		[Tooltip("The score to be added to the total score when this enemy dies.")]
+		[SerializeField] private int m_ScoreOnDeath;
+
 		// Attacks
 		private List<EnemyAttackBase> m_Attacks = new List<EnemyAttackBase>();
 		private float m_CurrentAttackRecoveryTime = 0f;
@@ -329,6 +332,7 @@ namespace Bladiator.Entities.Enemies
 		protected virtual void EnemyDeath(EntityBase enemy)
 		{
 			CamShake.Instance.ShakeCamera(.25f, 0.09f);
+			ScoreManager.Instance.AddScore(m_ScoreOnDeath);
 			Destroy(gameObject);
 		}
 
