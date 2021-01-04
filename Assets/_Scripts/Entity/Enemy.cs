@@ -50,6 +50,11 @@ namespace Bladiator.Entities.Enemies
 		protected Stack<PathNode> m_PathTowardsPlayer = new Stack<PathNode>();
 		protected Coroutine m_ReroutingCoroutine;
 
+		// Stuck detection / prevention.
+		// A list with timestamps of when the enemy starts pathing. used for detecting if the enemy is stuck.
+		protected List<float> m_StartPathingTimestamps = new List<float>();
+		protected int m_LastTimeStampSecond;
+
 		protected override void Start()
 		{
 			base.Start();
@@ -79,14 +84,17 @@ namespace Bladiator.Entities.Enemies
 				// -- Movement --
 				case EnemyState.MOVE_TOWARDS_PLAYER:
 					MoveTowardsPlayer();
+					StuckDetection();
 					break;
 
 				case EnemyState.FOLLOWING_PATH:
 					FollowAlongPath();
+					StuckDetection();
 					break;
 
 				case EnemyState.GROUP_WITH_OTHERS:
 					GroupUpWithGroup();
+					StuckDetection();
 					break;
 
 				// -- Grouping --
@@ -247,7 +255,9 @@ namespace Bladiator.Entities.Enemies
 			LookAtTarget(m_TargetPlayer.transform.position);
 			MoveForward();
 
-			if (CollisionCheck.CheckForCollision(transform.position, m_TargetPlayer.transform.position,
+			// Adjustment as the enemy can into an obstacle, and the the raycast won't detect the obstacle.
+			Vector3 adjustedPosition = transform.position - transform.forward * 0.3f;
+			if (CollisionCheck.CheckForCollision(adjustedPosition, m_TargetPlayer.transform.position,
 				PathingManager.Instance.GetIgnoreLayers()))
 			{
 				// Reset the path to the player by setting the state to move towards the player.
@@ -322,6 +332,22 @@ namespace Bladiator.Entities.Enemies
 			Destroy(gameObject);
 		}
 
+		protected virtual void StuckDetection()
+		{
+			if(m_LastTimeStampSecond < Mathf.Floor(Time.time))
+			{
+				if(m_StartPathingTimestamps.Count > 4)
+				{
+					// The enemy is stuck.
+
+					transform.Rotate(0, 180, 0);
+				}
+
+				m_StartPathingTimestamps.Clear();
+				m_LastTimeStampSecond = (int)Mathf.Floor(Time.time);
+			}
+		}
+
 	#endregion
 
 		public void SetGroupID(int newGroupID)
@@ -348,8 +374,10 @@ namespace Bladiator.Entities.Enemies
 				case EnemyState.MOVE_TOWARDS_PLAYER:
 					FindNearsestPlayerAndSetAsTarget();
 
+					// Adjustment as the enemy can into an obstacle, and the the raycast won't detect the obstacle.
+					Vector3 adjustedPosition = transform.position - transform.forward * 0.3f; 
 					// Check if there is a clear line of sight from this enemy to the target player.
-					if (CollisionCheck.CheckForCollision(transform.position, m_TargetPlayer.transform.position,
+					if (CollisionCheck.CheckForCollision(adjustedPosition, m_TargetPlayer.transform.position,
 						PathingManager.Instance.GetIgnoreLayers()))
 					{
 						// There is a collision, pathfind towards the player.
@@ -360,6 +388,9 @@ namespace Bladiator.Entities.Enemies
 						{
 							StopCoroutine(m_ReroutingCoroutine);
 						}
+
+						// Stuck detection / prevention.
+						m_StartPathingTimestamps.Add(Time.time);
 
 						m_ReroutingCoroutine = StartCoroutine(RerouteInterval());
 					}
