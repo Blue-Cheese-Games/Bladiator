@@ -37,12 +37,11 @@ namespace Bladiator.Managers.EnemyManager
 
 		private void ResetEvent()
 		{
-			lock (m_ActiveEnemies)
+			foreach (Enemy enemy in m_ActiveEnemies)
 			{
-				foreach (Enemy enemy in m_ActiveEnemies)
-				{
-					Destroy(enemy.gameObject);
-				}
+				if (enemy.gameObject == null) continue;
+
+				Destroy(enemy.gameObject);
 			}
 
 			m_ActiveGroups.Clear();
