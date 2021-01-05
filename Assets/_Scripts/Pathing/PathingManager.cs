@@ -92,7 +92,7 @@ namespace Bladiator.Pathing
 
             foreach (PathNode node in m_Nodes)
             {
-                if(!CollisionCheck.CheckForCollision(node.transform.position, toBeVisibleTo))
+                if(!CollisionCheck.CheckForCollision(node.transform.position, toBeVisibleTo, m_IgnoredCollisionCheckLayers))
                 {
                     activeDistance = Vector3.Distance(node.transform.position, target);
                     if (activeDistance < closestDistance)

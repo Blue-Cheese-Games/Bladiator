@@ -27,7 +27,6 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int scoreToAdd)
     {
         m_Score += scoreToAdd;
-        print("score : " + m_Score);
         UpdateText();
     }
 
