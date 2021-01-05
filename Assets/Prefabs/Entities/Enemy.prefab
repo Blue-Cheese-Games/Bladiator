@@ -155,6 +155,7 @@ MonoBehaviour:
   m_RotationSpeed: 65
   m_AttacksParent: {fileID: 1618647274}
   m_ReroutePathInterval: 0.5
+  m_ScoreOnDeath: 1
 --- !u!54 &7399407736380867226
 Rigidbody:
   m_ObjectHideFlags: 0
