@@ -20,7 +20,7 @@ namespace Bladiator.Pathing
             // A list containg all the nodes that have been visited.
             List<PathNode> visitedNodes = new List<PathNode>();
 
-            PathNode start = PathingManager.Instance.FindNearestNodeTo(from, true);
+            PathNode start = PathingManager.Instance.FindNearestPathNodeToVisibleFrom(to, from);
             m_Goal = PathingManager.Instance.FindNearestNodeTo(to, true);
 
             // Check if both a start & goal node could be found.

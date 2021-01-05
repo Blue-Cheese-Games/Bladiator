@@ -82,6 +82,30 @@ namespace Bladiator.Pathing
             return closestNode;
         }
 
+        public PathNode FindNearestPathNodeToVisibleFrom(Vector3 target, Vector3 toBeVisibleTo)
+        {
+            PathNode closestNode = null;
+
+            float activeDistance;
+
+            float closestDistance = float.MaxValue;
+
+            foreach (PathNode node in m_Nodes)
+            {
+                if(!CollisionCheck.CheckForCollision(node.transform.position, toBeVisibleTo))
+                {
+                    activeDistance = Vector3.Distance(node.transform.position, target);
+                    if (activeDistance < closestDistance)
+                    {
+                        closestNode = node;
+                        closestDistance = activeDistance;
+                    }
+                }
+            }
+
+            return closestNode;
+        }
+
         public void AddNode(PathNode nodeToAdd)
         {
             m_Nodes.Add(nodeToAdd);
