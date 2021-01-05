@@ -16,7 +16,7 @@ namespace Bladiator.Weapons
 		
 		private Vector3 m_Offset;
 		private Quaternion m_StartingRotation;
-		
+
 		private Vector3 m_StartPosition;
 		private Quaternion m_StartRotation;
 
@@ -40,8 +40,8 @@ namespace Bladiator.Weapons
 		{
 			GetComponentInChildren<Hitbox>().OnHit += OnHit;
 
-			m_StartPosition = transform.position;
-			m_StartRotation = transform.rotation;
+			m_StartPosition = transform.localPosition;
+			m_StartRotation = transform.localRotation;
 
 			GameManager.Instance.ResetEvent += ResetEvent;
 
@@ -51,14 +51,22 @@ namespace Bladiator.Weapons
 
 		private void ResetEvent()
 		{
-			transform.position = m_StartPosition;
-			transform.rotation = m_StartRotation;
+			m_SecondAttack = false;
+			m_Attack = false;
+			m_WaitSecondAttack = false;
+
+			m_Root.transform.localPosition = m_Offset;
+			m_Center.transform.rotation = Quaternion.identity;
+			m_TargetPosition = Vector3.zero;
+
+			transform.localPosition = m_StartPosition;
+			transform.localRotation = m_StartRotation;
+			
+			m_Center.transform.position = m_Weapon.Player.transform.position;
 		}
 
 		private void Update()
 		{
-			m_Center.transform.position = m_Weapon.Player.transform.position;
-			
 			if (GameManager.Instance.GameState == GameState.Pause ||
 			    GameManager.Instance.GameState == GameState.MainMenu ||
 			    GameManager.Instance.GameState == GameState.PlayersDied ||
@@ -67,6 +75,7 @@ namespace Bladiator.Weapons
 			if (MouseManager.Instance.HasHit())
 				Move();
 
+			m_Center.transform.position = m_Weapon.Player.transform.position;
 			Rotate();
 
 			if (m_AttackCooldownTimer > 0)
@@ -161,7 +170,6 @@ namespace Bladiator.Weapons
 		}
 
 
-		// TODO Lerp rotation
 		private void Rotate()
 		{
 			if (!m_Attack && !m_SecondAttack && !m_WaitSecondAttack)
