@@ -32,6 +32,8 @@ namespace Bladiator.Entities.Enemies
 		[Tooltip("The score to be added to the total score when this enemy dies.")]
 		[SerializeField] private int m_ScoreOnDeath;
 
+		private Animator m_Animator;
+		
 		// Attacks
 		private List<EnemyAttackBase> m_Attacks = new List<EnemyAttackBase>();
 		private float m_CurrentAttackRecoveryTime = 0f;
@@ -74,6 +76,8 @@ namespace Bladiator.Entities.Enemies
 			m_AttacksParent.GetComponentsInChildren<EnemyAttackBase>(m_Attacks);
 
 			FindNearsestPlayerAndSetAsTarget();
+
+			m_Animator = GetComponentInChildren<Animator>();
 		}
 
 		protected override void Update()
@@ -88,26 +92,31 @@ namespace Bladiator.Entities.Enemies
 				case EnemyState.MOVE_TOWARDS_PLAYER:
 					MoveTowardsPlayer();
 					StuckDetection();
+					m_Animator.Play("run");
 					break;
 
 				case EnemyState.FOLLOWING_PATH:
 					FollowAlongPath();
 					StuckDetection();
+					m_Animator.Play("run");
 					break;
 
 				case EnemyState.GROUP_WITH_OTHERS:
 					GroupUpWithGroup();
 					StuckDetection();
+					m_Animator.Play("run");
 					break;
 
 				// -- Grouping --
 				case EnemyState.LOOKING_FOR_GROUP:
 					InitializeGroup();
+					m_Animator.Play("idle");
 					break;
 
 				// -- Attacking --
 				case EnemyState.RECOVERING_FROM_ATTACK:
 					RecoverFromAttack();
+					m_Animator.Play("idle");
 					break;
 			}
 
