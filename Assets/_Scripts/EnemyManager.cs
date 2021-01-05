@@ -106,7 +106,7 @@ namespace Bladiator.Managers.EnemyManager
 
 		private void OnDeath(EntityBase entity)
 		{
-			if (entity.TryGetComponent(out Enemy enemy) && !WaveSystem.Instance.IsSpawning)
+			if (entity.TryGetComponent(out Enemy enemy))
 			{
 				m_ActiveEnemies.Remove(enemy);
 
