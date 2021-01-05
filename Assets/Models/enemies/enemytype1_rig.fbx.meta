@@ -15,8 +15,7 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
-      human bone 'Head' not found\n"
+    rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -35,7 +34,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.3
+    globalScale: 0.8
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -86,157 +85,157 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: hip
       parentName: enemytype1_rig(Clone)
-      position: {x: -0.00024768713, y: 0.21142694, z: 0}
+      position: {x: -0.00066049903, y: 0.56380516, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: back
       parentName: hip
-      position: {x: -0, y: 0.13773671, z: 0}
+      position: {x: -0, y: 0.3672979, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: head1
       parentName: back
-      position: {x: -0, y: 0.074707754, z: 0.023837782}
+      position: {x: -0, y: 0.19922067, z: 0.06356742}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: head
       parentName: head1
-      position: {x: 6.505213e-20, y: 0.08015822, z: 0.02737604}
+      position: {x: 1.7347235e-19, y: 0.21375526, z: 0.07300278}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: shoulderL
       parentName: back
-      position: {x: -0.088452116, y: 0.035406355, z: 3.6978003e-33}
+      position: {x: -0.2358723, y: 0.09441695, z: 9.8608004e-33}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: elbowL
       parentName: shoulderL
-      position: {x: -0.062922604, y: -0.067659006, z: -0.01081593}
+      position: {x: -0.16779362, y: -0.18042402, z: -0.028842479}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: wristL
       parentName: elbowL
-      position: {x: -0.069688804, y: -0.057509404, z: 0.028287811}
+      position: {x: -0.18583682, y: -0.15335843, z: 0.07543416}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: backfingerL
       parentName: wristL
-      position: {x: -0.0397356, y: -0.0363486, z: -0.00166323}
+      position: {x: -0.105961606, y: -0.0969296, z: -0.0044352803}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: backfingerpointL
       parentName: backfingerL
-      position: {x: -0.0097419005, y: -0.046800602, z: 0.0040852204}
+      position: {x: -0.025978403, y: -0.1248016, z: 0.010893921}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: middlefingerL
       parentName: wristL
-      position: {x: -0.0397356, y: -0.0363486, z: 0.034753323}
+      position: {x: -0.105961606, y: -0.0969296, z: 0.09267553}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: middlefiingerpointL
       parentName: middlefingerL
-      position: {x: 0.0018639001, y: -0.046800602, z: 0.0039453004}
+      position: {x: 0.0049704, y: -0.1248016, z: 0.010520802}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: thumbL
       parentName: wristL
-      position: {x: 0.0041853003, y: -0.0363486, z: 0.034753323}
+      position: {x: 0.011160801, y: -0.0969296, z: 0.09267553}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: thumbpointL
       parentName: thumbL
-      position: {x: -0.0033309, y: -0.030790802, z: 0.0039453004}
+      position: {x: -0.008882401, y: -0.0821088, z: 0.010520802}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: shoulderR
       parentName: back
-      position: {x: 0.08845219, y: 0.035406355, z: 3.6977856e-33}
+      position: {x: 0.23587252, y: 0.09441695, z: 9.8607615e-33}
       rotation: {x: 1, y: 0, z: 0, w: -6.123234e-17}
       scale: {x: 1, y: 1, z: 1}
     - name: elbowR
       parentName: shoulderR
-      position: {x: 0.062922604, y: 0.067659006, z: 0.010815929}
+      position: {x: 0.16779362, y: 0.18042402, z: 0.028842475}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: wristR
       parentName: elbowR
-      position: {x: 0.069688804, y: 0.057509404, z: -0.028287813}
+      position: {x: 0.18583682, y: 0.15335843, z: -0.07543417}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: backfingerR
       parentName: wristR
-      position: {x: 0.039735395, y: 0.036348622, z: 0.0016632411}
+      position: {x: 0.10596105, y: 0.09692966, z: 0.004435309}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: backfingerpointR
       parentName: backfingerR
-      position: {x: 0.0097420765, y: 0.04680072, z: -0.0040852367}
+      position: {x: 0.02597887, y: 0.124801934, z: -0.010893964}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: middlefingerR
       parentName: wristR
-      position: {x: 0.039735395, y: 0.036348622, z: -0.034753267}
+      position: {x: 0.10596105, y: 0.09692966, z: -0.09267537}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: middlefingerpointR
       parentName: middlefingerR
-      position: {x: -0.0018637779, y: 0.04680072, z: -0.0039452417}
+      position: {x: -0.004970074, y: 0.124801934, z: -0.010520645}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: thumbR
       parentName: wristR
-      position: {x: -0.004185473, y: 0.036348622, z: -0.034753267}
+      position: {x: -0.011161261, y: 0.09692966, z: -0.09267537}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: thumbpointR
       parentName: thumbR
-      position: {x: 0.0033311308, y: 0.030790672, z: -0.0039452417}
+      position: {x: 0.008883015, y: 0.08210846, z: -0.010520645}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: belly
       parentName: hip
-      position: {x: 2.6020853e-19, y: 0.052477006, z: 0.08299488}
+      position: {x: 6.938894e-19, y: 0.13993868, z: 0.22131969}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: upperleg
       parentName: hip
-      position: {x: -0.04668471, y: -0.018145595, z: 0}
+      position: {x: -0.124492556, y: -0.048388254, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: knee
       parentName: upperleg
-      position: {x: -0, y: -0.073870644, z: 0}
+      position: {x: -0, y: -0.19698839, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: foot
       parentName: knee
-      position: {x: -0, y: -0.09607577, z: 0}
+      position: {x: -0, y: -0.25620204, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: toe
       parentName: foot
-      position: {x: -0, y: -0.0029883026, z: 0.04980504}
+      position: {x: -0, y: -0.007968807, z: 0.13281345}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: upperleg1
       parentName: hip
-      position: {x: 0.047179986, y: -0.018145638, z: 2.7733392e-33}
+      position: {x: 0.12581329, y: -0.048388366, z: 7.395571e-33}
       rotation: {x: 1, y: 0, z: 0, w: -6.123234e-17}
       scale: {x: 1, y: 1, z: 1}
     - name: knee1
       parentName: upperleg1
-      position: {x: -0, y: 0.0738705, z: -9.046528e-18}
+      position: {x: -0, y: 0.196988, z: -2.4124072e-17}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: foot1
       parentName: knee1
-      position: {x: -0, y: 0.09607587, z: -1.1765901e-17}
+      position: {x: -0, y: 0.2562023, z: -3.1375738e-17}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: toe1
       parentName: foot1
-      position: {x: -0, y: 0.0029883, z: -0.0498051}
+      position: {x: -0, y: 0.0079688, z: -0.1328136}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: low_enemy2:polySurface1
@@ -251,7 +250,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.3
+    globalScale: 0.8
     rootMotionBoneName: hip
     hasTranslationDoF: 0
     hasExtraRoot: 1
