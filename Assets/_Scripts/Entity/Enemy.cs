@@ -78,6 +78,18 @@ namespace Bladiator.Entities.Enemies
 			FindNearsestPlayerAndSetAsTarget();
 
 			m_Animator = GetComponentInChildren<Animator>();
+
+			GameManager.Instance.ResetEvent += ResetEvent;
+		}
+
+		private void ResetEvent()
+		{
+			Destroy(gameObject);
+		}
+
+		private void OnDestroy()
+		{
+			GameManager.Instance.ResetEvent -= ResetEvent;
 		}
 
 		protected override void Update()
