@@ -12,11 +12,21 @@ namespace Bladiator.EnemyAttacks
         [Tooltip("How often can the enemy use this attack?")]
         public float m_Cooldown = 2f;
 
+        public bool m_StartAvaiable = true;
+
         private float m_LastUseTimeStamp = 0f;
 
         public override void Initialize(EnemyAttackBase attack)
         {
-            m_LastUseTimeStamp = 0;
+            if (m_StartAvaiable)
+            {
+                m_LastUseTimeStamp = -m_Cooldown;
+            }
+            else
+            {
+                m_LastUseTimeStamp = 0;
+            }
+
             attack.OnActivate += OnActivate;
         }
 

@@ -402,6 +402,22 @@ namespace Bladiator.Entities.Enemies
 					break;
 			}
 		}
+
+		public override void Knockback(Vector3 knockback, float knockbackDuration)
+		{
+			if (m_State == EnemyState.STUNNED) { return; }
+
+			m_RigidBody.velocity = Vector3.zero;
+			m_RigidBody.AddForce(knockback, ForceMode.Impulse);
+			SetState(EnemyState.STUNNED);
+			StartCoroutine(ResetAllowedToMove(knockbackDuration));
+		}
+
+		protected override IEnumerator ResetAllowedToMove(float delay)
+		{
+			yield return new WaitForSeconds(delay);
+			SetState(EnemyState.MOVE_TOWARDS_PLAYER);
+		}
 	}
 
 	public enum EnemyState
@@ -409,6 +425,7 @@ namespace Bladiator.Entities.Enemies
 		// Movement ---
 		MOVE_TOWARDS_PLAYER,
 		FOLLOWING_PATH,
+		STUNNED,
 
 		// Grouping --
 		LOOKING_FOR_GROUP,

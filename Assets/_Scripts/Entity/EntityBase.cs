@@ -45,5 +45,17 @@ namespace Bladiator.Entities
                 OnDeath?.Invoke(this);
             }
         }
+
+        public virtual void Knockback(Vector3 knockback, float knockbackDuration)
+        {
+            Debug.LogError("This method should be overriden to apply the knockback to the entity.");
+        }
+
+        protected virtual IEnumerator ResetAllowedToMove(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            // Unlock the entities movement here.
+            Debug.LogError("This method should be overriden to unlock the movement of the entity.");
+        }
     }
 }

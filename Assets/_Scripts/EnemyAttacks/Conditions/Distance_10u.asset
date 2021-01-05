@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f90d23483ab88444c92621500c8a8965, type: 3}
-  m_Name: MeleeAttack
+  m_Script: {fileID: 11500000, guid: 512ca3f6b2aaaf5459d80f36e71b6b49, type: 3}
+  m_Name: Distance_10u
   m_EditorClassIdentifier: 
-  Damage: 1
-  Knockback: 10
-  KnockbackDuration: 0.6
-  RecoveryTime: 1
+  m_Distance: 10

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f90d23483ab88444c92621500c8a8965, type: 3}
-  m_Name: MeleeAttack
+  m_Name: ThrowGrenade
   m_EditorClassIdentifier: 
   Damage: 1
-  Knockback: 10
+  Knockback: 15
   KnockbackDuration: 0.6
-  RecoveryTime: 1
+  RecoveryTime: 2.5

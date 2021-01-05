@@ -94,20 +94,11 @@ namespace Bladiator.Entities.Players
 			m_Rig.velocity = Vector3.zero;
 			m_Rig.AddForce(knockback, ForceMode.Impulse);
 			LockMovement();
-			StartCoroutine(ResetAllowedToMove(knockbackDuration));
-		}
-
-		private IEnumerator ResetAllowedToMove(float delay)
-		{
-			yield return new WaitForSeconds(delay);
-			UnlockMovement();
 		}
 
 		private void InputHandle()
 		{
 			if (GameManager.Instance.GameState == GameState.Ending) return;
-			
-		
 			
 			float horizontalAxis = Input.GetAxisRaw("Horizontal");
 			float verticalAxis = Input.GetAxisRaw("Vertical");
