@@ -1,5 +1,6 @@
 ﻿using System;
 using Bladiator.Entities;
+using Bladiator.Entities.Players;
 using Bladiator.Managers;
 using UnityEngine;
 
@@ -10,7 +11,12 @@ namespace Bladiator.Weapons
 		private Weapon m_Weapon = null;
 
 		[SerializeField] private bool m_Attack;
-
+		[SerializeField] private Transform m_Root, m_Center;
+		[SerializeField] private float m_RotationSpeed = 5f;
+		
+		private Vector3 m_Offset;
+		private Quaternion m_StartingRotation;
+		
 		private Vector3 m_StartPosition;
 		private Quaternion m_StartRotation;
 
@@ -24,7 +30,7 @@ namespace Bladiator.Weapons
 
 		private float m_AttackCooldown = .25f;
 		private float m_AttackCooldownTimer = 0f;
-		
+
 		private void Awake()
 		{
 			m_Weapon = GetComponent<Weapon>();
@@ -38,6 +44,9 @@ namespace Bladiator.Weapons
 			m_StartRotation = transform.rotation;
 
 			GameManager.Instance.ResetEvent += ResetEvent;
+
+			m_Offset = m_Root.localPosition;
+			m_StartingRotation = transform.rotation;
 		}
 
 		private void ResetEvent()
@@ -48,6 +57,8 @@ namespace Bladiator.Weapons
 
 		private void Update()
 		{
+			m_Center.transform.position = m_Weapon.Player.transform.position;
+			
 			if (GameManager.Instance.GameState == GameState.Pause ||
 			    GameManager.Instance.GameState == GameState.MainMenu ||
 			    GameManager.Instance.GameState == GameState.PlayersDied ||
@@ -63,7 +74,7 @@ namespace Bladiator.Weapons
 				m_AttackCooldownTimer -= Time.deltaTime;
 				return;
 			}
-			
+
 			if (Input.GetMouseButtonDown(0) && !m_Attack && !m_SecondAttack && !m_WaitSecondAttack)
 			{
 				m_Attack = true;
@@ -88,20 +99,16 @@ namespace Bladiator.Weapons
 
 		private void OnHit(Collider other)
 		{
-			if (other.CompareTag("Player")) return;
+			if (!other.TryGetComponent(out EntityBase entity)) return;
 
 			if (m_Attack || m_SecondAttack)
 			{
-				try
-				{
-					EntityBase entity = other.GetComponent<EntityBase>();
+				if (other.CompareTag("Player"))
+					entity.Damage((int) Mathf.Floor(m_Weapon.WeaponObject.WeaponData.Damage / 2));
+				else
 					entity.Damage((int) m_Weapon.WeaponObject.WeaponData.Damage);
-					m_Weapon.HitParticle.Play();
-				}
-				catch (Exception exception)
-				{
-					Debug.Log("Object is not an entity");
-				}
+
+				m_Weapon.HitParticle.Play();
 			}
 		}
 
@@ -124,9 +131,9 @@ namespace Bladiator.Weapons
 					m_TargetPosition = position;
 				}
 
-				if (Vector3.Distance(transform.position, m_TargetPosition) > 0.5f)
+				if (Vector3.Distance(m_Root.position, m_TargetPosition) > 0.5f)
 				{
-					transform.position = Vector3.Lerp(transform.position,
+					m_Root.position = Vector3.Lerp(m_Root.position,
 						m_TargetPosition, m_Weapon.WeaponObject.WeaponData.AttackDragVelocity * Time.deltaTime);
 				}
 				else if (!m_SecondAttack)
@@ -147,18 +154,32 @@ namespace Bladiator.Weapons
 			{
 				if (!m_WaitSecondAttack)
 				{
-					transform.position = Vector3.Lerp(transform.position,
-						(playerPos + new Vector3(.75f, 0, .75f)),
-						m_Weapon.WeaponObject.WeaponData.AttackDragVelocity * Time.deltaTime);
+					m_Root.localPosition = Vector3.Lerp(m_Root.localPosition,
+						m_Offset, m_Weapon.WeaponObject.WeaponData.AttackDragVelocity * Time.deltaTime);
 				}
 			}
 		}
 
+
+		// TODO Lerp rotation
 		private void Rotate()
 		{
-			Vector3 direction = m_Weapon.Player.transform.position - transform.position;
-			direction.y = 0;
-			transform.rotation = Quaternion.LookRotation(direction);
+			if (!m_Attack && !m_SecondAttack && !m_WaitSecondAttack)
+			{
+				transform.localRotation = m_StartingRotation;
+				Vector3 direction = m_Weapon.Player.transform.position - MouseManager.Instance.RaycastMousePosition();
+				direction.y = 0;
+				Quaternion targetRotation = Quaternion.LookRotation(-direction, m_Weapon.Player.transform.up);
+				m_Center.rotation = Quaternion.Lerp(m_Center.rotation, targetRotation, m_RotationSpeed * Time.deltaTime);
+				return;
+			}
+
+			if (m_Attack || m_SecondAttack)
+			{
+				Vector3 direction = m_Weapon.Player.transform.position - m_TargetPosition;
+				direction.y = 0;
+				transform.rotation = Quaternion.LookRotation(direction, m_Weapon.Player.transform.up);
+			}
 		}
 	}
 }

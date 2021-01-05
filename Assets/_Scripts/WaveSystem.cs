@@ -20,6 +20,7 @@ namespace Bladiator
 		[SerializeField] private GameObject m_Enemy, m_MiniBoss, m_Boss;
 
 		private bool m_IsSpawning;
+		public bool IsSpawning => m_IsSpawning;
 
 		private int m_TargetSpawnAmount;
 		private int m_SpawnCount;
