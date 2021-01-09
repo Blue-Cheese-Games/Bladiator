@@ -59,14 +59,12 @@ namespace Bladiator.Managers
 		private void OnAllEnemiesDied()
 		{
 			UiManager.Instance.ShowWaveDone();
-			print("Enemies died");
 			ChangeState(GameState.Idle);
 		}
 
 		private void ChangeState(GameState state)
 		{
 			m_PreviousState = m_State;
-			print($"State changed to: {state.ToString()}");
 			m_State = state;
 			OnGameStateChange?.Invoke(state);
 		}

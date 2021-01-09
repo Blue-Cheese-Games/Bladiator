@@ -122,9 +122,9 @@ namespace Bladiator.Entities.Enemies
 				// -- Grouping --
 				case EnemyState.LOOKING_FOR_GROUP:
 					InitializeGroup();
-					m_Animator.Play("idle");
 					break;
 
+					m_Animator.Play("idle");
 				// -- Attacking --
 				case EnemyState.RECOVERING_FROM_ATTACK:
 					RecoverFromAttack();

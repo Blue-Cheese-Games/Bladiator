@@ -121,7 +121,6 @@ namespace Bladiator.Entities.Players
 				if (Vector3.Dot(selfForward, axis) < -0.5f)
 				{
 					// turn around.
-					print("dir");
 					m_Animator.SetBool("changeDirection", true);
 					m_Rig.velocity = Vector3.zero;
 					LockMovement();

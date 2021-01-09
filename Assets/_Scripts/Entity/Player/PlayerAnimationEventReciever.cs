@@ -10,7 +10,6 @@ public class PlayerAnimationEventReciever : MonoBehaviour
 
     public void FinishedTurnAround()
     {
-        print("finished turnaround");
         m_Player.UnlockMovement();
         m_Player.gameObject.transform.Rotate(0, 180, 0);
         m_Player.GetAnimator().SetBool("changeDirection", false);
