@@ -2,6 +2,7 @@ using System;
 using Bladiator.Entities.Enemies;
 using Bladiator.Managers;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Bladiator
 {
@@ -17,7 +18,9 @@ namespace Bladiator
 		[SerializeField] private int m_SpawnIncrease = 8;
 		[SerializeField] private Transform[] m_SpawnPoints;
 		[SerializeField] private Transform m_BossSpawnPoint;
-		[SerializeField] private GameObject m_Enemy, m_MiniBoss, m_Boss;
+		[SerializeField] private GameObject m_MiniBoss, m_Boss;
+
+		[SerializeField] private SpawnableEntities[] m_SpawnableEntities;
 
 		private bool m_IsSpawning;
 		public bool IsSpawning => m_IsSpawning;
@@ -86,10 +89,21 @@ namespace Bladiator
 						continue;
 					}
 
-					Enemy e = Instantiate(m_Enemy, m_SpawnPoints[i].position, m_SpawnPoints[i].rotation)
+					int index = -1;
+					while (index == -1)
+					{
+						index = Random.Range(0, m_SpawnableEntities.Length);
+						if (m_WaveCount < m_SpawnableEntities[index].m_WaveStartSpawning)
+						{
+							index = -1;
+						}
+					}
+					
+					Enemy e = Instantiate(m_SpawnableEntities[index].m_EnemyPrefab, m_SpawnPoints[i].position,
+							m_SpawnPoints[i].rotation)
 						.GetComponent<Enemy>();
-					e.SetState(EnemyState.MOVE_TOWARDS_PLAYER);
 
+					e.SetState(EnemyState.MOVE_TOWARDS_PLAYER);
 					m_SpawnCount++;
 				}
 
@@ -145,5 +159,24 @@ namespace Bladiator
 			}
 		}
 	#endif
+	}
+
+	[Serializable]
+	internal class SpawnableEntities
+	{
+		[Tooltip("Just a name for the inspector")]
+		public string m_EnemyName = "";
+		
+		[Tooltip("The enemy prefab that needs to be spawned")]
+		public GameObject m_EnemyPrefab;
+
+		[Tooltip("Which wave this entity needs to start spawning")]
+		public int m_WaveStartSpawning = 0;
+
+		// [Tooltip("Increase health after every x Waves")]
+		// public int m_IncreaseHealthAfterWaves = 1;
+		//
+		// [Tooltip("Health increase amount")]
+		// public int m_HealthIncrease = 0;
 	}
 }

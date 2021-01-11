@@ -6873,6 +6873,30 @@ PrefabInstance:
       propertyPath: m_SpawnPoints.Array.data[3]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_SpawnableEntities.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_SpawnableEntities.Array.data[0].m_EnemyName
+      value: Normal enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_SpawnableEntities.Array.data[1].m_EnemyName
+      value: Grenade Lobber
+      objectReference: {fileID: 0}
+    - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_SpawnableEntities.Array.data[0].m_EnemyPrefab
+      value: 
+      objectReference: {fileID: 7399407736380867222, guid: 02a09556495b91d449dcab55ffc3933d, type: 3}
+    - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_SpawnableEntities.Array.data[1].m_EnemyPrefab
+      value: 
+      objectReference: {fileID: 8482880652161202682, guid: 26135e92c5ba23b4bba16f86ba6f66b5, type: 3}
+    - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_SpawnableEntities.Array.data[1].m_WaveStartSpawning
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5184465393877325563, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
       propertyPath: m_Name
       value: _Scripts
