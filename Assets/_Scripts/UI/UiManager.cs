@@ -50,7 +50,6 @@ namespace Bladiator.UI
 
 				// Play the announcement
 				m_AnnouncementObject.Play("Wave_Announcement");
-				print("Animating...");
 			}
 			else if (obj == GameState.Idle)
 			{
@@ -60,8 +59,6 @@ namespace Bladiator.UI
 				m_FightObject.Play("Idle_State");
 				m_Idle.Play("Idle_State");
 
-				print("All animations set to idle");
-				
 				// Start the idle animator
 				m_Idle.Play("Idle");
 			} else if (obj == GameState.Pause)
