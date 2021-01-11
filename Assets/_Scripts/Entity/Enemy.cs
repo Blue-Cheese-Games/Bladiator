@@ -32,20 +32,20 @@ namespace Bladiator.Entities.Enemies
 		[Tooltip("The score to be added to the total score when this enemy dies.")]
 		[SerializeField] private int m_ScoreOnDeath;
 
-		private Animator m_Animator;
+		protected Animator m_Animator;
 		
 		// Attacks
-		private List<EnemyAttackBase> m_Attacks = new List<EnemyAttackBase>();
-		private float m_CurrentAttackRecoveryTime = 0f;
+		protected List<EnemyAttackBase> m_Attacks = new List<EnemyAttackBase>();
+		protected float m_CurrentAttackRecoveryTime = 0f;
 
 		// Components on the enemy.
-		private Player m_TargetPlayer = null;
+		protected Player m_TargetPlayer = null;
 		private Rigidbody m_RigidBody = null;
 		private PathFinder m_PathFinder = null;
 
 		private EnemyManager m_EnemyManager;
 
-		private EnemyState m_State = EnemyState.LOOKING_FOR_GROUP;
+		protected EnemyState m_State = EnemyState.LOOKING_FOR_GROUP;
 
 		// Grouping
 		private Vector3 m_GroupGatheringPoint = Vector3.zero;
@@ -92,7 +92,7 @@ namespace Bladiator.Entities.Enemies
 			GameManager.Instance.ResetEvent -= ResetEvent;
 		}
 
-		protected override void Update()
+		protected virtual void Update()
 		{
 			if (GameManager.Instance.GameState == GameState.Pause ||
 			    GameManager.Instance.GameState == GameState.Ending ||
@@ -279,7 +279,7 @@ namespace Bladiator.Entities.Enemies
 			LookAtTarget(m_TargetPlayer.transform.position);
 			MoveForward();
 
-			// Adjustment as the enemy can into an obstacle, and the the raycast won't detect the obstacle.
+			// Adjustment as the enemy can walk into an obstacle, and the the raycast won't detect the obstacle.
 			Vector3 adjustedPosition = transform.position - transform.forward * 0.3f;
 			if (CollisionCheck.CheckForCollision(adjustedPosition, m_TargetPlayer.transform.position,
 				PathingManager.Instance.GetIgnoreLayers()))

@@ -1,5 +1,7 @@
-﻿using Bladiator.Entities.Enemies;
+﻿using Bladiator.Collisions;
+using Bladiator.Entities.Enemies;
 using Bladiator.Entities.Players;
+using Bladiator.Pathing;
 using Bladiator.Projectiles;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using UnityEngine;
 
 namespace Bladiator.EnemyAttacks
 { 
-    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(Rigidbody), typeof(GrenadeLobber))]
     public class EnemyThrowGrenade : EnemyAttackBase
     {
         [Header("Objects")]
@@ -19,21 +21,51 @@ namespace Bladiator.EnemyAttacks
         [Tooltip("After how long will the grenade be able to explode?")]
         [SerializeField] private float m_GrenadeArmDelay = 0.5f;
 
+        [Tooltip("The delay for the grenade to explode and the enemy to notice it has exploded (when the enemy notices the grenade exploding, it will move towards the player again)")]
+        [SerializeField] private float m_DelayInOnExploded = 1;
+
         protected override void Activate(Enemy enemy, Player target)
         {
-            Vector3 spawnPos = enemy.transform.position + Vector3.up * ((enemy.GetComponent<Collider>().bounds.extents.y) + 0.1f);
+            GrenadeLobber grenadeLobber = (GrenadeLobber)enemy;
+
+            Vector3 spawnPos = grenadeLobber.transform.position + Vector3.up * ((grenadeLobber.GetComponent<Collider>().bounds.extents.y) + 0.1f);
 
             Grenade grenade = Instantiate(m_GrenadePrefab, spawnPos, Quaternion.identity).GetComponent<Grenade>();
 
             grenade.Initialize(GetStats().Damage, GetStats().Knockback, GetStats().KnockbackDuration, m_GrenadeAoERange, m_GrenadeArmDelay);
 
-            Launch(grenade.GetComponent<Rigidbody>(), target.transform.position - Vector3.down * 0.3f, 100);
+            grenade.SubscribeToOnExplode(() => { StartCoroutine(OnGrenadeExploded(grenadeLobber, m_DelayInOnExploded)); });
+            grenadeLobber.SetThrownGrenade(grenade);
+
+            // Check if there is an obstacle between the lobber and it's target.
+            if(!CollisionCheck.CheckForCollision(grenade.transform.position, target.transform.position, PathingManager.Instance.GetIgnoreLayers()))
+            {
+                // There are no obstacles.
+
+                // Launch the grenade normally.
+                Launch(grenade.GetComponent<Rigidbody>(), target.transform.position - Vector3.down * 0.3f, 100);
+            }
+            else
+            {
+                // There is an obstacle inbetween the Lobber and the Player.
+
+                // Launch the grenade extra high.
+                Launch(grenade.GetComponent<Rigidbody>(), target.transform.position - Vector3.down * 0.3f, 100, LobDurationMode.OBSTACLE_INBETWEEN);
+            }
+        }
+
+        private IEnumerator OnGrenadeExploded(GrenadeLobber grenadeLobber, float delayInActivation)
+        {
+            yield return new WaitForSeconds(delayInActivation);
+
+            grenadeLobber?.SetExtraState(GrenadeLobberExtraState.MOVE_TOWARDS_PLAYER); 
+            grenadeLobber.SetThrownGrenade(null);
         }
 
         // Method for getting an arch from position to target from:
         // https://gamedev.stackexchange.com/questions/114522/how-can-i-launch-a-gameobject-at-a-target-if-i-am-given-everything-except-for-it
         // By: DMGregory - https://gamedev.stackexchange.com/users/39518/dmgregory
-        private void Launch(Rigidbody objectToLaunch, Vector3 target, float speed)
+        private void Launch(Rigidbody objectToLaunch, Vector3 target, float speed, LobDurationMode mode = LobDurationMode.NORMAL)
         {
             Vector3 toTarget = target - transform.position;
 
@@ -60,13 +92,24 @@ namespace Bladiator.EnemyAttacks
             // Lowest-speed arc available:
             float T_lowEnergy = Mathf.Sqrt(Mathf.Sqrt(toTarget.sqrMagnitude * 4f / gSquared));
 
-            float T = T_lowEnergy;// choose T_max, T_min, or some T in-between like T_lowEnergy
+            // choose T_max, T_min, or some T in-between like T_lowEnergy
+            float T = T_lowEnergy;
+
+            if(mode == LobDurationMode.OBSTACLE_INBETWEEN) { 
+                T = T_min + (T_max / 10); 
+            }
 
             // Convert from time-to-hit to a launch velocity:
             Vector3 velocity = toTarget / T - Physics.gravity * T / 2f;
 
             // Apply the calculated velocity (do not use force, acceleration, or impulse modes)
             objectToLaunch.AddForce(velocity, ForceMode.VelocityChange);
+        }
+
+        private enum LobDurationMode
+        {
+            NORMAL,
+            OBSTACLE_INBETWEEN
         }
     }
 }

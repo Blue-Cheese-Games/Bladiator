@@ -15,4 +15,4 @@ MonoBehaviour:
   Damage: 1
   Knockback: 15
   KnockbackDuration: 0.6
-  RecoveryTime: 2.5
+  RecoveryTime: 0.1

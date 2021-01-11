@@ -1,4 +1,5 @@
 ﻿using Bladiator.Entities;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ namespace Bladiator.Projectiles
 {
     public class Grenade : MonoBehaviour
     {
+        private Action OnExplode;
+
         [Header("Stats")]
         [Header("Stats are overwritten by the Initialize method if passed.")]
 
@@ -86,7 +89,14 @@ namespace Bladiator.Projectiles
                 entity.Knockback(direction.normalized * m_Knockback, m_KnockbackDuration);
             }
 
+            OnExplode?.Invoke();
+
             Destroy(gameObject);
+        }
+
+        public void SubscribeToOnExplode(Action listener)
+        {
+            OnExplode += listener;
         }
     }
 }
