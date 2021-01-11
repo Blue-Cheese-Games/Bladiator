@@ -109,7 +109,7 @@ namespace Bladiator.Managers.EnemyManager
 			{
 				m_ActiveEnemies.Remove(enemy);
 
-				if (m_ActiveEnemies.Count <= 0) OnAllEnemiesDied?.Invoke();
+				if (m_ActiveEnemies.Count <= 0 && !WaveSystem.Instance.IsSpawning) OnAllEnemiesDied?.Invoke();
 			}
 		}
 
