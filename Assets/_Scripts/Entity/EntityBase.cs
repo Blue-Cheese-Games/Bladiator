@@ -16,6 +16,7 @@ namespace Bladiator.Entities
 
         [SerializeField] protected float m_Movespeed = 5f;
 
+        public float CurrentHealth => m_Health;
         public float Maxhealth => m_Maxhealth; 
 
         protected virtual void Awake()
