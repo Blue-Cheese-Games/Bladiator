@@ -13,8 +13,8 @@ namespace Bladiator.UI
 		private Slider m_HealthBar;
 
 		private float m_CurrentHealth;
-		private float m_TargetHealth;
-		private float m_MaxHealth;
+		private int m_TargetHealth;
+		private int m_MaxHealth;
 		
 		private void Start()
 		{

@@ -98,7 +98,7 @@ namespace Bladiator.Entities.Players
 
 		private void InputHandle()
 		{
-			if (GameManager.Instance.GameState == GameState.Ending || GetComponent<EntityBase>().CurrentHealth <= 0) return;
+			if (GameManager.Instance.GameState == GameState.MainMenu || GetComponent<EntityBase>().CurrentHealth <= 0) return;
 			
 			float horizontalAxis = Input.GetAxisRaw("Horizontal");
 			float verticalAxis = Input.GetAxisRaw("Vertical");

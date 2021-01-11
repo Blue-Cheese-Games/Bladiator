@@ -11,13 +11,13 @@ namespace Bladiator.Entities
         public Action<int> OnDamage;
         public Action<EntityBase> OnDeath;
 
-        [SerializeField] protected float m_Maxhealth = 10f;
-        [SerializeField] protected float m_Health = 10f;
+        [SerializeField] protected int m_Maxhealth = 10;
+        [SerializeField] protected int m_Health = 10;
 
         [SerializeField] protected float m_Movespeed = 5f;
 
-        public float CurrentHealth => m_Health;
-        public float Maxhealth => m_Maxhealth; 
+        public int CurrentHealth => m_Health;
+        public int Maxhealth => m_Maxhealth; 
 
         protected virtual void Awake()
         {
