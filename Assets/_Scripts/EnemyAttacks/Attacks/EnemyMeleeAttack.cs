@@ -9,16 +9,25 @@ namespace Bladiator.EnemyAttacks
 {
     public class EnemyMeleeAttack : EnemyAttackBase
     {
+        private Player m_Player;
+        
         // Override "Activate" to do a melee attack.
         protected override void Activate(Enemy enemy, Player player)
         {
+            enemy.Animator.Play("Attack");
+
+            m_Player = player;
+        }
+
+        public void DoAttack()
+        {
             // Damage the player.
-            player.Damage(GetStats().Damage);
+            m_Player.Damage(GetStats().Damage);
 
             // push the player back with knockback.
-            Vector3 direction = player.transform.position - transform.position;
+            Vector3 direction = m_Player.transform.position - transform.position;
             direction.y = 0;
-            player.Knockback(direction.normalized * GetStats().Knockback, GetStats().KnockbackDuration);
+            m_Player.Knockback(direction.normalized * GetStats().Knockback, GetStats().KnockbackDuration);
         }
     }
 }
