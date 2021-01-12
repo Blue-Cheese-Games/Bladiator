@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using _Scripts;
 using Bladiator.Managers;
+using Bladiator.Settings;
 using UnityEngine;
 
 namespace Bladiator.Sound
@@ -52,14 +54,14 @@ namespace Bladiator.Sound
 				case GameState.Fighting:
 					if (m_LastState == GameState.Pause)
 					{
-						m_Current.source.volume = 1;
+						m_Current.source.volume = BladiatorSettings.Instance.Settings.Volume;
 					}
 					break;
 
 				case GameState.Pause:
 					if (m_Current == null) return;
 
-					m_Current.source.volume = 0.25f;
+					m_Current.source.volume = BladiatorSettings.Instance.Settings.Volume / 4;
 					break;
 			}
 
@@ -85,7 +87,7 @@ namespace Bladiator.Sound
 						m_CrossFade.source.Play();
 				}
 
-				if (Mathf.Abs(m_CrossFade.source.volume) < 1)
+				if (Mathf.Abs(m_CrossFade.source.volume) < BladiatorSettings.Instance.Settings.Volume)
 				{
 					m_CrossFade.source.volume += Time.deltaTime * m_FadeSpeed;
 
