@@ -48,17 +48,6 @@ namespace Bladiator.Managers
             ChangeCursorLockMode(m_CursorLockMode);
         }
 
-        private void Update()
-        {
-            // Change the lock mode of the cursor
-            if (Input.GetKeyDown(m_ToggleCursorLockMode))
-            {
-                ChangeCursorLockMode(m_CursorLockMode == CursorLockMode.None
-                    ? CursorLockMode.Locked
-                    : CursorLockMode.None);
-            }
-        }
-
         /// <summary>
         /// Set the lock mode of the cursor
         /// </summary>

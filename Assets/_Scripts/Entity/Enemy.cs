@@ -33,10 +33,14 @@ namespace Bladiator.Entities.Enemies
 		[SerializeField] private int m_ScoreOnDeath;
 
 		protected Animator m_Animator;
+
+		public Animator Animator => m_Animator;
 		
 		// Attacks
-		// DEBUG: Serializefield
-		[SerializeField] protected List<EnemyAttackBase> m_Attacks = new List<EnemyAttackBase>();
+		protected List<EnemyAttackBase> m_Attacks = new List<EnemyAttackBase>();
+
+		public List<EnemyAttackBase> Attacks => m_Attacks;
+		
 		protected float m_CurrentAttackRecoveryTime = 0f;
 
 		// Components on the enemy.
@@ -133,7 +137,6 @@ namespace Bladiator.Entities.Enemies
 				// -- Attacking --
 				case EnemyState.RECOVERING_FROM_ATTACK:
 					RecoverFromAttack();
-					m_Animator.Play("idle");
 					break;
 			}
 
