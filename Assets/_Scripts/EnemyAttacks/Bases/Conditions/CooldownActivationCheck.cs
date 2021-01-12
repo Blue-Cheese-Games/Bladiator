@@ -1,4 +1,8 @@
-﻿using Bladiator.Entities.Players;
+﻿using Bladiator.Entities;
+using Bladiator.Entities.Enemies;
+using Bladiator.Entities.Players;
+using Bladiator.Managers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,25 +18,33 @@ namespace Bladiator.EnemyAttacks
 
         public bool m_StartAvaiable = true;
 
-        private float m_LastUseTimeStamp = 0f;
+        // DEBUG: Serializefield
+        [SerializeField] private List<EnemyCooldownReference> m_cooldownReferences = new List<EnemyCooldownReference>();
 
-        public override void Initialize(EnemyAttackBase attack)
+        public override void Initialize(EnemyAttackBase attack, Enemy enemy)
         {
-            if (m_StartAvaiable)
-            {
-                m_LastUseTimeStamp = -m_Cooldown;
-            }
-            else
-            {
-                m_LastUseTimeStamp = 0;
-            }
-
             attack.OnActivate += OnActivate;
+            
+            enemy.OnDeath += DeleteEnemyFromListing;
+            EnemyCooldownReference enemyCooldownReference = new EnemyCooldownReference()
+            {
+                Enemy = enemy,
+                LastUseTimeStamp = m_StartAvaiable ? -m_Cooldown : 0
+            };
+
+            m_cooldownReferences.Add(enemyCooldownReference);
+
+            GameManager.Instance.ResetEvent -= Clear;
+            GameManager.Instance.ResetEvent += Clear;
+
+            GameManager.Instance.OnApplicationQuitEvent -= Clear;
+            GameManager.Instance.OnApplicationQuitEvent += Clear;
         }
 
-        public override bool CheckCondition(EnemyAttackBase attack, Player targetPlayer)
+        public override bool CheckCondition(EnemyAttackBase attack, Enemy enemy, Player targetPlayer)
         {
-            if ((m_LastUseTimeStamp + m_Cooldown) < Time.time)
+            EnemyCooldownReference cooldownReference = m_cooldownReferences.Find(r => r.Enemy == enemy);
+            if ((cooldownReference.LastUseTimeStamp + m_Cooldown) < Time.time)
             {
                 return true;
             }
@@ -40,9 +52,26 @@ namespace Bladiator.EnemyAttacks
             return false;
         }
 
-        public void OnActivate()
+        public void OnActivate(Enemy enemy)
         {
-            m_LastUseTimeStamp = Time.time;
+            m_cooldownReferences.Find(r => r.Enemy == enemy).LastUseTimeStamp = Time.time;
         }
+
+        public void DeleteEnemyFromListing(EntityBase enemy)
+        {
+            m_cooldownReferences.Remove(m_cooldownReferences.Find(c => c.Enemy == enemy));
+        }
+
+        public void Clear()
+        {
+            m_cooldownReferences.Clear();
+        }
+    }
+
+    [Serializable]
+    public class EnemyCooldownReference
+    {
+        public Enemy Enemy;
+        public float LastUseTimeStamp;
     }
 }

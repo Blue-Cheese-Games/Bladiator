@@ -11,6 +11,12 @@ namespace Bladiator.Entities.Enemies
 {
     public class GrenadeLobber : Enemy
     {
+		[Tooltip("If the enemy gets this close to the player, it will walk away from the player.")]
+		[SerializeField] private float m_MinimalDistanceToPlayer = 8;
+
+		[Tooltip("How far away from the target player can this enemy move before it walks towards the player again.")]
+		[SerializeField] private float m_MaximumDistanceFromPlayer = 14;
+
 		private GrenadeLobberExtraState m_ExtraState = GrenadeLobberExtraState.MOVE_TOWARDS_PLAYER;
 
 		private Grenade m_ThrownGrenade;
@@ -18,11 +24,7 @@ namespace Bladiator.Entities.Enemies
 		private Vector3 m_MoveAwayFromGrenadeTarget;
 		private Vector3 m_MoveAwayFromPlayerTarget;
 
-		[Tooltip("If the enemy gets this close to the player, it will walk away from the player.")]
-		[SerializeField] private float m_MinimalDistanceToPlayer = 8;
-
-		[Tooltip("How far away from the target player can this enemy move before it walks towards the player again.")]
-		[SerializeField] private float m_MaximumDistanceFromPlayer = 14;
+		private bool m_EnableSpecialMovement = false;
 
 		protected override void Update()
 		{
@@ -69,6 +71,12 @@ namespace Bladiator.Entities.Enemies
 
 		protected override void MoveTowardsPlayer()
 		{
+			if (!m_EnableSpecialMovement)
+			{
+				base.MoveTowardsPlayer();
+				return;
+			}
+
 			Vector3 target = GetTarget();
 
 			if (Vector3.Distance(transform.position, target) < 0.05f)
@@ -108,6 +116,7 @@ namespace Bladiator.Entities.Enemies
 					// Overrides:
 					// Set the extra state to move away from the grenade.
 					SetExtraState(GrenadeLobberExtraState.MOVE_AWAY_FROM_GRENADE);
+					m_EnableSpecialMovement = true;
 				}
 			}
 		}
@@ -162,7 +171,10 @@ namespace Bladiator.Entities.Enemies
 
 			RaycastHit hit;
 			Ray r = new Ray(from, direction);
-			Physics.Raycast(r, out hit, 100, ~PathingManager.Instance.GetIgnoreLayers());
+
+			LayerMask mask = ~(PathingManager.Instance.GetIgnoreLayers() - LayerMask.GetMask("Player_Only"));
+
+			Physics.Raycast(r, out hit, 10, mask);
 
 			return r.GetPoint(hit.distance - 0.5f);
 		}

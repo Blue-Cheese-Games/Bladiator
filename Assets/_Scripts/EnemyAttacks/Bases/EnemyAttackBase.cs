@@ -8,19 +8,13 @@ using UnityEngine;
 public class EnemyAttackBase : MonoBehaviour
 {
     public System.Action OnUpdate;
-    public System.Action OnActivate;
+    public System.Action<Enemy> OnActivate;
 
     // The reference to the EnemyAttackStats object for this attack.
     [SerializeField] private EnemyAttackStats m_Stats;
 
     // The list containing all the activation conditions for this attack.
     [SerializeField] protected List<BaseActivationCondition> m_ActivationConditions = new List<BaseActivationCondition>();
-
-
-    private void Awake()
-    {
-        InitializeConditions();
-    }
 
     private void Update()
     {
@@ -37,7 +31,7 @@ public class EnemyAttackBase : MonoBehaviour
         foreach (BaseActivationCondition condition in m_ActivationConditions)
         {
             // Check if every condition has been met.
-            if (!condition.CheckCondition(this, player))
+            if (!condition.CheckCondition(this, enemy, player))
             {
                 // A condition has not been met, don't activate the attack.
                 return false;
@@ -45,7 +39,7 @@ public class EnemyAttackBase : MonoBehaviour
         }
 
         Activate(enemy, player);
-        OnActivate?.Invoke();
+        OnActivate?.Invoke(enemy);
 
         return true;
     }
@@ -55,11 +49,11 @@ public class EnemyAttackBase : MonoBehaviour
         return m_Stats;
     }
 
-    private void InitializeConditions()
+    public void InitializeConditions(Enemy enemy)
     {
         foreach (BaseActivationCondition con in m_ActivationConditions)
         {
-            con.Initialize(this);
+            con.Initialize(this, enemy);
         }
     }
 

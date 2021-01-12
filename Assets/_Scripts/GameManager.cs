@@ -25,6 +25,7 @@ namespace Bladiator.Managers
 
 		public Action<GameState> OnGameStateChange;
 		public Action ResetEvent;
+		public Action OnApplicationQuitEvent;
 
 		[SerializeField] private GameState m_State;
 
@@ -54,6 +55,11 @@ namespace Bladiator.Managers
 		{
 			if (Input.GetKeyDown(KeyCode.Space) && m_State == GameState.Idle) ChangeState(GameState.Animating);
 			if (Input.GetKeyDown(KeyCode.Escape) && m_State != GameState.MainMenu) PauseGame();
+		}
+
+		private void OnApplicationQuit()
+		{
+			OnApplicationQuitEvent?.Invoke();
 		}
 
 		private void OnAllEnemiesDied()
@@ -126,6 +132,11 @@ namespace Bladiator.Managers
 		public void AnimationDone()
 		{
 			ChangeState(GameState.Fighting);
+		}
+
+		public void SubsribeToOnApplicationQuit(Action method)
+		{
+			OnApplicationQuitEvent += method;
 		}
 	}
 }

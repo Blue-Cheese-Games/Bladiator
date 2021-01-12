@@ -61,7 +61,7 @@ namespace Bladiator.Projectiles
         {
             Explode();
         }
-
+        
         private void Explode()
         {
             if (m_ArmDelay > 0) { return; }
@@ -73,6 +73,11 @@ namespace Bladiator.Projectiles
             foreach(Collider coll in colls)
             {
                 EntityBase eb = coll.gameObject.GetComponent<EntityBase>();
+                if (eb == null)
+                {
+                    eb = coll.gameObject.GetComponentInParent<EntityBase>();
+                }
+
                 if (eb != null)
                 {
                     hitEntities.Add(eb);

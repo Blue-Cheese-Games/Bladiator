@@ -1,4 +1,5 @@
 ﻿using Bladiator.EnemyAttacks;
+using Bladiator.Entities.Enemies;
 using Bladiator.Entities.Players;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace Bladiator.EnemyAttacks
         [Tooltip("From how far away can the attack activate?")]
         public float m_Distance = 2f;
 
-        public override bool CheckCondition(EnemyAttackBase attack, Player targetPlayer)
+        public override bool CheckCondition(EnemyAttackBase attack, Enemy enemy, Player targetPlayer)
         {
             if (Vector3.Distance(attack.transform.position, targetPlayer.transform.position) <= m_Distance)
             {

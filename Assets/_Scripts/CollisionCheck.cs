@@ -34,6 +34,30 @@ namespace Bladiator.Collisions
 
             return false;
         }
+
+        /// <summary>
+        /// Check if the line of sight "self" to "to" doesn't collide with anything (true = collision, false = no collision).
+        /// </summary>
+        /// <returns>true = collision, false = no collision</returns>
+        public static Collider[] CheckForCollisionObjects(Vector3 self, Vector3 to, LayerMask ignoredCollisionCheckLayers = new LayerMask())
+        {
+            RaycastHit[] hits;
+
+            Vector3 direction = to - self;
+
+            float distanceBetweenToAndFrom = Vector3.Distance(to, self);
+
+            hits = Physics.RaycastAll(self, direction, distanceBetweenToAndFrom, ~ignoredCollisionCheckLayers);
+
+            Collider[] objs = new Collider[hits.Length];
+
+            for (int i = 0; i < hits.Length; i++)
+            {
+                objs[i] = hits[i].collider;
+            }
+
+            return objs;
+        }
         #endregion
     }
 }

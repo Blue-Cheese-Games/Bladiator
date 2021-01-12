@@ -35,7 +35,8 @@ namespace Bladiator.Entities.Enemies
 		protected Animator m_Animator;
 		
 		// Attacks
-		protected List<EnemyAttackBase> m_Attacks = new List<EnemyAttackBase>();
+		// DEBUG: Serializefield
+		[SerializeField] protected List<EnemyAttackBase> m_Attacks = new List<EnemyAttackBase>();
 		protected float m_CurrentAttackRecoveryTime = 0f;
 
 		// Components on the enemy.
@@ -72,12 +73,16 @@ namespace Bladiator.Entities.Enemies
 			m_EnemyManager = EnemyManager.Instance;
 			m_EnemyManager.AddEnemy(this);
 
-			// Get all the attacks from the "m_AttacksParent" object.
-			m_AttacksParent.GetComponentsInChildren<EnemyAttackBase>(m_Attacks);
-
 			FindNearsestPlayerAndSetAsTarget();
 
 			m_Animator = GetComponentInChildren<Animator>();
+
+			// Get all the attacks from the "m_AttacksParent" object.
+			m_AttacksParent.GetComponentsInChildren<EnemyAttackBase>(m_Attacks);
+			foreach (EnemyAttackBase attack in m_Attacks)
+			{
+				attack.InitializeConditions(this);
+			}
 
 			GameManager.Instance.ResetEvent += ResetEvent;
 		}

@@ -45,12 +45,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Stats: {fileID: 11400000, guid: 65f5f58bb0877024683bc7767a690319, type: 2}
   m_ActivationConditions:
-  - {fileID: 11400000, guid: ba96c547a4107ed45b53dffb04aadd77, type: 2}
+  - {fileID: 11400000, guid: 435d9ecd15398a646b999d3bec5958a4, type: 2}
   - {fileID: 11400000, guid: 15b447b32e73ba3499be9eadee53bfd9, type: 2}
+  - {fileID: 11400000, guid: b3a9c6bec8531664b9cd1885abc0f623, type: 2}
   m_GrenadePrefab: {fileID: 5746351300740725109, guid: f5af306758ec7224fb6935f46d8a863e, type: 3}
   m_GrenadeAoERange: 3
   m_GrenadeArmDelay: 0.5
-  m_DelayInOnExploded: 0.5
+  m_DelayInOnExploded: 1
 --- !u!1 &8482880652161202682
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +201,8 @@ MonoBehaviour:
   m_AttacksParent: {fileID: 1375503493596636038}
   m_ReroutePathInterval: 1
   m_ScoreOnDeath: 2
-  m_MinimalDistanceToPlayer: 8
+  m_Attacks: []
+  m_MinimalDistanceToPlayer: 6
   m_MaximumDistanceFromPlayer: 15
 --- !u!1 &8482880652519172643
 GameObject:
