@@ -21,17 +21,6 @@ namespace Bladiator.EnemyAttacks
 
         public void DoAttack()
         {
-            // Check every activation condition.
-            foreach (BaseActivationCondition condition in m_ActivationConditions)
-            {
-                // Check if every condition has been met.
-                if (!condition.CheckCondition(this, m_Player))
-                {
-                    // A condition has not been met, don't activate the attack.
-                    return;
-                }
-            }
-            
             // Damage the player.
             m_Player.Damage(GetStats().Damage);
 
