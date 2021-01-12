@@ -60,6 +60,25 @@ namespace Bladiator
 
 		void Update()
 		{
+		#if UNITY_EDITOR
+			if (Input.GetKey(KeyCode.LeftControl) &&
+			    (Input.GetKeyDown(KeyCode.Plus) || Input.GetKeyDown(KeyCode.KeypadPlus)))
+			{
+				m_WaveCount++;
+				print($"Current Wave: {m_WaveCount}");
+			}
+
+			if (Input.GetKey(KeyCode.LeftControl) &&
+			    (Input.GetKeyDown(KeyCode.Minus) || Input.GetKeyDown(KeyCode.KeypadMinus)))
+			{
+				if (m_WaveCount - 1 > 0)
+				{
+					m_WaveCount--;
+					print($"Current Wave: {m_WaveCount}");
+				}
+			}
+		#endif
+
 			if (!m_IsSpawning || GameManager.Instance.GameState == GameState.Pause ||
 			    GameManager.Instance.GameState == GameState.Ending ||
 			    GameManager.Instance.GameState == GameState.PlayersDied) return;
@@ -98,7 +117,7 @@ namespace Bladiator
 							index = -1;
 						}
 					}
-					
+
 					Enemy e = Instantiate(m_SpawnableEntities[index].m_EnemyPrefab, m_SpawnPoints[i].position,
 							m_SpawnPoints[i].rotation)
 						.GetComponent<Enemy>();
@@ -133,7 +152,7 @@ namespace Bladiator
 
 		public void StartSpawn()
 		{
-			m_TargetSpawnAmount += m_SpawnIncrease;
+			m_TargetSpawnAmount = m_SpawnIncrease * m_WaveCount;
 
 			OnNextWave?.Invoke(m_WaveCount);
 			OnSpawnStarted?.Invoke();
@@ -166,7 +185,7 @@ namespace Bladiator
 	{
 		[Tooltip("Just a name for the inspector")]
 		public string m_EnemyName = "";
-		
+
 		[Tooltip("The enemy prefab that needs to be spawned")]
 		public GameObject m_EnemyPrefab;
 
