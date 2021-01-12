@@ -1,0 +1,3022 @@
+fileFormatVersion: 2
+guid: ebd1fc5991edaed418a18d34b79370be
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1624943003182368316
+    second: Froth_00000
+  - first:
+      213: 5268184843804265990
+    second: Froth_00001
+  - first:
+      213: -2621778468484473385
+    second: Froth_00002
+  - first:
+      213: 5915805575165577940
+    second: Froth_00003
+  - first:
+      213: -876812565969968933
+    second: Froth_00004
+  - first:
+      213: 2875003623390267329
+    second: Froth_00005
+  - first:
+      213: -7116190491019600185
+    second: Froth_00006
+  - first:
+      213: 5835686933291895699
+    second: Froth_00007
+  - first:
+      213: -1198242657414884948
+    second: Froth_00008
+  - first:
+      213: -3369147244069830969
+    second: Froth_00009
+  - first:
+      213: -7786603740436232948
+    second: Froth_00010
+  - first:
+      213: 6024560153605166943
+    second: Froth_00011
+  - first:
+      213: -6731083121850704472
+    second: Froth_00012
+  - first:
+      213: -5556873001367526242
+    second: Froth_00013
+  - first:
+      213: -6673123985988532228
+    second: Froth_00014
+  - first:
+      213: -4617826713206376479
+    second: Froth_00015
+  - first:
+      213: -4258933521647484939
+    second: Froth_00016
+  - first:
+      213: -6789146317496088485
+    second: Froth_00017
+  - first:
+      213: -1665474859722369902
+    second: Froth_00018
+  - first:
+      213: 8291049975342775523
+    second: Froth_00019
+  - first:
+      213: -7298547834230212628
+    second: Froth_00020
+  - first:
+      213: -6280956361835494224
+    second: Froth_00021
+  - first:
+      213: 2471487906316013659
+    second: Froth_00022
+  - first:
+      213: 7660852937711364178
+    second: Froth_00023
+  - first:
+      213: -8828741847528358989
+    second: Froth_00024
+  - first:
+      213: -5708739342996934311
+    second: Froth_00025
+  - first:
+      213: 8681415379215790470
+    second: Froth_00026
+  - first:
+      213: -7238459652265174673
+    second: Froth_00027
+  - first:
+      213: -3843857461599207591
+    second: Froth_00028
+  - first:
+      213: 3461302276570818404
+    second: Froth_00029
+  - first:
+      213: -3345577832979207862
+    second: Froth_00030
+  - first:
+      213: 2218597796567905237
+    second: Froth_00031
+  - first:
+      213: 832548377192368593
+    second: Froth_00032
+  - first:
+      213: -5048693384665499733
+    second: Froth_00033
+  - first:
+      213: -2339024717836866097
+    second: Froth_00034
+  - first:
+      213: -7590462325397650133
+    second: Froth_00035
+  - first:
+      213: -4910701699115808139
+    second: Froth_00036
+  - first:
+      213: 8093358909093978573
+    second: Froth_00037
+  - first:
+      213: -2902415302352689485
+    second: Froth_00038
+  - first:
+      213: -6425976937772136566
+    second: Froth_00039
+  - first:
+      213: 4983455771318734501
+    second: Froth_00040
+  - first:
+      213: 2366486152539357615
+    second: Froth_00041
+  - first:
+      213: 6048135147401096866
+    second: Froth_00042
+  - first:
+      213: -1692962779308550268
+    second: Froth_00043
+  - first:
+      213: -5929599647163137787
+    second: Froth_00044
+  - first:
+      213: 2075405686208739368
+    second: Froth_00045
+  - first:
+      213: 4635336351949203782
+    second: Froth_00046
+  - first:
+      213: 3888004832657798508
+    second: Froth_00047
+  - first:
+      213: -2346176166210619325
+    second: Froth_00048
+  - first:
+      213: -6514047992601892916
+    second: Froth_00049
+  - first:
+      213: 1456058122590513924
+    second: Froth_00050
+  - first:
+      213: -1111826744460656603
+    second: Froth_00051
+  - first:
+      213: 5860683558570284255
+    second: Froth_00052
+  - first:
+      213: 4003165787564189311
+    second: Froth_00053
+  - first:
+      213: -7030928027331399463
+    second: Froth_00054
+  - first:
+      213: 4736056859536742821
+    second: Froth_00055
+  - first:
+      213: -1742173766297686675
+    second: Froth_00056
+  - first:
+      213: 4852342125112882894
+    second: Froth_00057
+  - first:
+      213: 7625469568832699171
+    second: Froth_00058
+  - first:
+      213: 5274864566145914101
+    second: Froth_00059
+  - first:
+      213: 448591721087826599
+    second: Froth_00060
+  - first:
+      213: 3588323634407463744
+    second: Froth_00061
+  - first:
+      213: 1462010125905457554
+    second: Froth_00062
+  - first:
+      213: 4709211378321380884
+    second: Froth_00063
+  - first:
+      213: 6170453424837513060
+    second: Froth_00064
+  - first:
+      213: 8060823475259335992
+    second: Froth_00065
+  - first:
+      213: 5188284591021034746
+    second: Froth_00066
+  - first:
+      213: -7400817563774144388
+    second: Froth_00067
+  - first:
+      213: 444956947572902470
+    second: Froth_00068
+  - first:
+      213: 6241801182679512251
+    second: Froth_00069
+  - first:
+      213: 2451711945836969952
+    second: Froth_00070
+  - first:
+      213: -5239377989192788823
+    second: Froth_00071
+  - first:
+      213: -4626267606341895762
+    second: Froth_00072
+  - first:
+      213: -8764799806567909735
+    second: Froth_00073
+  - first:
+      213: -3086912948771697366
+    second: Froth_00074
+  - first:
+      213: 7100039590864753074
+    second: Froth_00075
+  - first:
+      213: 7416789505476504596
+    second: Froth_00076
+  - first:
+      213: -2991942667120484907
+    second: Froth_00077
+  - first:
+      213: 5183763804129914593
+    second: Froth_00078
+  - first:
+      213: 8712808581386552824
+    second: Froth_00079
+  - first:
+      213: -270701568175594663
+    second: Froth_00080
+  - first:
+      213: -4421702326807833760
+    second: Froth_00081
+  - first:
+      213: 6025861532210550132
+    second: Froth_00082
+  - first:
+      213: 4365149468078109480
+    second: Froth_00083
+  - first:
+      213: -2960463295831852355
+    second: Froth_00084
+  - first:
+      213: 3527428988041178006
+    second: Froth_00085
+  - first:
+      213: -7064316799841950284
+    second: Froth_00086
+  - first:
+      213: -1585097528990067748
+    second: Froth_00087
+  - first:
+      213: -3748448998780732555
+    second: Froth_00088
+  - first:
+      213: 8660304562277937528
+    second: Froth_00089
+  - first:
+      213: -4883042836519651286
+    second: Froth_00090
+  - first:
+      213: -11068144050873692
+    second: Froth_00091
+  - first:
+      213: 8511128181650750960
+    second: Froth_00092
+  - first:
+      213: -4812599356709230261
+    second: Froth_00093
+  - first:
+      213: -6424141313583848225
+    second: Froth_00094
+  - first:
+      213: -218448707865428636
+    second: Froth_00095
+  - first:
+      213: -6170951731596845670
+    second: Froth_00096
+  - first:
+      213: 8707360631806461609
+    second: Froth_00097
+  - first:
+      213: -6269272000757314121
+    second: Froth_00098
+  - first:
+      213: 7439253430721782989
+    second: Froth_00099
+  - first:
+      213: 5063720995445659161
+    second: Froth_00100
+  - first:
+      213: -6347758908502797712
+    second: Froth_00101
+  - first:
+      213: 2577840544474423906
+    second: Froth_00102
+  - first:
+      213: -2026369898617622760
+    second: Froth_00103
+  - first:
+      213: 3497943607153038072
+    second: Froth_00104
+  - first:
+      213: 8178376466366791617
+    second: Froth_00105
+  - first:
+      213: -2093975500857032851
+    second: Froth_00106
+  - first:
+      213: 74924570910668438
+    second: Froth_00107
+  - first:
+      213: 4300762841802377024
+    second: Froth_00108
+  - first:
+      213: 8174174696842208837
+    second: Froth_00109
+  - first:
+      213: -3346270929516297204
+    second: Froth_00110
+  - first:
+      213: -2186989334464313539
+    second: Froth_00111
+  - first:
+      213: -3069350703058437854
+    second: Froth_00112
+  - first:
+      213: -6618254811771825472
+    second: Froth_00113
+  - first:
+      213: -6718248195151850567
+    second: Froth_00114
+  - first:
+      213: 8481405489000379248
+    second: Froth_00115
+  - first:
+      213: -673249587363002670
+    second: Froth_00116
+  - first:
+      213: -2595344828999223061
+    second: Froth_00117
+  - first:
+      213: -2867955355276984390
+    second: Froth_00118
+  - first:
+      213: -8484945486446533537
+    second: Froth_00119
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: 2
+    mipBias: -100
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 1
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Froth_00000
+      rect:
+        serializedVersion: 2
+        x: 1819
+        y: 490
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3601f45d05fc8610800000000000000
+      internalID: 1624943003182368316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00001
+      rect:
+        serializedVersion: 2
+        x: 1617
+        y: 490
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60ecc02143a5c1940800000000000000
+      internalID: 5268184843804265990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00002
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 490
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dd173aaf529d9bd0800000000000000
+      internalID: -2621778468484473385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00003
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 467
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4da050cc3d9291250800000000000000
+      internalID: 5915805575165577940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00004
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 490
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd0e2c6ed9fe4d3f0800000000000000
+      internalID: -876812565969968933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00005
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 490
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c74324209016e720800000000000000
+      internalID: 2875003623390267329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00006
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 6
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ce93cc93763e3d90800000000000000
+      internalID: -7116190491019600185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00007
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 6
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39b8047d8568cf050800000000000000
+      internalID: 5835686933291895699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00008
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 369
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca1d012d6acfe5fe0800000000000000
+      internalID: -1198242657414884948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00009
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 393
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ce3b399e626e31d0800000000000000
+      internalID: -3369147244069830969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00010
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 417
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c05029c372d60f390800000000000000
+      internalID: -7786603740436232948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00011
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 465
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f57db9b4a898b9350800000000000000
+      internalID: 6024560153605166943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00012
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 441
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ad167040936692a0800000000000000
+      internalID: -6731083121850704472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00013
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 9
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e94a783627502e2b0800000000000000
+      internalID: -5556873001367526242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00014
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 489
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf7c309271d4463a0800000000000000
+      internalID: -6673123985988532228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00015
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 489
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e73605121f2aefb0800000000000000
+      internalID: -4617826713206376479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00016
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 465
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ffb230e68a35e4c0800000000000000
+      internalID: -4258933521647484939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00017
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 489
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b588e79056b18c1a0800000000000000
+      internalID: -6789146317496088485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00018
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 33
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29497eb607b03e8e0800000000000000
+      internalID: -1665474859722369902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00019
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 57
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ec3153560abf0370800000000000000
+      internalID: 8291049975342775523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00020
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 81
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce7f2840a6956ba90800000000000000
+      internalID: -7298547834230212628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00021
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 105
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b4c013877f85d8a0800000000000000
+      internalID: -6280956361835494224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00022
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 129
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b50d3a2082d7c4220800000000000000
+      internalID: 2471487906316013659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00023
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 153
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2582bcc6821d05a60800000000000000
+      internalID: 7660852937711364178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00024
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 177
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bb327cf0120a7580800000000000000
+      internalID: -8828741847528358989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00025
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 201
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 951fe5150db76c0b0800000000000000
+      internalID: -5708739342996934311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00026
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 225
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68135c19a459a7870800000000000000
+      internalID: 8681415379215790470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00027
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 249
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f699cb91c43db8b90800000000000000
+      internalID: -7238459652265174673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00028
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 273
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95ff42a1100e7aac0800000000000000
+      internalID: -3843857461599207591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00029
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 297
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 467214fe414090030800000000000000
+      internalID: 3461302276570818404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00030
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 5
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a496ad0cfae1291d0800000000000000
+      internalID: -3345577832979207862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00031
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 1
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d3f4ebf0fa0ace10800000000000000
+      internalID: 2218597796567905237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00032
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 29
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d901e8865ecd8b00800000000000000
+      internalID: 832548377192368593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00033
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 52
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba7f523ad107fe9b0800000000000000
+      internalID: -5048693384665499733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00034
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 29
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcda97c696d1a8fd0800000000000000
+      internalID: -2339024717836866097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00035
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 75
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2500b52bb249a690800000000000000
+      internalID: -7590462325397650133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00036
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 52
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57a8b4a92dea9dbb0800000000000000
+      internalID: -4910701699115808139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00037
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 28
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc12a402c03615070800000000000000
+      internalID: 8093358909093978573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00038
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 98
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b62c9009ac88b7d0800000000000000
+      internalID: -2902415302352689485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00039
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 121
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a874d39750852d6a0800000000000000
+      internalID: -6425976937772136566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00040
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 144
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aec25bde9ac82540800000000000000
+      internalID: 4983455771318734501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00041
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 167
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa14df71e9277d020800000000000000
+      internalID: 2366486152539357615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00042
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 190
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aea5664fda4fe350800000000000000
+      internalID: 6048135147401096866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00043
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 213
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4871b5962536188e0800000000000000
+      internalID: -1692962779308550268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00044
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 236
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5014f8a8984d5bda0800000000000000
+      internalID: -5929599647163137787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00045
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 259
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8283c43c9725dcc10800000000000000
+      internalID: 2075405686208739368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00046
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 282
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64923606ad5045040800000000000000
+      internalID: 4635336351949203782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00047
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 305
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c65f197bbc7f4f530800000000000000
+      internalID: 3888004832657798508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00048
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 328
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34837881535b07fd0800000000000000
+      internalID: -2346176166210619325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00049
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 351
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc72e171dd37995a0800000000000000
+      internalID: -6514047992601892916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00050
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 374
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40b6451e525f43410800000000000000
+      internalID: 1456058122590513924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00051
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 397
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 520c4a4777ff190f0800000000000000
+      internalID: -1111826744460656603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00052
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 420
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd4dd8135a4555150800000000000000
+      internalID: 5860683558570284255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00053
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 443
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f76a2c8f21a1e8730800000000000000
+      internalID: 4003165787564189311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00054
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 466
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d0f299e5302d6e90800000000000000
+      internalID: -7030928027331399463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00055
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 75
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a95dbcfe9ad9b140800000000000000
+      internalID: 4736056859536742821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00056
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 51
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6d62d2a03e82d7e0800000000000000
+      internalID: -1742173766297686675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00057
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 24
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec67408347bf65340800000000000000
+      internalID: 4852342125112882894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00058
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 98
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32bf2dfdb2c13d960800000000000000
+      internalID: 7625469568832699171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00059
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 74
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f41c6f1065143940800000000000000
+      internalID: 5274864566145914101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00060
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 47
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aafe982bc7b93600800000000000000
+      internalID: 448591721087826599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00061
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 121
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04bdeff65594cc130800000000000000
+      internalID: 3588323634407463744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00062
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 97
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2917e94a67a1a4410800000000000000
+      internalID: 1462010125905457554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00063
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 70
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 416d2115cca7a5140800000000000000
+      internalID: 4709211378321380884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00064
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 144
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46f488a82bad1a550800000000000000
+      internalID: 6170453424837513060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00065
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 120
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83566ff1e3ccddf60800000000000000
+      internalID: 8060823475259335992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00066
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 93
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afc0179c85d700840800000000000000
+      internalID: 5188284591021034746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00067
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 167
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7035cf03a30b4990800000000000000
+      internalID: -7400817563774144388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00068
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 423
+        width: 200
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64acc608cfdcc2600800000000000000
+      internalID: 444956947572902470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00069
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 446
+        width: 200
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb4b93cea155f9650800000000000000
+      internalID: 6241801182679512251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00070
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 143
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0efb137660b360220800000000000000
+      internalID: 2451711945836969952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00071
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 116
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a4d92e6a7df947b0800000000000000
+      internalID: -5239377989192788823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00072
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 190
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea938108f123ccfb0800000000000000
+      internalID: -4626267606341895762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00073
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 166
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9967b1a830d2d5680800000000000000
+      internalID: -8764799806567909735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00074
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 139
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2dc8eb37051925d0800000000000000
+      internalID: -3086912948771697366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00075
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 213
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b114b8e368688260800000000000000
+      internalID: 7100039590864753074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00076
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 236
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41ca5c762cabde660800000000000000
+      internalID: 7416789505476504596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00077
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 259
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ddd2f90ffb7a76d0800000000000000
+      internalID: -2991942667120484907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00078
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 189
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eee0b017bd60f740800000000000000
+      internalID: 5183763804129914593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00079
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 162
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f545890e3d1ae870800000000000000
+      internalID: 8712808581386552824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00080
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 212
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 953a0c4ab564e3cf0800000000000000
+      internalID: -270701568175594663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00081
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 185
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 063d9143925f2a2c0800000000000000
+      internalID: -4421702326807833760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00082
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 235
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 475d91d132920a350800000000000000
+      internalID: 6025861532210550132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00083
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 208
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 823f74c4050249c30800000000000000
+      internalID: 4365149468078109480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00084
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 282
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5714286}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dba3c5151525ae6d0800000000000000
+      internalID: -2960463295831852355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00085
+      rect:
+        serializedVersion: 2
+        x: 1415
+        y: 468
+        width: 200
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69b2c9ab9f1f3f030800000000000000
+      internalID: 3527428988041178006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00086
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 445
+        width: 200
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b5a8948c4186fd90800000000000000
+      internalID: -7064316799841950284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00087
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 468
+        width: 200
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: 0.55}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd39232123a900ae0800000000000000
+      internalID: -1585097528990067748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00088
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 305
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57b7109ee75dafbc0800000000000000
+      internalID: -3748448998780732555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00089
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 328
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87175497d159f2870800000000000000
+      internalID: 8660304562277937528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00090
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 351
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a28fa326962fb3cb0800000000000000
+      internalID: -4883042836519651286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00091
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 374
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa5685e49da8dff0800000000000000
+      internalID: -11068144050873692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00092
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 397
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fdfb11ccf99d1670800000000000000
+      internalID: 8511128181650750960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00093
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 420
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b49a2112266363db0800000000000000
+      internalID: -4812599356709230261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00094
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 258
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd46ce8038dd8d6a0800000000000000
+      internalID: -6424141313583848225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00095
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 281
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46db90ebe0ae7fcf0800000000000000
+      internalID: -218448707865428636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00096
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 304
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52380955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9d961068106c5aa0800000000000000
+      internalID: -6170951731596845670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00097
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 321
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a68b0e6c52c6d870800000000000000
+      internalID: 8707360631806461609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00098
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 345
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bdce82d4521ff8a0800000000000000
+      internalID: -6269272000757314121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00099
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 369
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc4274494998d3760800000000000000
+      internalID: 7439253430721782989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00100
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 393
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 916d937aa63f54640800000000000000
+      internalID: 5063720995445659161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00101
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 417
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0729ed297ea38e7a0800000000000000
+      internalID: -6347758908502797712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00102
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 441
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2626ff4315456c320800000000000000
+      internalID: 2577840544474423906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00103
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 489
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81f2a593053e0e3e0800000000000000
+      internalID: -2026369898617622760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00104
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 465
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f294b48d213b8030800000000000000
+      internalID: 3497943607153038072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00105
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 489
+        width: 200
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cff435b01e6f7170800000000000000
+      internalID: 8178376466366791617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00106
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 327
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6fbb075064b0f2e0800000000000000
+      internalID: -2093975500857032851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00107
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 350
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6963412108f2a0100800000000000000
+      internalID: 74924570910668438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00108
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 373
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04784d8a4016fab30800000000000000
+      internalID: 4300762841802377024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00109
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 396
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54624410490807170800000000000000
+      internalID: 8174174696842208837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00110
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 231
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0407f3a158af81d0800000000000000
+      internalID: -3346270929516297204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00111
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 254
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d37cfa799c046a1e0800000000000000
+      internalID: -2186989334464313539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00112
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 277
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2293b153cc97765d0800000000000000
+      internalID: -3069350703058437854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00113
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 300
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c2125f405c3724a0800000000000000
+      internalID: -6618254811771825472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00114
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 443
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b3901f7cdcf3c2a0800000000000000
+      internalID: -6718248195151850567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00115
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 419
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0737ae71b5104b570800000000000000
+      internalID: 8481405489000379248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00116
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 466
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d6cc0c311328a6f0800000000000000
+      internalID: -673249587363002670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00117
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 442
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be8bad5f0ab7bfbd0800000000000000
+      internalID: -2595344828999223061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00118
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 323
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abf3909acc9f238d0800000000000000
+      internalID: -2867955355276984390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Froth_00119
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 346
+        width: 200
+        height: 21
+      alignment: 9
+      pivot: {x: 0.5, y: 0.47619048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f54ecc5090b6f3a80800000000000000
+      internalID: -8484945486446533537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
