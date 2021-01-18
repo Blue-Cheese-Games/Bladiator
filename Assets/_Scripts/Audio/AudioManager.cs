@@ -16,6 +16,7 @@ namespace Bladiator.Sound
 		private Queue<AudioData> m_CrossfadeQueue = new Queue<AudioData>();
 
 		private GameState m_LastState = GameState.Ending; // Ending is unused
+		private float m_OldVolume, m_OldCrossVolume;
 
 		// Start is called before the first frame update
 		void Start()
@@ -54,14 +55,25 @@ namespace Bladiator.Sound
 				case GameState.Fighting:
 					if (m_LastState == GameState.Pause)
 					{
-						m_Current.source.volume = BladiatorSettings.Instance.Settings.Volume;
+						m_Current.source.volume = m_OldVolume;
+						
+						if (m_CrossFade != null)
+						{
+							m_CrossFade.source.volume = m_OldCrossVolume;
+						}
 					}
 					break;
 
 				case GameState.Pause:
 					if (m_Current == null) return;
 
-					m_Current.source.volume = BladiatorSettings.Instance.Settings.Volume / 4;
+					m_OldVolume = m_Current.source.volume;
+					m_Current.source.volume = BladiatorSettings.Instance.Settings.Volume / 4f;
+
+					if (m_CrossFade != null)
+					{
+						m_OldCrossVolume = m_CrossFade.source.volume;
+					}
 					break;
 			}
 
@@ -70,6 +82,8 @@ namespace Bladiator.Sound
 
 		private void Update()
 		{
+			if (GameManager.Instance.GameState == GameState.Pause) return;
+			
 			if (m_CrossfadeQueue.Count > 0 || m_CrossFade != null)
 			{
 				if (m_CrossFade == null)
