@@ -12,7 +12,7 @@ $wave = $data->wave;
 try {
     $add_player = "INSERT INTO `Bladiator`(`name`, `score`, `wave`) VALUES (?, ?, ?)";
     $statement = $connection->prepare($add_player);
-    $statement->bind_param("si", $name, $score, $wave);
+    $statement->bind_param("sii", $name, $score, $wave);
     $statement->execute();
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
