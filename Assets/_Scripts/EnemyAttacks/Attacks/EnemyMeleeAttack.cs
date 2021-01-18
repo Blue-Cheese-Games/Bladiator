@@ -14,6 +14,7 @@ namespace Bladiator.EnemyAttacks
         // Override "Activate" to do a melee attack.
         protected override void Activate(Enemy enemy, Player player)
         {
+            enemy.Animator.speed = 2.75f;
             enemy.Animator.Play("Attack");
 
             m_Player = player;

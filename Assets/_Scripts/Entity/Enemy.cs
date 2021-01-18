@@ -113,24 +113,28 @@ namespace Bladiator.Entities.Enemies
 				case EnemyState.MOVE_TOWARDS_PLAYER:
 					MoveTowardsPlayer();
 					StuckDetection();
+					Animator.speed = 1;
 					m_Animator.Play("run");
 					break;
 
 				case EnemyState.FOLLOWING_PATH:
 					FollowAlongPath();
 					StuckDetection();
+					Animator.speed = 1;
 					m_Animator.Play("run");
 					break;
 
 				case EnemyState.GROUP_WITH_OTHERS:
 					GroupUpWithGroup();
 					StuckDetection();
+					Animator.speed = 1;
 					m_Animator.Play("run");
 					break;
 
 				// -- Grouping --
 				case EnemyState.LOOKING_FOR_GROUP:
 					InitializeGroup();
+					Animator.speed = 1;
 					m_Animator.Play("idle");
 					break;
 
