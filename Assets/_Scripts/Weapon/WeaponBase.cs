@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace Bladiator.Weapons
 {
+	[RequireComponent(typeof(Rigidbody))]
 	public class WeaponBase : MonoBehaviour
 	{
 		private Weapon m_Weapon = null;
@@ -13,7 +14,12 @@ namespace Bladiator.Weapons
 		[SerializeField] private bool m_Attack;
 		[SerializeField] private Transform m_Root, m_Center;
 		[SerializeField] private float m_RotationSpeed = 5f;
-		
+
+		[SerializeField] private float m_MaxSwordTravelDistance = 100;
+		[SerializeField] private LayerMask m_SwordCollisionLayerMask;
+
+		private Rigidbody m_RigidBody;
+
 		private Vector3 m_Offset;
 		private Quaternion m_StartingRotation;
 
@@ -33,6 +39,7 @@ namespace Bladiator.Weapons
 
 		private void Awake()
 		{
+			m_RigidBody = GetComponent<Rigidbody>();
 			m_Weapon = GetComponent<Weapon>();
 		}
 
@@ -125,23 +132,38 @@ namespace Bladiator.Weapons
 		private void Move()
 		{
 			Vector3 playerPos = m_Weapon.Player.transform.position;
-			Vector3 newPos = MouseManager.Instance.RaycastMousePosition();
+			Vector3 target = MouseManager.Instance.RaycastMousePosition();
+			target.y = 1.5f;
 
-			// Clamp the weapon position inside a circle
-			Vector3 offset = newPos - playerPos;
-			Vector3 position = playerPos + offset;
-
-			position.y = 1.5f;
+			Vector3 direction = target - transform.position;
 
 			if (m_Attack || m_SecondAttack)
 			{
 				if (m_TargetPosition == Vector3.zero)
 				{
-					m_TargetPosition = position;
+					float distanceToTarget = Vector3.Distance(transform.position, target);
+
+					Mathf.Clamp(distanceToTarget, 0, m_MaxSwordTravelDistance);
+
+					RaycastHit hit;
+					Ray r = new Ray(transform.position, direction);
+					Physics.SphereCast(r, 0.5f, out hit, distanceToTarget, m_SwordCollisionLayerMask);
+
+					print("hit: " + hit.collider);
+
+					if(hit.collider != null)
+					{
+						m_TargetPosition = r.GetPoint(hit.distance);
+					}
+					else
+					{
+						m_TargetPosition = target;
+					}
 				}
 
 				if (Vector3.Distance(m_Root.position, m_TargetPosition) > 0.5f)
 				{
+					// Move the sword towards the target.
 					m_Root.position = Vector3.Lerp(m_Root.position,
 						m_TargetPosition, m_Weapon.WeaponObject.WeaponData.AttackDragVelocity * Time.deltaTime);
 				}
@@ -163,6 +185,7 @@ namespace Bladiator.Weapons
 			{
 				if (!m_WaitSecondAttack)
 				{
+					// Return the sword to it's idle position.
 					m_Root.localPosition = Vector3.Lerp(m_Root.localPosition,
 						m_Offset, m_Weapon.WeaponObject.WeaponData.AttackDragVelocity * Time.deltaTime);
 				}
@@ -188,6 +211,11 @@ namespace Bladiator.Weapons
 				direction.y = 0;
 				transform.rotation = Quaternion.LookRotation(direction, m_Weapon.Player.transform.up);
 			}
+		}
+
+		private void BounceBack()
+		{
+
 		}
 	}
 }
