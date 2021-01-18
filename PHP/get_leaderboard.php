@@ -2,7 +2,7 @@
 
 require_once "connection.php";
 
-$get_leaderboard = "SELECT `name`, `score` FROM `Bladiator`";
+$get_leaderboard = "SELECT `name`, `score`, `wave` FROM `Bladiator`";
 $result = $connection->query($get_leaderboard);
 
 if ($result->num_rows > 0) {
