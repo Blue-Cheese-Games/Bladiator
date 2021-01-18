@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Bladiator.Managers;
+using TMPro;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-	[SerializeField] private GameObject m_Menu, m_Pause;
+	[SerializeField] private GameObject m_Menu;
+	[SerializeField] private TMP_Text m_PlayText;
 
 	public void Start()
 	{
@@ -16,27 +18,33 @@ public class MenuManager : MonoBehaviour
 
 	private void ResetEvent()
 	{
-		m_Menu.SetActive(GameManager.Instance.GameState == GameState.MainMenu || GameManager.Instance.GameState == GameState.Pause);
-		// m_Pause.SetActive(GameManager.Instance.GameState == GameState.Pause);
+		m_Menu.SetActive(GameManager.Instance.GameState == GameState.MainMenu ||
+		                 GameManager.Instance.GameState == GameState.Pause);
 	}
 
 	private void InitializeMenu()
 	{
-		m_Menu.SetActive(GameManager.Instance.GameState == GameState.MainMenu || GameManager.Instance.GameState == GameState.Pause);
-		// m_Pause.SetActive(GameManager.Instance.GameState == GameState.Pause);
+		m_Menu.SetActive(GameManager.Instance.GameState == GameState.MainMenu ||
+		                 GameManager.Instance.GameState == GameState.Pause);
 	}
 
 	private void OnGameStateChange(GameState state)
 	{
+		m_PlayText.text = state == GameState.MainMenu ? "Play" : "Resume";
 		m_Menu.SetActive(state == GameState.MainMenu || GameManager.Instance.GameState == GameState.Pause);
-		// m_Pause.SetActive(state == GameState.Pause);
 	}
 
 	public void StartGame()
 	{
-		m_Menu.SetActive(false);
-		// m_Pause.SetActive(false);
-		GameManager.Instance.StartGame();
+		if (GameManager.Instance.GameState == GameState.MainMenu)
+		{
+			m_Menu.SetActive(false);
+			GameManager.Instance.StartGame();
+		}
+		else if (GameManager.Instance.GameState == GameState.Pause)
+		{
+			GameManager.Instance.PauseGame();
+		}
 	}
 
 	public void ResumeGame()
