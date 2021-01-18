@@ -392,7 +392,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 2
+    filterMode: -1
     aniso: 2
     mipBias: -100
     wrapU: 0
@@ -488,12 +488,12 @@ TextureImporter:
       name: Froth_00000
       rect:
         serializedVersion: 2
-        x: 1819
-        y: 490
+        x: 607
+        y: 506
         width: 200
-        height: 21
+        height: 71
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6619718}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -509,12 +509,12 @@ TextureImporter:
       name: Froth_00001
       rect:
         serializedVersion: 2
-        x: 1617
-        y: 490
+        x: 405
+        y: 281
         width: 200
-        height: 21
+        height: 72
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6944444}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -530,12 +530,12 @@ TextureImporter:
       name: Froth_00002
       rect:
         serializedVersion: 2
-        x: 1415
-        y: 490
+        x: 607
+        y: 146
         width: 200
-        height: 21
+        height: 70
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6857143}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -551,12 +551,12 @@ TextureImporter:
       name: Froth_00003
       rect:
         serializedVersion: 2
-        x: 1011
-        y: 467
+        x: 809
+        y: 95
         width: 200
-        height: 21
+        height: 69
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6956522}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -572,12 +572,12 @@ TextureImporter:
       name: Froth_00004
       rect:
         serializedVersion: 2
-        x: 1213
-        y: 490
+        x: 1013
+        y: 745
         width: 200
-        height: 21
+        height: 68
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.7058824}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -593,12 +593,12 @@ TextureImporter:
       name: Froth_00005
       rect:
         serializedVersion: 2
-        x: 1011
-        y: 490
+        x: 1215
+        y: 815
         width: 200
-        height: 21
+        height: 68
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.7058824}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -614,12 +614,12 @@ TextureImporter:
       name: Froth_00006
       rect:
         serializedVersion: 2
-        x: 809
-        y: 6
+        x: 1417
+        y: 885
         width: 200
-        height: 21
+        height: 68
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.7058824}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -635,12 +635,12 @@ TextureImporter:
       name: Froth_00007
       rect:
         serializedVersion: 2
-        x: 607
-        y: 6
+        x: 1821
+        y: 955
         width: 200
-        height: 21
+        height: 68
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.7058824}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -656,12 +656,12 @@ TextureImporter:
       name: Froth_00008
       rect:
         serializedVersion: 2
-        x: 203
-        y: 369
+        x: 1619
+        y: 955
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7058824}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -677,12 +677,12 @@ TextureImporter:
       name: Froth_00009
       rect:
         serializedVersion: 2
-        x: 203
-        y: 393
+        x: 1013
+        y: 815
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7058824}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -698,12 +698,12 @@ TextureImporter:
       name: Froth_00010
       rect:
         serializedVersion: 2
-        x: 203
-        y: 417
+        x: 1215
+        y: 885
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7058824}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -719,12 +719,12 @@ TextureImporter:
       name: Froth_00011
       rect:
         serializedVersion: 2
-        x: 405
-        y: 465
+        x: 1417
+        y: 955
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7058824}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -741,11 +741,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 203
-        y: 441
+        y: 112
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7123288}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -761,12 +761,12 @@ TextureImporter:
       name: Froth_00013
       rect:
         serializedVersion: 2
-        x: 1
-        y: 9
+        x: 203
+        y: 184
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7123288}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -782,12 +782,12 @@ TextureImporter:
       name: Froth_00014
       rect:
         serializedVersion: 2
-        x: 809
-        y: 489
+        x: 811
+        y: 877
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 73
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7123288}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -803,12 +803,12 @@ TextureImporter:
       name: Froth_00015
       rect:
         serializedVersion: 2
-        x: 607
-        y: 489
+        x: 609
+        y: 871
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 74
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7162162}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -825,11 +825,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 203
-        y: 465
+        y: 329
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 74
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7162162}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -845,12 +845,12 @@ TextureImporter:
       name: Froth_00017
       rect:
         serializedVersion: 2
-        x: 405
-        y: 489
+        x: 1
+        y: 242
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69736844}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -867,11 +867,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 33
+        y: 314
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69736844}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -888,11 +888,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 57
+        y: 386
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.69736844}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -909,11 +909,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 81
+        y: 25
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 75
+      alignment: 9
+      pivot: {x: 0.5, y: 0.70666665}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -930,11 +930,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 105
+        y: 97
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 75
+      alignment: 9
+      pivot: {x: 0.5, y: 0.70666665}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -951,11 +951,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 129
+        y: 458
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 77
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6883117}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -972,11 +972,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 153
+        y: 169
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 75
+      alignment: 9
+      pivot: {x: 0.5, y: 0.70666665}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -992,12 +992,12 @@ TextureImporter:
       name: Froth_00024
       rect:
         serializedVersion: 2
-        x: 1
-        y: 177
+        x: 203
+        y: 402
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 74
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7027027}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1013,12 +1013,12 @@ TextureImporter:
       name: Froth_00025
       rect:
         serializedVersion: 2
-        x: 1
-        y: 201
+        x: 203
+        y: 475
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 74
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7027027}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1034,12 +1034,12 @@ TextureImporter:
       name: Froth_00026
       rect:
         serializedVersion: 2
-        x: 1
-        y: 225
+        x: 811
+        y: 949
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 74
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7027027}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1055,12 +1055,12 @@ TextureImporter:
       name: Froth_00027
       rect:
         serializedVersion: 2
-        x: 1
-        y: 249
+        x: 607
+        y: 218
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 70
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6857143}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1076,12 +1076,12 @@ TextureImporter:
       name: Froth_00028
       rect:
         serializedVersion: 2
-        x: 1
-        y: 273
+        x: 811
+        y: 592
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 70
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6857143}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1097,12 +1097,12 @@ TextureImporter:
       name: Froth_00029
       rect:
         serializedVersion: 2
-        x: 1
-        y: 297
+        x: 811
+        y: 664
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 70
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6857143}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1118,12 +1118,12 @@ TextureImporter:
       name: Froth_00030
       rect:
         serializedVersion: 2
-        x: 405
-        y: 5
+        x: 810
+        y: 736
         width: 200
-        height: 21
+        height: 70
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6857143}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1139,12 +1139,12 @@ TextureImporter:
       name: Froth_00031
       rect:
         serializedVersion: 2
-        x: 203
-        y: 1
+        x: 811
+        y: 808
         width: 200
-        height: 21
+        height: 70
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6857143}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1160,12 +1160,12 @@ TextureImporter:
       name: Froth_00032
       rect:
         serializedVersion: 2
-        x: 809
-        y: 29
+        x: 607
+        y: 290
         width: 200
-        height: 21
+        height: 70
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6857143}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1181,12 +1181,12 @@ TextureImporter:
       name: Froth_00033
       rect:
         serializedVersion: 2
-        x: 809
-        y: 52
+        x: 203
+        y: 257
         width: 200
-        height: 21
+        height: 73
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.69863015}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1202,12 +1202,12 @@ TextureImporter:
       name: Froth_00034
       rect:
         serializedVersion: 2
-        x: 607
-        y: 29
+        x: 809
+        y: 166
         width: 200
-        height: 21
+        height: 69
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6956522}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1224,11 +1224,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 809
-        y: 75
+        y: 237
         width: 200
-        height: 21
+        height: 69
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6956522}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1244,12 +1244,12 @@ TextureImporter:
       name: Froth_00036
       rect:
         serializedVersion: 2
-        x: 607
-        y: 52
+        x: 809
+        y: 308
         width: 200
-        height: 21
+        height: 69
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6956522}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1265,12 +1265,12 @@ TextureImporter:
       name: Froth_00037
       rect:
         serializedVersion: 2
-        x: 405
-        y: 28
+        x: 809
+        y: 379
         width: 200
-        height: 21
+        height: 69
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6956522}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1286,12 +1286,12 @@ TextureImporter:
       name: Froth_00038
       rect:
         serializedVersion: 2
-        x: 809
-        y: 98
+        x: 1013
+        y: 885
         width: 200
-        height: 21
+        height: 68
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6911765}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1307,12 +1307,12 @@ TextureImporter:
       name: Froth_00039
       rect:
         serializedVersion: 2
-        x: 809
-        y: 121
+        x: 1215
+        y: 955
         width: 200
-        height: 21
+        height: 68
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6911765}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1329,11 +1329,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 809
-        y: 144
+        y: 450
         width: 200
-        height: 21
+        height: 69
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.68115944}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1349,12 +1349,12 @@ TextureImporter:
       name: Froth_00041
       rect:
         serializedVersion: 2
-        x: 809
-        y: 167
+        x: 811
+        y: 521
         width: 200
-        height: 21
+        height: 69
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.68115944}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1370,12 +1370,12 @@ TextureImporter:
       name: Froth_00042
       rect:
         serializedVersion: 2
-        x: 809
-        y: 190
+        x: 609
+        y: 579
         width: 200
-        height: 21
+        height: 71
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6619718}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1391,12 +1391,12 @@ TextureImporter:
       name: Froth_00043
       rect:
         serializedVersion: 2
-        x: 809
-        y: 213
+        x: 609
+        y: 652
         width: 200
-        height: 21
+        height: 71
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6619718}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1412,12 +1412,12 @@ TextureImporter:
       name: Froth_00044
       rect:
         serializedVersion: 2
-        x: 809
-        y: 236
+        x: 608
+        y: 725
         width: 200
-        height: 21
+        height: 71
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6619718}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1433,12 +1433,12 @@ TextureImporter:
       name: Froth_00045
       rect:
         serializedVersion: 2
-        x: 809
-        y: 259
+        x: 607
+        y: 798
         width: 200
-        height: 21
+        height: 71
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6619718}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1454,12 +1454,12 @@ TextureImporter:
       name: Froth_00046
       rect:
         serializedVersion: 2
-        x: 809
-        y: 282
+        x: 405
+        y: 66
         width: 200
-        height: 21
+        height: 71
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6619718}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1475,12 +1475,12 @@ TextureImporter:
       name: Froth_00047
       rect:
         serializedVersion: 2
-        x: 809
-        y: 305
+        x: 607
+        y: 362
         width: 200
-        height: 21
+        height: 70
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.67142856}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1496,12 +1496,12 @@ TextureImporter:
       name: Froth_00048
       rect:
         serializedVersion: 2
-        x: 809
-        y: 328
+        x: 405
+        y: 354
         width: 200
-        height: 21
+        height: 72
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6805556}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1517,12 +1517,12 @@ TextureImporter:
       name: Froth_00049
       rect:
         serializedVersion: 2
-        x: 809
-        y: 351
+        x: 407
+        y: 646
         width: 200
-        height: 21
+        height: 73
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6712329}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1538,12 +1538,12 @@ TextureImporter:
       name: Froth_00050
       rect:
         serializedVersion: 2
-        x: 809
-        y: 374
+        x: 203
+        y: 39
         width: 200
-        height: 21
+        height: 71
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.69014084}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1559,12 +1559,12 @@ TextureImporter:
       name: Froth_00051
       rect:
         serializedVersion: 2
-        x: 809
-        y: 397
+        x: 405
+        y: 427
         width: 200
-        height: 21
+        height: 72
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6805556}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1580,12 +1580,12 @@ TextureImporter:
       name: Froth_00052
       rect:
         serializedVersion: 2
-        x: 809
-        y: 420
+        x: 1013
+        y: 955
         width: 200
-        height: 21
+        height: 68
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.7058824}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1601,12 +1601,12 @@ TextureImporter:
       name: Froth_00053
       rect:
         serializedVersion: 2
-        x: 809
-        y: 443
+        x: 405
+        y: 136
         width: 200
-        height: 21
+        height: 71
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.70422536}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1622,12 +1622,12 @@ TextureImporter:
       name: Froth_00054
       rect:
         serializedVersion: 2
-        x: 809
-        y: 466
+        x: 1215
+        y: 746
         width: 200
-        height: 21
+        height: 67
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.7164179}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1643,12 +1643,12 @@ TextureImporter:
       name: Froth_00055
       rect:
         serializedVersion: 2
-        x: 607
-        y: 75
+        x: 1417
+        y: 816
         width: 200
-        height: 21
+        height: 67
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.7164179}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1664,12 +1664,12 @@ TextureImporter:
       name: Froth_00056
       rect:
         serializedVersion: 2
-        x: 405
-        y: 51
+        x: 1215
+        y: 610
         width: 200
-        height: 21
+        height: 66
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.72727275}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1685,12 +1685,12 @@ TextureImporter:
       name: Froth_00057
       rect:
         serializedVersion: 2
-        x: 203
-        y: 24
+        x: 1215
+        y: 678
         width: 200
-        height: 21
+        height: 66
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.72727275}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1706,12 +1706,12 @@ TextureImporter:
       name: Froth_00058
       rect:
         serializedVersion: 2
-        x: 607
-        y: 98
+        x: 1011
+        y: 407
         width: 200
-        height: 21
+        height: 65
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.73846155}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1727,12 +1727,12 @@ TextureImporter:
       name: Froth_00059
       rect:
         serializedVersion: 2
-        x: 405
-        y: 74
+        x: 1013
+        y: 474
         width: 200
-        height: 21
+        height: 65
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.73846155}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1748,12 +1748,12 @@ TextureImporter:
       name: Froth_00060
       rect:
         serializedVersion: 2
-        x: 203
-        y: 47
+        x: 1215
+        y: 543
         width: 200
-        height: 21
+        height: 65
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.75384617}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1769,12 +1769,12 @@ TextureImporter:
       name: Froth_00061
       rect:
         serializedVersion: 2
-        x: 607
-        y: 121
+        x: 1821
+        y: 754
         width: 200
-        height: 21
+        height: 65
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.75384617}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1790,12 +1790,12 @@ TextureImporter:
       name: Froth_00062
       rect:
         serializedVersion: 2
-        x: 405
-        y: 97
+        x: 1619
+        y: 685
         width: 200
-        height: 21
+        height: 65
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.75384617}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1811,12 +1811,12 @@ TextureImporter:
       name: Froth_00063
       rect:
         serializedVersion: 2
-        x: 203
-        y: 70
+        x: 1417
+        y: 615
         width: 200
-        height: 21
+        height: 65
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.75384617}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1832,12 +1832,12 @@ TextureImporter:
       name: Froth_00064
       rect:
         serializedVersion: 2
-        x: 607
-        y: 144
+        x: 1821
+        y: 821
         width: 200
-        height: 21
+        height: 65
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.75384617}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1853,12 +1853,12 @@ TextureImporter:
       name: Froth_00065
       rect:
         serializedVersion: 2
-        x: 405
-        y: 120
+        x: 1619
+        y: 752
         width: 200
-        height: 21
+        height: 65
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.75384617}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1874,12 +1874,12 @@ TextureImporter:
       name: Froth_00066
       rect:
         serializedVersion: 2
-        x: 203
-        y: 93
+        x: 1619
+        y: 487
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1895,12 +1895,12 @@ TextureImporter:
       name: Froth_00067
       rect:
         serializedVersion: 2
-        x: 607
-        y: 167
+        x: 1417
+        y: 417
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1916,12 +1916,12 @@ TextureImporter:
       name: Froth_00068
       rect:
         serializedVersion: 2
-        x: 1011
-        y: 423
+        x: 1417
+        y: 417
         width: 200
-        height: 20
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.55}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1938,11 +1938,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1213
-        y: 446
+        y: 147
         width: 200
-        height: 20
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.55}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1958,12 +1958,12 @@ TextureImporter:
       name: Froth_00070
       rect:
         serializedVersion: 2
-        x: 405
-        y: 143
+        x: 1213
+        y: 213
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.5714286}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1979,12 +1979,12 @@ TextureImporter:
       name: Froth_00071
       rect:
         serializedVersion: 2
-        x: 203
-        y: 116
+        x: 1213
+        y: 279
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.5714286}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2000,12 +2000,12 @@ TextureImporter:
       name: Froth_00072
       rect:
         serializedVersion: 2
-        x: 607
-        y: 190
+        x: 1213
+        y: 345
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.5714286}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2021,12 +2021,12 @@ TextureImporter:
       name: Froth_00073
       rect:
         serializedVersion: 2
-        x: 405
-        y: 166
+        x: 1215
+        y: 411
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.5714286}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2042,12 +2042,12 @@ TextureImporter:
       name: Froth_00074
       rect:
         serializedVersion: 2
-        x: 203
-        y: 139
+        x: 1821
+        y: 622
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.5714286}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2063,12 +2063,12 @@ TextureImporter:
       name: Froth_00075
       rect:
         serializedVersion: 2
-        x: 607
-        y: 213
+        x: 1619
+        y: 553
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.5714286}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2084,12 +2084,12 @@ TextureImporter:
       name: Froth_00076
       rect:
         serializedVersion: 2
-        x: 607
-        y: 236
+        x: 1417
+        y: 483
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.5714286}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2105,12 +2105,12 @@ TextureImporter:
       name: Froth_00077
       rect:
         serializedVersion: 2
-        x: 607
-        y: 259
+        x: 1821
+        y: 688
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.5714286}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2126,12 +2126,12 @@ TextureImporter:
       name: Froth_00078
       rect:
         serializedVersion: 2
-        x: 405
-        y: 189
+        x: 1619
+        y: 619
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.5714286}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2147,12 +2147,12 @@ TextureImporter:
       name: Froth_00079
       rect:
         serializedVersion: 2
-        x: 203
-        y: 162
+        x: 1417
+        y: 549
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.5714286}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2168,12 +2168,12 @@ TextureImporter:
       name: Froth_00080
       rect:
         serializedVersion: 2
-        x: 405
-        y: 212
+        x: 1215
+        y: 477
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.5714286}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2189,12 +2189,12 @@ TextureImporter:
       name: Froth_00081
       rect:
         serializedVersion: 2
-        x: 203
-        y: 185
+        x: 1011
+        y: 77
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.5714286}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2210,12 +2210,12 @@ TextureImporter:
       name: Froth_00082
       rect:
         serializedVersion: 2
-        x: 405
-        y: 235
+        x: 1011
+        y: 143
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.5714286}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2231,12 +2231,12 @@ TextureImporter:
       name: Froth_00083
       rect:
         serializedVersion: 2
-        x: 203
-        y: 208
+        x: 1011
+        y: 209
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.5714286}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2252,12 +2252,12 @@ TextureImporter:
       name: Froth_00084
       rect:
         serializedVersion: 2
-        x: 607
-        y: 282
+        x: 1011
+        y: 275
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.5714286}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2273,12 +2273,12 @@ TextureImporter:
       name: Froth_00085
       rect:
         serializedVersion: 2
-        x: 1415
-        y: 468
+        x: 1417
+        y: 417
         width: 200
-        height: 20
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.55}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2294,12 +2294,12 @@ TextureImporter:
       name: Froth_00086
       rect:
         serializedVersion: 2
-        x: 1011
-        y: 445
+        x: 1417
+        y: 417
         width: 200
-        height: 20
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.55}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2315,12 +2315,12 @@ TextureImporter:
       name: Froth_00087
       rect:
         serializedVersion: 2
-        x: 1213
-        y: 468
+        x: 1417
+        y: 417
         width: 200
-        height: 20
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.55}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2336,12 +2336,12 @@ TextureImporter:
       name: Froth_00088
       rect:
         serializedVersion: 2
-        x: 607
-        y: 305
+        x: 1011
+        y: 341
         width: 200
-        height: 21
+        height: 64
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.765625}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2357,12 +2357,12 @@ TextureImporter:
       name: Froth_00089
       rect:
         serializedVersion: 2
-        x: 607
-        y: 328
+        x: 1821
+        y: 888
         width: 200
-        height: 21
+        height: 65
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.75384617}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2378,12 +2378,12 @@ TextureImporter:
       name: Froth_00090
       rect:
         serializedVersion: 2
-        x: 607
-        y: 351
+        x: 1619
+        y: 819
         width: 200
-        height: 21
+        height: 65
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.75384617}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2399,12 +2399,12 @@ TextureImporter:
       name: Froth_00091
       rect:
         serializedVersion: 2
-        x: 607
-        y: 374
+        x: 1417
+        y: 682
         width: 200
-        height: 21
+        height: 65
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.75384617}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2420,12 +2420,12 @@ TextureImporter:
       name: Froth_00092
       rect:
         serializedVersion: 2
-        x: 607
-        y: 397
+        x: 1417
+        y: 749
         width: 200
-        height: 21
+        height: 65
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.75384617}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2441,12 +2441,12 @@ TextureImporter:
       name: Froth_00093
       rect:
         serializedVersion: 2
-        x: 607
-        y: 420
+        x: 1013
+        y: 541
         width: 200
-        height: 21
+        height: 66
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.74242425}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2462,12 +2462,12 @@ TextureImporter:
       name: Froth_00094
       rect:
         serializedVersion: 2
-        x: 405
-        y: 258
+        x: 1013
+        y: 609
         width: 200
-        height: 21
+        height: 66
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.74242425}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2483,12 +2483,12 @@ TextureImporter:
       name: Froth_00095
       rect:
         serializedVersion: 2
-        x: 405
-        y: 281
+        x: 1619
+        y: 886
         width: 200
-        height: 21
+        height: 67
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.73134327}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2504,12 +2504,12 @@ TextureImporter:
       name: Froth_00096
       rect:
         serializedVersion: 2
-        x: 405
-        y: 304
+        x: 1013
+        y: 677
         width: 200
-        height: 21
+        height: 66
       alignment: 9
-      pivot: {x: 0.5, y: 0.52380955}
+      pivot: {x: 0.5, y: 0.72727275}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2525,12 +2525,12 @@ TextureImporter:
       name: Froth_00097
       rect:
         serializedVersion: 2
-        x: 1
-        y: 321
+        x: 405
+        y: 501
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6666667}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2546,12 +2546,12 @@ TextureImporter:
       name: Froth_00098
       rect:
         serializedVersion: 2
-        x: 1
-        y: 345
+        x: 407
+        y: 574
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 72
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6805556}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2567,12 +2567,12 @@ TextureImporter:
       name: Froth_00099
       rect:
         serializedVersion: 2
-        x: 1
-        y: 369
+        x: 809
+        y: 25
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 68
+      alignment: 9
+      pivot: {x: 0.5, y: 0.7058824}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2588,12 +2588,12 @@ TextureImporter:
       name: Froth_00100
       rect:
         serializedVersion: 2
-        x: 1
-        y: 393
+        x: 607
+        y: 75
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 69
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6956522}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2609,12 +2609,12 @@ TextureImporter:
       name: Froth_00101
       rect:
         serializedVersion: 2
-        x: 1
-        y: 417
+        x: 607
+        y: 434
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 70
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6857143}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2630,12 +2630,12 @@ TextureImporter:
       name: Froth_00102
       rect:
         serializedVersion: 2
-        x: 1
-        y: 441
+        x: 405
+        y: 209
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 71
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6760563}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2651,12 +2651,12 @@ TextureImporter:
       name: Froth_00103
       rect:
         serializedVersion: 2
-        x: 203
-        y: 489
+        x: 407
+        y: 866
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 76
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6447368}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2672,12 +2672,12 @@ TextureImporter:
       name: Froth_00104
       rect:
         serializedVersion: 2
-        x: 1
-        y: 465
+        x: 405
+        y: 791
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 75
+      alignment: 9
+      pivot: {x: 0.5, y: 0.6533333}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2693,12 +2693,12 @@ TextureImporter:
       name: Froth_00105
       rect:
         serializedVersion: 2
-        x: 1
-        y: 489
+        x: 204
+        y: 703
         width: 200
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        height: 81
+      alignment: 9
+      pivot: {x: 0.5, y: 0.60493827}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2714,12 +2714,12 @@ TextureImporter:
       name: Froth_00106
       rect:
         serializedVersion: 2
-        x: 405
-        y: 327
+        x: 203
+        y: 782
         width: 200
-        height: 21
+        height: 81
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.60493827}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2735,12 +2735,12 @@ TextureImporter:
       name: Froth_00107
       rect:
         serializedVersion: 2
-        x: 405
-        y: 350
+        x: 204
+        y: 941
         width: 200
-        height: 21
+        height: 82
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.597561}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2756,12 +2756,12 @@ TextureImporter:
       name: Froth_00108
       rect:
         serializedVersion: 2
-        x: 405
-        y: 373
+        x: 1
+        y: 777
         width: 200
-        height: 21
+        height: 83
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.5903614}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2777,12 +2777,12 @@ TextureImporter:
       name: Froth_00109
       rect:
         serializedVersion: 2
-        x: 405
-        y: 396
+        x: 2
+        y: 859
         width: 200
-        height: 21
+        height: 83
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.5903614}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2798,12 +2798,12 @@ TextureImporter:
       name: Froth_00110
       rect:
         serializedVersion: 2
-        x: 203
-        y: 231
+        x: 2
+        y: 697
         width: 200
-        height: 21
+        height: 82
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.5731707}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2819,12 +2819,12 @@ TextureImporter:
       name: Froth_00111
       rect:
         serializedVersion: 2
-        x: 203
-        y: 254
+        x: 1
+        y: 616
         width: 200
-        height: 21
+        height: 79
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.5949367}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2840,12 +2840,12 @@ TextureImporter:
       name: Froth_00112
       rect:
         serializedVersion: 2
-        x: 203
-        y: 277
+        x: 407
+        y: 944
         width: 200
-        height: 21
+        height: 79
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.5949367}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2861,12 +2861,12 @@ TextureImporter:
       name: Froth_00113
       rect:
         serializedVersion: 2
-        x: 203
-        y: 300
+        x: 1
+        y: 940
         width: 200
-        height: 21
+        height: 83
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.5903614}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2882,12 +2882,12 @@ TextureImporter:
       name: Froth_00114
       rect:
         serializedVersion: 2
-        x: 607
-        y: 443
+        x: 205
+        y: 862
         width: 200
-        height: 21
+        height: 81
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.60493827}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2903,12 +2903,12 @@ TextureImporter:
       name: Froth_00115
       rect:
         serializedVersion: 2
-        x: 405
-        y: 419
+        x: 203
+        y: 551
         width: 200
-        height: 21
+        height: 77
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6103896}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2924,12 +2924,12 @@ TextureImporter:
       name: Froth_00116
       rect:
         serializedVersion: 2
-        x: 607
-        y: 466
+        x: 1
+        y: 537
         width: 200
-        height: 21
+        height: 77
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6103896}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2945,12 +2945,12 @@ TextureImporter:
       name: Froth_00117
       rect:
         serializedVersion: 2
-        x: 405
-        y: 442
+        x: 205
+        y: 628
         width: 200
-        height: 21
+        height: 77
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6363636}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2966,12 +2966,12 @@ TextureImporter:
       name: Froth_00118
       rect:
         serializedVersion: 2
-        x: 203
-        y: 323
+        x: 609
+        y: 947
         width: 200
-        height: 21
+        height: 76
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6447368}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2987,12 +2987,12 @@ TextureImporter:
       name: Froth_00119
       rect:
         serializedVersion: 2
-        x: 203
-        y: 346
+        x: 406
+        y: 718
         width: 200
-        height: 21
+        height: 73
       alignment: 9
-      pivot: {x: 0.5, y: 0.47619048}
+      pivot: {x: 0.5, y: 0.6712329}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
