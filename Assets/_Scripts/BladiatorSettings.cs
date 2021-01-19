@@ -23,9 +23,9 @@ namespace Bladiator.Settings
 			};
 		}
 		
-		public void OnVolumeChanged(int value)
-		{
-			m_Settings.Volume = value;
+		public void OnVolumeChanged(Single value)
+		{ 
+			float.TryParse(value.ToString(), out m_Settings.Volume);
 			SaveSettings();
 		}
 

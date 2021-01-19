@@ -36,7 +36,7 @@ namespace Bladiator.Sound
 					}
 					else if (m_LastState == GameState.Pause)
 					{
-						m_Idle.source.volume = 1;
+						m_Idle.source.volume = BladiatorSettings.Instance.Settings.Volume;
 					}
 					else
 					{
