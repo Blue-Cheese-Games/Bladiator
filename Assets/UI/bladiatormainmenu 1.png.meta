@@ -1,22 +1,28 @@
 fileFormatVersion: 2
-guid: 60c39ffb9d74e594386b9c3521243421
+guid: a6b887f06c19563469bdd41de29af1c0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2223987555606311821
-    second: bladiatormainmenu_0
+      213: -5848226899809215498
+    second: bladiatormainmenu 1_0
   - first:
-      213: -8132826441493977878
-    second: bladiatormainmenu_1
+      213: 3256948294664941653
+    second: bladiatormainmenu 1_1
   - first:
-      213: 158374501423308436
-    second: bladiatormainmenu_2
+      213: 4790975817093535205
+    second: bladiatormainmenu 1_2
   - first:
-      213: -7624865468143757879
-    second: bladiatormainmenu_3
+      213: 9021153583652503218
+    second: bladiatormainmenu 1_3
   - first:
-      213: -2081567983290957029
-    second: bladiatormainmenu_4
+      213: -2910887525754969777
+    second: bladiatormainmenu 1_4
+  - first:
+      213: -4730461433915281736
+    second: bladiatormainmenu 1_5
+  - first:
+      213: -5039634088885185992
+    second: bladiatormainmenu 1_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -47,12 +53,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: 2
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -62,7 +68,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 85, y: 744, z: 1624, w: 0}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -81,7 +87,7 @@ TextureImporter:
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -93,7 +99,7 @@ TextureImporter:
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -140,76 +146,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bladiatormainmenu_0
-      rect:
-        serializedVersion: 2
-        x: 87
-        y: 747
-        width: 208
-        height: 1055
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 37c4233f91fc221e0800000000000000
-      internalID: -2223987555606311821
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bladiatormainmenu_1
-      rect:
-        serializedVersion: 2
-        x: 323
-        y: 746
-        width: 208
-        height: 1056
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae4e8d6e075622f80800000000000000
-      internalID: -8132826441493977878
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bladiatormainmenu_2
-      rect:
-        serializedVersion: 2
-        x: 558
-        y: 833
-        width: 209
-        height: 968
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 49ed0da15c8a23200800000000000000
-      internalID: 158374501423308436
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bladiatormainmenu_3
+      name: bladiatormainmenu 1_3
       rect:
         serializedVersion: 2
         x: 796
-        y: 833
-        width: 209
-        height: 968
+        y: 748
+        width: 208
+        height: 1053
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,20 +160,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c5162741490f2690800000000000000
-      internalID: -7624865468143757879
+      spriteID: 2be79d16363913d70800000000000000
+      internalID: 9021153583652503218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bladiatormainmenu_4
+      name: bladiatormainmenu 1_4
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 836
+        width: 209
+        height: 964
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f416246c7337a97d0800000000000000
+      internalID: -2910887525754969777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bladiatormainmenu 1_5
       rect:
         serializedVersion: 2
         x: 1292
         y: 1068
         width: 555
-        height: 742
+        height: 749
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 8}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8be6bcf83660a5eb0800000000000000
+      internalID: -4730461433915281736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bladiatormainmenu 1_0
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 737
+        width: 209
+        height: 1064
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,8 +223,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b13cd14a2f8cc13e0800000000000000
-      internalID: -2081567983290957029
+      spriteID: 6fbdcfeae9ce6dea0800000000000000
+      internalID: -5848226899809215498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bladiatormainmenu 1_1
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 732
+        width: 209
+        height: 1071
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 550715bc731033d20800000000000000
+      internalID: 3256948294664941653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bladiatormainmenu 1_2
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 725
+        width: 208
+        height: 1076
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e5d8593f17fc7240800000000000000
+      internalID: 4790975817093535205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bladiatormainmenu 1_6
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 899
+        width: 148
+        height: 126
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8329c0e4f7f9f0ab0800000000000000
+      internalID: -5039634088885185992
       vertices: []
       indices: 
       edges: []
