@@ -74,10 +74,10 @@ namespace Bladiator.Entities.Players
 		{
 			if (Camera.main == null) return;
 
-			#if UNITY_EDITOR
+		#if UNITY_EDITOR
 			if (Input.GetKey(KeyCode.K))
 				GetComponent<Player>().Damage(9999);
-			#endif
+		#endif
 
 			if (!m_AllowedToMove || GameManager.Instance.GameState == GameState.Pause)
 			{
@@ -89,7 +89,10 @@ namespace Bladiator.Entities.Players
 
 		public void Knockback(Vector3 knockback, float knockbackDuration)
 		{
-			if (!m_AllowedToMove) { return; }
+			if (!m_AllowedToMove)
+			{
+				return;
+			}
 
 			m_Rig.velocity = Vector3.zero;
 			m_Rig.AddForce(knockback, ForceMode.Impulse);
@@ -98,8 +101,9 @@ namespace Bladiator.Entities.Players
 
 		private void InputHandle()
 		{
-			if (GameManager.Instance.GameState == GameState.MainMenu || GetComponent<EntityBase>().CurrentHealth <= 0) return;
-			
+			if (GameManager.Instance.GameState == GameState.MainMenu ||
+			    GetComponent<EntityBase>().CurrentHealth <= 0) return;
+
 			float horizontalAxis = Input.GetAxisRaw("Horizontal");
 			float verticalAxis = Input.GetAxisRaw("Vertical");
 
@@ -116,21 +120,8 @@ namespace Bladiator.Entities.Players
 
 			if (axis != Vector3.zero)
 			{
-				Vector3 selfForward = transform.forward;
-
-				if (Vector3.Dot(selfForward, axis) < -0.5f)
-				{
-					// turn around.
-					m_Animator.SetBool("changeDirection", true);
-					m_Rig.velocity = Vector3.zero;
-					LockMovement();
-					return;
-				}
-				else
-				{
-					m_Animator.SetBool("moving", true);
-					RotateTowardsMovement();
-				}
+				m_Animator.SetBool("moving", true);
+				RotateTowardsMovement();
 
 				m_Rig.velocity = axis * m_MovementSpeed;
 			}

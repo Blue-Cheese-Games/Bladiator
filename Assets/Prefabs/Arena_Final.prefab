@@ -535,6 +535,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3475149200654137034}
+  - component: {fileID: 1151011269}
+  - component: {fileID: 1151011268}
   m_Layer: 0
   m_Name: Door_Hinge
   m_TagString: Untagged
@@ -557,6 +559,37 @@ Transform:
   m_Father: {fileID: 5530854205409337319}
   m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1151011269
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206270488631860091}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b3f281bc08cc8684d917bd6109188c9c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1151011268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206270488631860091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e25c594995ba7849b2dfc88fdf16517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5530854205409337318
 GameObject:
   m_ObjectHideFlags: 0
@@ -5219,9 +5252,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5160392572139935264, guid: c0e58244f0b1d5147bf7656e8b6ce7b7, type: 3}
   m_PrefabInstance: {fileID: 8619791015818023925}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8619791014486114029 stripped
+--- !u!4 &5530854206343337718 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1331932440, guid: c0e58244f0b1d5147bf7656e8b6ce7b7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4277906013253666051, guid: c0e58244f0b1d5147bf7656e8b6ce7b7, type: 3}
   m_PrefabInstance: {fileID: 8619791015818023925}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5530854206859174399 stripped
@@ -5229,8 +5262,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4277906013811585546, guid: c0e58244f0b1d5147bf7656e8b6ce7b7, type: 3}
   m_PrefabInstance: {fileID: 8619791015818023925}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5530854206343337718 stripped
+--- !u!4 &8619791014486114029 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4277906013253666051, guid: c0e58244f0b1d5147bf7656e8b6ce7b7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1331932440, guid: c0e58244f0b1d5147bf7656e8b6ce7b7, type: 3}
   m_PrefabInstance: {fileID: 8619791015818023925}
   m_PrefabAsset: {fileID: 0}
