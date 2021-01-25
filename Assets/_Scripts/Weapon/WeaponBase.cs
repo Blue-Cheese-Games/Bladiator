@@ -119,6 +119,7 @@ namespace Bladiator.Weapons
 		{
 			if (!other.TryGetComponent(out EntityBase entity))
 			{
+				print("hit wall");
 				// Check if the layer of the entity is in the "m_SwordCollisionLayerMask" Layermask.
 				if (m_SwordCollisionLayerMask == (m_SwordCollisionLayerMask | (1 << other.gameObject.layer)))
 				{
@@ -225,7 +226,7 @@ namespace Bladiator.Weapons
 
 		private IEnumerator BounceBack()
 		{
-			Vector3 vec = m_Root.transform.position + -(m_TargetPosition.normalized * 3);
+			Vector3 vec = m_Root.transform.position + -(m_TargetPosition.normalized * 2);
 			vec.y = 1.5f;
 
 			// DRY VVVVVVVVVVVVVVVVVVVVVVVVV
