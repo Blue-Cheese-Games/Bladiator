@@ -15,6 +15,12 @@ public class DoorAnim : MonoBehaviour
 
 	private void OnSpawnDone()
 	{
+		StartCoroutine(CloseDoor());
+	}
+
+	IEnumerator CloseDoor()
+	{
+		yield return new WaitForSeconds(1.5f);
 		anim.Play("CloseDoor");
 	}
 
