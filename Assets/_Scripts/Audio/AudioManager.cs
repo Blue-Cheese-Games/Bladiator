@@ -22,6 +22,14 @@ namespace Bladiator.Sound
 		void Start()
 		{
 			GameManager.Instance.OnGameStateChange += OnGameStateChange;
+			GameManager.Instance.ResetEvent += ResetEvent;
+		}
+
+		private void ResetEvent()
+		{
+			m_Current.source.Stop();
+			m_CrossFade?.source.Stop();
+			m_CrossfadeQueue.Clear();
 		}
 
 		private void OnGameStateChange(GameState obj)
@@ -50,18 +58,20 @@ namespace Bladiator.Sound
 					{
 						m_CrossfadeQueue.Enqueue(m_Main);
 					}
+
 					break;
 
 				case GameState.Fighting:
 					if (m_LastState == GameState.Pause)
 					{
 						m_Current.source.volume = m_OldVolume;
-						
+
 						if (m_CrossFade != null)
 						{
 							m_CrossFade.source.volume = m_OldCrossVolume;
 						}
 					}
+
 					break;
 
 				case GameState.Pause:
@@ -74,6 +84,7 @@ namespace Bladiator.Sound
 					{
 						m_OldCrossVolume = m_CrossFade.source.volume;
 					}
+
 					break;
 			}
 
@@ -83,7 +94,7 @@ namespace Bladiator.Sound
 		private void Update()
 		{
 			if (GameManager.Instance.GameState == GameState.Pause) return;
-			
+
 			if (m_CrossfadeQueue.Count > 0 || m_CrossFade != null)
 			{
 				if (m_CrossFade == null)
@@ -92,7 +103,7 @@ namespace Bladiator.Sound
 					{
 						if (m_Current.source.isPlaying && m_Current.source.time < 3) return;
 					}
-					
+
 					m_CrossFade = m_CrossfadeQueue.Dequeue();
 
 					m_CrossFade.source.volume = 0;
