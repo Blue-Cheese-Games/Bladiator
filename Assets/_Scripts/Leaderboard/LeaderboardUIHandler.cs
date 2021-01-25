@@ -9,13 +9,15 @@ namespace Bladiator.Leaderboard
         [SerializeField] private Transform m_LeaderboardContentParent = null;
         [SerializeField] private GameObject m_LeaderboardContentPrefab = null;
 
-        private const int m_ContentItemStartY = -15;
-        private const int m_IncrementContentYBy = -30;
+        private const int m_ContentItemStartY = -50;
+        private const int m_IncrementContentYBy = -100;
         private int m_TotalContentItemDistance = 0;
 
         private void Awake()
         {
             Instance = this;
+            
+            m_TotalContentItemDistance = m_ContentItemStartY;
         }
 
         /// <summary>
@@ -23,8 +25,6 @@ namespace Bladiator.Leaderboard
         /// </summary>
         public void SetAllContentForLeaderboard()
         {
-            m_TotalContentItemDistance = m_ContentItemStartY;
-            
             foreach (LeaderboardItemData itemData in LeaderboardHandler.INSTANCE.LeaderboardItem)
             {
                  GameObject itemPrefab = Instantiate(m_LeaderboardContentPrefab);
