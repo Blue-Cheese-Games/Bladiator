@@ -19,6 +19,8 @@ namespace Bladiator.Weapons
 		[SerializeField] private float m_MaxSwordTravelDistance = 100;
 		[SerializeField] private LayerMask m_SwordCollisionLayerMask;
 
+		[SerializeField] private Rigidbody m_Rigidbody;
+		
 		private Rigidbody m_RigidBody;
 		private Coroutine BounceBackRoutine;
 
@@ -95,6 +97,7 @@ namespace Bladiator.Weapons
 
 			if (Input.GetMouseButtonDown(0) && !m_Attack && !m_SecondAttack && !m_WaitSecondAttack)
 			{
+				m_Rigidbody.isKinematic = false;
 				m_Attack = true;
 			}
 
@@ -102,6 +105,7 @@ namespace Bladiator.Weapons
 			{
 				if (Input.GetMouseButtonDown(0))
 				{
+					m_Rigidbody.isKinematic = false;
 					m_WaitSecondAttack = false;
 					m_SecondAttack = true;
 				}
@@ -110,6 +114,7 @@ namespace Bladiator.Weapons
 			}
 			else
 			{
+				m_Rigidbody.isKinematic = true;
 				m_WaitSecondAttack = false;
 				m_WarmupTimer = 0;
 			}
@@ -173,6 +178,7 @@ namespace Bladiator.Weapons
 
 				if (Vector3.Distance(m_Root.position, m_TargetPosition) > 0.5f)
 				{
+					m_Rigidbody.isKinematic = true;
 					// Move the sword towards the target.
 					m_Root.position = Vector3.Lerp(m_Root.position,
 						m_TargetPosition, m_Weapon.WeaponObject.WeaponData.AttackDragVelocity * Time.deltaTime);
@@ -184,10 +190,12 @@ namespace Bladiator.Weapons
 
 					if (!m_SecondAttack)
 					{
+						m_Rigidbody.isKinematic = false;
 						ResetAttack();
 					}
 					else
 					{
+						m_Rigidbody.isKinematic = false;
 						ResetSecondAttack();
 					}
 				}
@@ -196,6 +204,7 @@ namespace Bladiator.Weapons
 			{
 				if (!m_WaitSecondAttack)
 				{
+					m_Rigidbody.isKinematic = false;
 					// Return the sword to it's idle position.
 					m_Root.localPosition = Vector3.Lerp(m_Root.localPosition,
 						m_Offset, m_Weapon.WeaponObject.WeaponData.AttackDragVelocity * Time.deltaTime);
@@ -208,6 +217,7 @@ namespace Bladiator.Weapons
 		{
 			if (!m_Attack && !m_SecondAttack && !m_WaitSecondAttack)
 			{
+				m_Rigidbody.isKinematic = false;
 				transform.localRotation = m_StartingRotation;
 				Vector3 direction = m_Weapon.Player.transform.position - MouseManager.Instance.RaycastMousePosition();
 				direction.y = 0;
@@ -218,6 +228,7 @@ namespace Bladiator.Weapons
 
 			if (m_Attack || m_SecondAttack)
 			{
+				m_Rigidbody.isKinematic = false;
 				Vector3 direction = m_Weapon.Player.transform.position - m_TargetPosition;
 				direction.y = 0;
 				transform.rotation = Quaternion.LookRotation(direction, m_Weapon.Player.transform.up);
@@ -260,6 +271,7 @@ namespace Bladiator.Weapons
 			}
 
 			BounceBackRoutine = null;
+			m_Rigidbody.isKinematic = true;
 		}
 
 		private void ResetAttack()

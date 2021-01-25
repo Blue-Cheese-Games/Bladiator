@@ -4740,6 +4740,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ContinuedNodes: []
+--- !u!54 &1918764042 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 1235748311, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
+  m_PrefabInstance: {fileID: 6539039470860834482}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1920691194
 GameObject:
   m_ObjectHideFlags: 0
@@ -5803,6 +5808,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1537263378}
     m_Modifications:
+    - target: {fileID: 563967187831468870, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2583498417540277441, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5867,6 +5876,26 @@ PrefabInstance:
       propertyPath: HitParticle
       value: 
       objectReference: {fileID: 6539039470860834483}
+    - target: {fileID: 2583498417540277453, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
+      propertyPath: m_Rigidbody
+      value: 
+      objectReference: {fileID: 1918764042}
+    - target: {fileID: 2583498417540277453, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
+      propertyPath: m_SwordCollisionLayerMask.m_Bits
+      value: 34817
+      objectReference: {fileID: 0}
+    - target: {fileID: 2653450314655237118, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5010973389688584280, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678226767546692263, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ddab41fdf39da84e8168dd4825da728, type: 3}
 --- !u!198 &6539039470860834483 stripped
