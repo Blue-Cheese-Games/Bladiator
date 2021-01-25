@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Bladiator.Entities;
 using Bladiator.Entities.Players;
 using Bladiator.Managers;
@@ -19,6 +20,7 @@ namespace Bladiator.Weapons
 		[SerializeField] private LayerMask m_SwordCollisionLayerMask;
 
 		private Rigidbody m_RigidBody;
+		private Coroutine BounceBackRoutine;
 
 		private Vector3 m_Offset;
 		private Quaternion m_StartingRotation;
@@ -115,9 +117,19 @@ namespace Bladiator.Weapons
 
 		private void OnHit(Collider other)
 		{
-			if (!other.TryGetComponent(out EntityBase entity)) return;
-
-			if (m_Attack || m_SecondAttack)
+			if (!other.TryGetComponent(out EntityBase entity))
+			{
+				print("hit wall");
+				// Check if the layer of the entity is in the "m_SwordCollisionLayerMask" Layermask.
+				if (m_SwordCollisionLayerMask == (m_SwordCollisionLayerMask | (1 << other.gameObject.layer)))
+				{
+					if(BounceBackRoutine == null)
+					{
+						BounceBackRoutine = StartCoroutine(BounceBack());
+					}
+				}
+			}
+			else if (m_Attack || m_SecondAttack)
 			{
 				if (other.CompareTag("Player"))
 					entity.Damage((int) Mathf.Floor(m_Weapon.WeaponObject.WeaponData.Damage / 2));
@@ -149,8 +161,6 @@ namespace Bladiator.Weapons
 					Ray r = new Ray(transform.position, direction);
 					Physics.SphereCast(r, 0.5f, out hit, distanceToTarget, m_SwordCollisionLayerMask);
 
-					print("hit: " + hit.collider);
-
 					if(hit.collider != null)
 					{
 						m_TargetPosition = r.GetPoint(hit.distance);
@@ -167,18 +177,19 @@ namespace Bladiator.Weapons
 					m_Root.position = Vector3.Lerp(m_Root.position,
 						m_TargetPosition, m_Weapon.WeaponObject.WeaponData.AttackDragVelocity * Time.deltaTime);
 				}
-				else if (!m_SecondAttack)
-				{
-					m_WaitSecondAttack = true;
-					m_Attack = false;
-					m_TargetPosition = Vector3.zero;
-				}
 				else
 				{
-					m_WaitSecondAttack = false;
-					m_SecondAttack = false;
-					m_TargetPosition = Vector3.zero;
-					m_AttackCooldownTimer = m_AttackCooldown;
+					// Wrap in statement to check if hit wall:
+					//StartCoroutine(BounceBack());
+
+					if (!m_SecondAttack)
+					{
+						ResetAttack();
+					}
+					else
+					{
+						ResetSecondAttack();
+					}
 				}
 			}
 			else
@@ -213,9 +224,57 @@ namespace Bladiator.Weapons
 			}
 		}
 
-		private void BounceBack()
+		private IEnumerator BounceBack()
 		{
+			Vector3 vec = m_Root.transform.position + -(m_TargetPosition.normalized * 2);
+			vec.y = 1.5f;
 
+			// DRY VVVVVVVVVVVVVVVVVVVVVVVVV
+			if (!m_SecondAttack){
+				ResetAttack();
+			}
+
+			//m_Root.position = vec;
+			float m_PreviousDistance = float.MaxValue;
+
+			for (int i = 0; i < 100; i++)
+			{
+                m_Root.position = Vector3.Lerp(m_Root.position,
+                           vec, m_Weapon.WeaponObject.WeaponData.AttackDragVelocity * Time.deltaTime); //  * 2
+
+				float distance = Vector3.Distance(m_Root.position, vec);
+				if (distance < 0.1f || m_PreviousDistance < distance)
+				{
+                    if (m_SecondAttack)
+                    {
+						ResetSecondAttack();
+                    }
+					break; 
+				}
+                else
+                {
+					m_PreviousDistance = distance;
+                }
+
+				yield return new WaitForEndOfFrame();
+			}
+
+			BounceBackRoutine = null;
+		}
+
+		private void ResetAttack()
+		{
+			m_WaitSecondAttack = true;
+			m_Attack = false;
+			m_TargetPosition = Vector3.zero;
+		}
+
+		private void ResetSecondAttack()
+		{
+			m_WaitSecondAttack = false;
+			m_SecondAttack = false;
+			m_TargetPosition = Vector3.zero;
+			m_AttackCooldownTimer = m_AttackCooldown;
 		}
 	}
 }
