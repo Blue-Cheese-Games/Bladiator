@@ -39,7 +39,7 @@ namespace Bladiator.CameraController
 		//TODO Needs some smoothing
 		private IEnumerator Shake(float dur, float mag)
 		{
-			Vector3 orgPos = transform.localPosition;
+			Vector3 orgPos = transform.position;
 
 			float elapsed = 0f;
 
@@ -48,14 +48,14 @@ namespace Bladiator.CameraController
 				float x = Random.Range(-1f, 1f) * mag;
 				float y = Random.Range(-1f, 1f) * mag;
 
-				transform.localPosition = new Vector3(x, y, orgPos.z);
+				transform.position = new Vector3(x, y, orgPos.z);
 
 				elapsed += Time.deltaTime;
 
 				yield return null;
 			}
 
-			transform.localPosition = orgPos;
+			transform.position = orgPos;
 		}
 	}
 }
