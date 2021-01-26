@@ -77,9 +77,10 @@ MonoBehaviour:
   m_SwordCollisionLayerMask:
     serializedVersion: 2
     m_Bits: 34816
+  m_Rigidbody: {fileID: 1235748311}
   WeaponObject: {fileID: 11400000, guid: dce8e8ae3d12f194e9f190b54e16f657, type: 2}
   Player: {fileID: 0}
-  HitParticle: {fileID: 1382110302393460847}
+  HitParticle: {fileID: 4135301129909369107}
 --- !u!54 &1235748311
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9818,6 +9819,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 243366696582741295}
     m_Modifications:
+    - target: {fileID: 342445828187477450, guid: 7f4cec25533b7cb4f82c04f6028f402c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2864837475634439538, guid: 7f4cec25533b7cb4f82c04f6028f402c, type: 3}
       propertyPath: m_Name
       value: _word1
@@ -9870,6 +9875,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8898058182114300971, guid: 7f4cec25533b7cb4f82c04f6028f402c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f4cec25533b7cb4f82c04f6028f402c, type: 3}
 --- !u!1 &2653450314655237118 stripped
@@ -9880,6 +9889,11 @@ GameObject:
 --- !u!4 &3429811813676276036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3209415265164640200, guid: 7f4cec25533b7cb4f82c04f6028f402c, type: 3}
+  m_PrefabInstance: {fileID: 221522463459534476}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4135301129909369107 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4211019540399824799, guid: 7f4cec25533b7cb4f82c04f6028f402c, type: 3}
   m_PrefabInstance: {fileID: 221522463459534476}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7304805933727490937
