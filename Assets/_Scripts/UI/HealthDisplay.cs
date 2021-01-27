@@ -7,8 +7,10 @@ namespace Bladiator.UI
 {
 	public class HealthDisplay : MonoBehaviour
 	{
-		[SerializeField] private float m_ChangeSpeed = 1f;
+		public EntityBase m_EntityOverride;
 		
+		[SerializeField] private float m_ChangeSpeed = 1f;
+
 		private EntityBase m_Entity;
 		private Slider m_HealthBar;
 
@@ -18,7 +20,7 @@ namespace Bladiator.UI
 		
 		private void Start()
 		{
-			m_Entity = GetComponent<EntityBase>();
+			m_Entity = (m_EntityOverride != null) ? m_EntityOverride : GetComponent<EntityBase>();
 			m_HealthBar = GetComponentInChildren<Slider>();
 
 			m_MaxHealth = m_Entity.Maxhealth;
@@ -38,6 +40,8 @@ namespace Bladiator.UI
 
 		void Update()
 		{
+			if (m_Entity == null) return;
+			
 			if (Math.Abs(m_TargetHealth - m_CurrentHealth) > 0.1f)
 			{
 				m_CurrentHealth -= Time.deltaTime * m_ChangeSpeed;
