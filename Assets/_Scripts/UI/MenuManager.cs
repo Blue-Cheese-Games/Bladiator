@@ -7,7 +7,8 @@ using UnityEngine;
 public class MenuManager : MonoBehaviour
 {
 	[SerializeField] private GameObject m_Menu;
-	[SerializeField] private TMP_Text m_PlayText;
+	[SerializeField] private GameObject[] m_HideObjects;
+
 
 	public void Start()
 	{
@@ -20,18 +21,28 @@ public class MenuManager : MonoBehaviour
 	{
 		m_Menu.SetActive(GameManager.Instance.GameState == GameState.MainMenu ||
 		                 GameManager.Instance.GameState == GameState.Pause);
+		DisableObjects();
 	}
 
 	private void InitializeMenu()
 	{
 		m_Menu.SetActive(GameManager.Instance.GameState == GameState.MainMenu ||
 		                 GameManager.Instance.GameState == GameState.Pause);
+		DisableObjects();
 	}
 
 	private void OnGameStateChange(GameState state)
 	{
-		m_PlayText.text = state == GameState.MainMenu ? "Play" : "Resume";
-		m_Menu.SetActive(state == GameState.MainMenu || GameManager.Instance.GameState == GameState.Pause);
+		m_Menu.SetActive(state == GameState.MainMenu || state == GameState.Pause);
+		DisableObjects();
+	}
+
+	private void DisableObjects()
+	{
+		foreach (GameObject hideObject in m_HideObjects)
+		{
+			hideObject.SetActive(GameManager.Instance.GameState != GameState.MainMenu && GameManager.Instance.GameState != GameState.Pause);
+		}
 	}
 
 	public void StartGame()

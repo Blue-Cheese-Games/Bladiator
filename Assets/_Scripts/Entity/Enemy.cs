@@ -41,7 +41,7 @@ namespace Bladiator.Entities.Enemies
 
 		public List<EnemyAttackBase> Attacks => m_Attacks;
 		
-		protected float m_CurrentAttackRecoveryTime = 0f;
+		public float m_CurrentAttackRecoveryTime = 0f;
 
 		// Components on the enemy.
 		protected Player m_TargetPlayer = null;

@@ -1,5 +1,6 @@
 using System;
 using Bladiator.Entities;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,11 @@ namespace Bladiator.UI
 {
 	public class HealthDisplay : MonoBehaviour
 	{
+		public EntityBase m_EntityOverride;
+		public string m_BossName = "";
+
 		[SerializeField] private float m_ChangeSpeed = 1f;
+		[SerializeField] private TMP_Text m_NameObject;
 		
 		private EntityBase m_Entity;
 		private Slider m_HealthBar;
@@ -18,15 +23,40 @@ namespace Bladiator.UI
 		
 		private void Start()
 		{
-			m_Entity = GetComponent<EntityBase>();
+			Initialize();
+		}
+
+		private void Initialize()
+		{
+			m_Entity = (m_EntityOverride != null) ? m_EntityOverride : GetComponent<EntityBase>();
 			m_HealthBar = GetComponentInChildren<Slider>();
 
+			if (m_Entity == null)
+			{
+				gameObject.SetActive(false);
+				return;
+			}
+			
 			m_MaxHealth = m_Entity.Maxhealth;
 
 			m_CurrentHealth = m_MaxHealth;
 			m_TargetHealth = m_MaxHealth;
 
 			m_Entity.OnDamage += OnDamage;
+			m_Entity.OnDeath += OnDeath;
+		}
+
+		private void OnDeath(EntityBase obj)
+		{
+			gameObject.SetActive(false);
+		}
+
+		public void OnEnable()
+		{
+			if(m_NameObject == null || string.IsNullOrEmpty(m_BossName)) return;
+
+			m_NameObject.text = m_BossName;
+			Initialize();
 		}
 
 		private void OnDamage(int amount)
@@ -38,6 +68,8 @@ namespace Bladiator.UI
 
 		void Update()
 		{
+			if (m_Entity == null) return;
+			
 			if (Math.Abs(m_TargetHealth - m_CurrentHealth) > 0.1f)
 			{
 				m_CurrentHealth -= Time.deltaTime * m_ChangeSpeed;
