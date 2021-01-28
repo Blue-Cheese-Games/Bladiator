@@ -2772,7 +2772,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566190987}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8.38, z: 0}
+  m_LocalPosition: {x: 0, y: 17.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3550,6 +3550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 765890592}
   - component: {fileID: 765890593}
+  - component: {fileID: 765890594}
   m_Layer: 5
   m_Name: BossUI
   m_TagString: Untagged
@@ -3594,6 +3595,18 @@ MonoBehaviour:
   m_BossName: 
   m_ChangeSpeed: 20
   m_NameObject: {fileID: 1807029449}
+--- !u!114 &765890594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765890591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4d4eee520543d2a00aa5b103551e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &774996544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9267,6 +9280,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_Boss
+      value: 
+      objectReference: {fileID: 7399407736380867222, guid: 85773bd147acf4b419dc8a9615bd83fc, type: 3}
+    - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_MiniBoss
+      value: 
+      objectReference: {fileID: 7399407736380867222, guid: 85773bd147acf4b419dc8a9615bd83fc, type: 3}
     - target: {fileID: 5184465393877325552, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
       propertyPath: m_SpawnIncrease
       value: 4

@@ -1,6 +1,8 @@
 using System;
+using Bladiator.Entities;
 using Bladiator.Entities.Enemies;
 using Bladiator.Managers;
+using Bladiator.UI;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -136,20 +138,32 @@ namespace Bladiator
 
 		public void SpawnBoss()
 		{
+			GameObject target;
+			int health;
+			
 			if (m_WaveCount % 10 == 0)
 			{
 				// Boss
-				Instantiate(m_Boss, m_BossSpawnPoint.position, m_BossSpawnPoint.rotation);
+				target = m_Boss;
+				health = 15 * (10 / m_WaveCount);
 			}
 			else
 			{
 				// Mini boss
-				Instantiate(m_MiniBoss, m_BossSpawnPoint.position, m_BossSpawnPoint.rotation);
+				target = m_MiniBoss;
+				health = 5 * (5 / m_WaveCount);
 			}
 
+			Enemy enemy = Instantiate(target, m_BossSpawnPoint.position, m_BossSpawnPoint.rotation).GetComponent<Enemy>();
+			enemy.gameObject.GetComponentInChildren<Animator>().speed = 0.25f;
+			enemy.SetHealth(health, health);
+			BossUi.Instance.BossSpawned(enemy);
+			enemy.m_CurrentAttackRecoveryTime = 2f;
+			enemy.SetState(EnemyState.RECOVERING_FROM_ATTACK);
+			
 			StopSpawn();
 		}
-
+		
 		public void StartSpawn()
 		{
 			m_TargetSpawnAmount = m_SpawnIncrease * m_WaveCount;
@@ -191,11 +205,5 @@ namespace Bladiator
 
 		[Tooltip("Which wave this entity needs to start spawning")]
 		public int m_WaveStartSpawning = 0;
-
-		// [Tooltip("Increase health after every x Waves")]
-		// public int m_IncreaseHealthAfterWaves = 1;
-		//
-		// [Tooltip("Health increase amount")]
-		// public int m_HealthIncrease = 0;
 	}
 }

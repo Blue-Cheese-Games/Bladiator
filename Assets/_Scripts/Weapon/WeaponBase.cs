@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using Bladiator.Entities;
 using Bladiator.Entities.Players;
 using Bladiator.Managers;
@@ -20,7 +21,7 @@ namespace Bladiator.Weapons
 		[SerializeField] private LayerMask m_SwordCollisionLayerMask;
 
 		[SerializeField] private Rigidbody m_Rigidbody;
-		
+
 		private Rigidbody m_RigidBody;
 		private Coroutine BounceBackRoutine;
 
@@ -40,6 +41,8 @@ namespace Bladiator.Weapons
 
 		private float m_AttackCooldown = .25f;
 		private float m_AttackCooldownTimer = 0f;
+
+		private List<EntityBase> m_HitEntities = new List<EntityBase>();
 
 		private void Awake()
 		{
@@ -72,7 +75,7 @@ namespace Bladiator.Weapons
 
 			transform.localPosition = m_StartPosition;
 			transform.localRotation = m_StartRotation;
-			
+
 			m_Center.transform.position = m_Weapon.Player.transform.position;
 		}
 
@@ -99,6 +102,7 @@ namespace Bladiator.Weapons
 			{
 				m_Rigidbody.isKinematic = false;
 				m_Attack = true;
+				m_HitEntities.Clear();
 			}
 
 			if (!m_SecondAttack && m_WaitSecondAttack && m_WarmupTimer < m_WarmupCooldown)
@@ -108,6 +112,7 @@ namespace Bladiator.Weapons
 					m_Rigidbody.isKinematic = false;
 					m_WaitSecondAttack = false;
 					m_SecondAttack = true;
+					m_HitEntities.Clear();
 				}
 
 				m_WarmupTimer += Time.deltaTime;
@@ -124,11 +129,15 @@ namespace Bladiator.Weapons
 		{
 			if (!other.TryGetComponent(out EntityBase entity))
 			{
-				if(!m_Attack && !m_SecondAttack) { return; }
+				if (!m_Attack && !m_SecondAttack)
+				{
+					return;
+				}
+
 				// Check if the layer of the entity is in the "m_SwordCollisionLayerMask" Layermask.
 				if (m_SwordCollisionLayerMask == (m_SwordCollisionLayerMask | (1 << other.gameObject.layer)))
 				{
-					if(BounceBackRoutine == null)
+					if (BounceBackRoutine == null)
 					{
 						BounceBackRoutine = StartCoroutine(BounceBack());
 					}
@@ -137,9 +146,16 @@ namespace Bladiator.Weapons
 			else if (m_Attack || m_SecondAttack)
 			{
 				if (other.CompareTag("Player"))
+				{
 					entity.Damage((int) Mathf.Floor(m_Weapon.WeaponObject.WeaponData.Damage / 2));
+				}
 				else
+				{
+
+					if (m_HitEntities.Contains(entity)) return;
 					entity.Damage((int) m_Weapon.WeaponObject.WeaponData.Damage);
+					m_HitEntities.Add(entity);
+				}
 
 				m_Weapon.HitParticle.Play();
 			}
@@ -166,7 +182,7 @@ namespace Bladiator.Weapons
 					Ray r = new Ray(transform.position, direction);
 					Physics.SphereCast(r, 0.5f, out hit, distanceToTarget, m_SwordCollisionLayerMask);
 
-					if(hit.collider != null)
+					if (hit.collider != null)
 					{
 						m_TargetPosition = r.GetPoint(hit.distance);
 					}
@@ -222,7 +238,8 @@ namespace Bladiator.Weapons
 				Vector3 direction = m_Weapon.Player.transform.position - MouseManager.Instance.RaycastMousePosition();
 				direction.y = 0;
 				Quaternion targetRotation = Quaternion.LookRotation(-direction, m_Weapon.Player.transform.up);
-				m_Center.rotation = Quaternion.Lerp(m_Center.rotation, targetRotation, m_RotationSpeed * Time.deltaTime);
+				m_Center.rotation =
+					Quaternion.Lerp(m_Center.rotation, targetRotation, m_RotationSpeed * Time.deltaTime);
 				return;
 			}
 
@@ -241,7 +258,8 @@ namespace Bladiator.Weapons
 			vec.y = 1.5f;
 
 			// DRY VVVVVVVVVVVVVVVVVVVVVVVVV
-			if (!m_SecondAttack){
+			if (!m_SecondAttack)
+			{
 				ResetAttack();
 			}
 
@@ -250,22 +268,23 @@ namespace Bladiator.Weapons
 
 			for (int i = 0; i < 100; i++)
 			{
-                m_Root.position = Vector3.Lerp(m_Root.position,
-                           vec, m_Weapon.WeaponObject.WeaponData.AttackDragVelocity * Time.deltaTime); //  * 2
+				m_Root.position = Vector3.Lerp(m_Root.position,
+					vec, m_Weapon.WeaponObject.WeaponData.AttackDragVelocity * Time.deltaTime); //  * 2
 
 				float distance = Vector3.Distance(m_Root.position, vec);
 				if (distance < 0.1f || m_PreviousDistance < distance)
 				{
-                    if (m_SecondAttack)
-                    {
+					if (m_SecondAttack)
+					{
 						ResetSecondAttack();
-                    }
-					break; 
+					}
+
+					break;
 				}
-                else
-                {
+				else
+				{
 					m_PreviousDistance = distance;
-                }
+				}
 
 				yield return new WaitForEndOfFrame();
 			}

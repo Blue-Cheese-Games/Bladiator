@@ -43,6 +43,12 @@ namespace Bladiator.UI
 			m_TargetHealth = m_MaxHealth;
 
 			m_Entity.OnDamage += OnDamage;
+			m_Entity.OnDeath += OnDeath;
+		}
+
+		private void OnDeath(EntityBase obj)
+		{
+			gameObject.SetActive(false);
 		}
 
 		public void OnEnable()
