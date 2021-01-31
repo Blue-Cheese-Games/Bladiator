@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Bladiator.Managers;
+using UnityEngine;
 
 namespace Bladiator.Leaderboard
 {
@@ -20,6 +21,11 @@ namespace Bladiator.Leaderboard
             m_TotalContentItemDistance = m_ContentItemStartY;
         }
 
+        public void BTN_Continue()
+        {
+            GameManager.Instance.ChangeState(GameState.Ending);
+        }
+        
         /// <summary>
         /// Place all the players from the database onto the leaderboard
         /// </summary>

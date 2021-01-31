@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Net;
 using System.Text;
 using Bladiator.Leaderboard.Struct;
+using Bladiator.Managers;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -14,6 +15,8 @@ namespace Bladiator.Leaderboard
         public static LeaderboardHandler INSTANCE = null;
         
         public List<LeaderboardItemData> LeaderboardItem = new List<LeaderboardItemData>();
+
+        [SerializeField] private GameObject m_LeaderboardObject;
         
         public LeaderboardHandler()
         {
@@ -23,20 +26,24 @@ namespace Bladiator.Leaderboard
             }
         }
 
-        private void Update()
+        private void Start()
         {
-            if (Input.GetKeyDown(KeyCode.Comma))
+            GameManager.Instance.OnGameStateChange += ShowHideLeaderboard;
+            
+            m_LeaderboardObject.SetActive(false);
+        }
+
+        private void ShowHideLeaderboard(GameState state)
+        {
+            if (state == GameState.Leaderboard)
             {
+                m_LeaderboardObject.SetActive(true);
                 GetLeaderboard();
                 LeaderboardUIHandler.Instance.SetAllContentForLeaderboard();
-            } else if (Input.GetKeyDown(KeyCode.DownArrow))
+            }
+            else
             {
-                AddPlayerToLeaderboard(new LeaderboardItemData()
-                {
-                    name = "Roberto",
-                    score = -4,
-                    wave = 8
-                });
+                m_LeaderboardObject.SetActive(false);
             }
         }
         

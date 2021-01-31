@@ -16,7 +16,8 @@ namespace Bladiator.Managers
 		Animating,
 		Fighting,
 		PlayersDied,
-		Ending
+		Ending,
+		Leaderboard
 	}
 
 	public class GameManager : MonoBehaviour
@@ -68,7 +69,7 @@ namespace Bladiator.Managers
 			ChangeState(GameState.Idle);
 		}
 
-		private void ChangeState(GameState state)
+		public void ChangeState(GameState state)
 		{
 			m_PreviousState = m_State;
 			m_State = state;
@@ -82,7 +83,7 @@ namespace Bladiator.Managers
 
 		public void PlayerDied()
 		{
-			if (m_Players.Count <= 0) ChangeState(GameState.Ending);
+			if (m_Players.Count <= 0) ChangeState(GameState.Leaderboard);
 		}
 
 		public void OnPlayerDied(EntityBase player)
