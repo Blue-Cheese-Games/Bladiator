@@ -1,4 +1,5 @@
 ﻿using Bladiator.Managers;
+using TMPro;
 using UnityEngine;
 
 namespace Bladiator.Leaderboard
@@ -10,19 +11,34 @@ namespace Bladiator.Leaderboard
         [SerializeField] private Transform m_LeaderboardContentParent = null;
         [SerializeField] private GameObject m_LeaderboardContentPrefab = null;
 
+        [SerializeField] private TMP_InputField m_PlayerName;
+
         private const int m_ContentItemStartY = -50;
         private const int m_IncrementContentYBy = -100;
         private int m_TotalContentItemDistance = 0;
 
+        private LeaderboardHandler m_LeaderboardHandler;
+
         private void Awake()
         {
             Instance = this;
+            m_LeaderboardHandler = GetComponent<LeaderboardHandler>();
             
             m_TotalContentItemDistance = m_ContentItemStartY;
         }
 
         public void BTN_Continue()
         {
+            if (!string.IsNullOrEmpty(m_PlayerName.text))
+            {
+                m_LeaderboardHandler.AddPlayerToLeaderboard(new LeaderboardItemData()
+                {
+                    name = m_PlayerName.text,
+                    score = ScoreManager.Instance.GetScore(),
+                    wave = WaveSystem.Instance.WaveCount
+                });
+            }
+            
             GameManager.Instance.ChangeState(GameState.Ending);
         }
         
@@ -31,6 +47,8 @@ namespace Bladiator.Leaderboard
         /// </summary>
         public void SetAllContentForLeaderboard()
         {
+            RemoveAllContentItemsFromLeaderboard();
+            
             foreach (LeaderboardItemData itemData in LeaderboardHandler.INSTANCE.LeaderboardItem)
             {
                  GameObject itemPrefab = Instantiate(m_LeaderboardContentPrefab);
@@ -53,6 +71,17 @@ namespace Bladiator.Leaderboard
 
                  // Increment the value of what the Y axis must be in the next iteration
                  m_TotalContentItemDistance += m_IncrementContentYBy;
+            }
+        }
+
+        /// <summary>
+        /// Remove all the child objects from the leaderboard items to remove duplicate items on game restart
+        /// </summary>
+        private void RemoveAllContentItemsFromLeaderboard()
+        {
+            foreach (Transform child in m_LeaderboardContentParent)
+            {
+                Destroy(child.gameObject);
             }
         }
     }
