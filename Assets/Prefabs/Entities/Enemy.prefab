@@ -48,7 +48,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 435d9ecd15398a646b999d3bec5958a4, type: 2}
   - {fileID: 11400000, guid: 74817196f4a3ff748beb88290436a681, type: 2}
   m_attackActivateAudioClip:
-  - {fileID: 8300000, guid: 8355130103c2fe5448d392a379f40b12, type: 3}
+  - {fileID: 8300000, guid: c3829832cb12eee40aa98c801a5fa21b, type: 3}
 --- !u!114 &7183070943029671522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,9 +167,17 @@ MonoBehaviour:
   m_SpawnAudioClip:
   - {fileID: 8300000, guid: 8355130103c2fe5448d392a379f40b12, type: 3}
   m_HitAudioClip:
-  - {fileID: 8300000, guid: 8355130103c2fe5448d392a379f40b12, type: 3}
+  - {fileID: 8300000, guid: c95b611c43dc6744e864288f127e48eb, type: 3}
+  - {fileID: 8300000, guid: 307e271de654f754fbe8516a3f2c6dcd, type: 3}
+  - {fileID: 8300000, guid: c7b215abd96f9de4f8f0fb2228fec65a, type: 3}
+  - {fileID: 8300000, guid: f49927ff55264a4428bc5fe482db8bff, type: 3}
+  - {fileID: 8300000, guid: 887e26b41c149ce40b1d39c041497647, type: 3}
+  - {fileID: 8300000, guid: 8a8f62ef3ef3642468e15a46960f25f8, type: 3}
   m_RandomIntervalAudioClip:
-  - {fileID: 8300000, guid: 8355130103c2fe5448d392a379f40b12, type: 3}
+  - {fileID: 8300000, guid: c710a738b6c0f504986bdd1878eeee56, type: 3}
+  - {fileID: 8300000, guid: 312bb82efbb698746875b34f565e1f9d, type: 3}
+  - {fileID: 8300000, guid: 991abdcf2668f8c4cbd552acd183e803, type: 3}
+  - {fileID: 8300000, guid: b52d765304e589443a0ba0c9c02ca26e, type: 3}
   m_MaxIntervalOfAudioPlay: 8
   m_MinIntervalOfAudioPlay: 12
   m_Maxhealth: 2
