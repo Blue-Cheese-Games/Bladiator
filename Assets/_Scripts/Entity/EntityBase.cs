@@ -57,10 +57,8 @@ namespace Bladiator.Entities
 
         public void Damage(int damage)
         {
-            print($"m_Health: {m_Health} damage: {damage}");
             // Damage the entity.
             m_Health -= damage;
-            print($"m_Health: {m_Health} damage: {damage}");
 
             OnDamage?.Invoke(damage);
 

@@ -28,8 +28,6 @@ namespace Bladiator.Entities.Players
 
 		private void ResetEvent()
 		{
-			GetComponent<HealthDisplay>().ResetHealthBar();
-			
 			GameManager.Instance.AddPlayer(this);
 			m_Health = m_Maxhealth;
 			gameObject.SetActive(true);
