@@ -10,6 +10,8 @@ namespace Bladiator.Projectiles
     {
         private Action OnExplode;
 
+        public ParticleSystem m_Indicator, m_Explosion;
+
         [Header("Stats")]
         [Header("Stats are overwritten by the Initialize method if passed.")]
 
@@ -27,6 +29,9 @@ namespace Bladiator.Projectiles
 
         [Tooltip("After how long will this grenade be able to explode?")]
         [SerializeField] private float m_ArmDelay = 0.5f;
+
+        private bool m_Initialized;
+        private bool m_IsExploded;
 
         public void Initialize(int damage = -1, float knockback = -1, float knockbackDuration = -1, float grenadeAoERange = -1, float armDelay = -1)
         {
@@ -50,22 +55,28 @@ namespace Bladiator.Projectiles
             {
                 m_ArmDelay = armDelay;
             }
+            
+            m_Indicator.Play();
+            m_Initialized = true;
         }
 
         private void Update()
         {
-            m_ArmDelay -= Time.deltaTime;
+            if (m_Initialized && !m_Indicator.isPlaying)
+            {
+                m_Initialized = false;
+                Explode();
+            }
+
+            if (m_IsExploded && !m_Explosion.isPlaying)
+            {
+                m_IsExploded = false;
+                Destroy(gameObject);
+            }
         }
 
-        private void OnCollisionEnter(Collision collision)
-        {
-            Explode();
-        }
-        
         private void Explode()
         {
-            if (m_ArmDelay > 0) { return; }
-
             Collider[] colls = Physics.OverlapSphere(transform.position, m_GrenadeAoERange);
 
             List<EntityBase> hitEntities = new List<EntityBase>();
@@ -94,9 +105,10 @@ namespace Bladiator.Projectiles
                 entity.Knockback(direction.normalized * m_Knockback, m_KnockbackDuration);
             }
 
-            OnExplode?.Invoke();
+            m_Explosion.Play();
 
-            Destroy(gameObject);
+            OnExplode?.Invoke();
+            m_IsExploded = true;
         }
 
         public void SubscribeToOnExplode(Action listener)
