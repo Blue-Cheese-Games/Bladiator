@@ -8,7 +8,8 @@ namespace Bladiator.Sound
 {
 	public class AudioManager : MonoBehaviour
 	{
-		[SerializeField] private Dictionary<string, AudioData> m_Sfx = new Dictionary<string, AudioData>();
+		[SerializeField] private Dictionary<string, AudioData> m_SFX = new Dictionary<string, AudioData>();
+
 		[SerializeField] private AudioData m_Idle, m_Main, m_Ending;
 		[SerializeField] private float m_FadeSpeed = 5;
 
@@ -27,14 +28,26 @@ namespace Bladiator.Sound
 
 		private void ResetEvent()
 		{
-			m_Current.source.Stop();
+			m_Current?.source.Stop();
 			m_CrossFade?.source.Stop();
 			m_CrossfadeQueue.Clear();
+
+			m_Idle.source.volume = 0;
+			m_Main.source.volume = 0;
+			m_Ending.source.volume = 0;
+
+			m_Current = null;
+			m_CrossFade = null;
+
+			m_OldVolume = 0;
+			m_OldCrossVolume = 0;
+			
+			m_LastState = GameState.Ending; // Ending is unused
 		}
 
-		private void OnGameStateChange(GameState obj)
+		private void OnGameStateChange(GameState state)
 		{
-			switch (obj)
+			switch (state)
 			{
 				case GameState.Idle:
 					if (m_LastState == GameState.Fighting)
@@ -88,12 +101,13 @@ namespace Bladiator.Sound
 					break;
 			}
 
-			m_LastState = obj;
+			m_LastState = state;
 		}
 
 		private void Update()
 		{
-			if (GameManager.Instance.GameState == GameState.Pause) return;
+			if (GameManager.Instance.GameState == GameState.Pause ||
+			    GameManager.Instance.GameState == GameState.MainMenu) return;
 
 			if (m_CrossfadeQueue.Count > 0 || m_CrossFade != null)
 			{
