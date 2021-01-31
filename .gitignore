@@ -75,4 +75,4 @@ crashlytics-build.properties
 
 # Database files
 *.dbase
-*[Leaderboard]
+*[Leaderboard]/
