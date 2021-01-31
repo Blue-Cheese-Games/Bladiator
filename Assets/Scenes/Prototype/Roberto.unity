@@ -4646,7 +4646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Menu: {fileID: 118576518}
-  m_PlayText: {fileID: 1144815706}
+  m_HideObjects: []
 --- !u!1 &1427122675
 GameObject:
   m_ObjectHideFlags: 0

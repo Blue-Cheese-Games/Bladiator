@@ -11,17 +11,32 @@ namespace Bladiator.Entities
         public Action<int> OnDamage;
         public Action<EntityBase> OnDeath;
 
+        [Header("Audio")]
+        [SerializeField] protected AudioSource m_audioSource;
+        [SerializeField] private GameObject m_tempAudioPrefab;
+        [SerializeField] protected AudioClip[] m_SpawnAudioClip;
+        [SerializeField] protected AudioClip[] m_HitAudioClip;
+        [SerializeField] protected AudioClip[] m_RandomIntervalAudioClip;
+        [SerializeField] protected float m_MaxIntervalOfAudioPlay, m_MinIntervalOfAudioPlay;
+
+        [Header("Stats")]
         [SerializeField] protected int m_Maxhealth = 10;
         [SerializeField] protected int m_Health = 10;
 
         [SerializeField] protected float m_Movespeed = 5f;
 
         public int CurrentHealth => m_Health;
-        public int Maxhealth => m_Maxhealth; 
+        public int Maxhealth => m_Maxhealth;
+
 
         protected virtual void Awake()
         {
-            
+            if(m_SpawnAudioClip.Length > 0)
+            {
+                PlaySound(m_SpawnAudioClip[UnityEngine.Random.Range(0, m_SpawnAudioClip.Length)]);
+            }
+
+            StartCoroutine(PlaySoundAtRandomInterval());
         }
         
         protected virtual void Start()
@@ -53,6 +68,11 @@ namespace Bladiator.Entities
             {
                 OnDeath?.Invoke(this);
             }
+
+            if(m_HitAudioClip.Length > 0)
+            {
+                PlaySound(m_HitAudioClip[UnityEngine.Random.Range(0, m_HitAudioClip.Length)]);
+            }
         }
 
         public virtual void Knockback(Vector3 knockback, float knockbackDuration)
@@ -65,6 +85,34 @@ namespace Bladiator.Entities
             yield return new WaitForSeconds(delay);
             // Unlock the entities movement here.
             Debug.LogError("This method should be overriden to unlock the movement of the entity.");
+        }
+
+        protected IEnumerator PlaySoundAtRandomInterval()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(UnityEngine.Random.Range(m_MinIntervalOfAudioPlay, m_MaxIntervalOfAudioPlay));
+                if (m_RandomIntervalAudioClip.Length > 0)
+                {
+                    PlaySound(m_RandomIntervalAudioClip[UnityEngine.Random.Range(0, m_RandomIntervalAudioClip.Length)]);
+                }
+            }
+        }
+
+        public void PlaySound(AudioClip clip)
+        {
+            m_audioSource.clip = clip;
+
+            if (m_Health <= 0)
+            {
+                AudioSource source = Instantiate(m_tempAudioPrefab, transform.position, Quaternion.identity).GetComponent<AudioSource>();
+                source.clip = clip;
+                source.Play();
+            }
+            else
+            {
+                m_audioSource.Play();
+            }
         }
     }
 }
