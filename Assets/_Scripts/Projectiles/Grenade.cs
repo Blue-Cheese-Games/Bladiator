@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Bladiator.Managers;
 using UnityEngine;
 
 namespace Bladiator.Projectiles
@@ -58,6 +59,14 @@ namespace Bladiator.Projectiles
             
             m_Indicator.Play();
             m_Initialized = true;
+            
+            GameManager.Instance.ResetEvent += ResetEvent;
+        }
+
+        private void ResetEvent()
+        {
+            GameManager.Instance.ResetEvent -= ResetEvent;
+            Destroy(gameObject);
         }
 
         private void Update()
