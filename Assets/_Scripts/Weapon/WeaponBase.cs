@@ -151,13 +151,12 @@ namespace Bladiator.Weapons
 				}
 				else
 				{
-
+					m_Weapon.HitParticle.Play();
+					
 					if (m_HitEntities.Contains(entity)) return;
 					entity.Damage((int) m_Weapon.WeaponObject.WeaponData.Damage);
 					m_HitEntities.Add(entity);
 				}
-
-				m_Weapon.HitParticle.Play();
 			}
 		}
 
