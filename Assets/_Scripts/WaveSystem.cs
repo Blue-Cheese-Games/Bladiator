@@ -145,13 +145,13 @@ namespace Bladiator
 			{
 				// Boss
 				target = m_Boss;
-				health = 15 * (10 / m_WaveCount);
+				health = m_WaveCount * 2;
 			}
 			else
 			{
 				// Mini boss
 				target = m_MiniBoss;
-				health = 5 * (5 / m_WaveCount);
+				health = (int)Mathf.Floor(m_WaveCount * 1.5f);
 			}
 
 			Enemy enemy = Instantiate(target, m_BossSpawnPoint.position, m_BossSpawnPoint.rotation).GetComponent<Enemy>();
