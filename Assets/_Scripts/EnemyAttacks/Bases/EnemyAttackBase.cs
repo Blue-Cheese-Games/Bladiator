@@ -16,6 +16,8 @@ public class EnemyAttackBase : MonoBehaviour
     // The list containing all the activation conditions for this attack.
     [SerializeField] protected List<BaseActivationCondition> m_ActivationConditions = new List<BaseActivationCondition>();
 
+    [SerializeField] private AudioClip[] m_attackActivateAudioClip;
+
     private void Update()
     {
         OnUpdate?.Invoke();
@@ -39,6 +41,7 @@ public class EnemyAttackBase : MonoBehaviour
         }
 
         Activate(enemy, player);
+        PlayActivationSound(m_attackActivateAudioClip[Random.Range(0, m_attackActivateAudioClip.Length)], enemy);
         OnActivate?.Invoke(enemy);
 
         return true;
@@ -65,5 +68,10 @@ public class EnemyAttackBase : MonoBehaviour
     protected virtual void Activate(Enemy enemy, Player player)
     {
         Debug.LogError("\"EnemyAttackBase\"'s activation was called, make sure to override this method for enemy's attacks.");
+    }
+
+    protected virtual void PlayActivationSound(AudioClip clip, Enemy enemy)
+    {
+        enemy.PlaySound(clip);
     }
 }
