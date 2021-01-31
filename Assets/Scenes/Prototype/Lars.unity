@@ -5568,6 +5568,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2049613442, guid: 181f3e28f82d72c45a6933c1ab6bad9e, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 888390015283457447, guid: 181f3e28f82d72c45a6933c1ab6bad9e, type: 3}
       propertyPath: m_Name
       value: Arena_Final
