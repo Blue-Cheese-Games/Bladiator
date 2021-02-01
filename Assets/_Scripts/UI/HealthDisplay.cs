@@ -75,7 +75,7 @@ namespace Bladiator.UI
 		{
 			if (!m_HealthBar.gameObject.activeSelf) m_HealthBar.gameObject.SetActive(true);
 
-			m_TargetHealth -= amount;
+			m_TargetHealth = m_Entity.CurrentHealth;
 		}
 
 		void Update()
@@ -84,7 +84,7 @@ namespace Bladiator.UI
 
 			if (Math.Abs(m_TargetHealth - m_CurrentHealth) > 0.1f)
 			{
-				m_CurrentHealth -= Time.deltaTime * m_ChangeSpeed;
+				m_CurrentHealth -= Mathf.Clamp(Time.deltaTime * m_ChangeSpeed, 0, Math.Abs(m_TargetHealth - m_CurrentHealth));
 			}
 			else
 			{

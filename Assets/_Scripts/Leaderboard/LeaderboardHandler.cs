@@ -142,7 +142,7 @@ namespace Bladiator.Leaderboard
         }
 
         /// <summary>
-        /// Request the players from the leaderboard from the database
+        /// Request the players from the leaderboard from the database.
         /// </summary>
         /// <param name="url"> Url to the database </param>
         /// <returns> All the players in the database </returns>
