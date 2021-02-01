@@ -73,7 +73,9 @@ namespace Bladiator.Leaderboard
             const string databaseUrl = "https://bladiator.larsbeijaard.com/scripts/get_leaderboard.php";
 
             StartCoroutine(GetLeaderboardRequest(databaseUrl, (json) => {
-                try
+                Debug.Log("JSON RESPONSE:" + json);
+            
+                if (json != "There are currently no players on the leaderboard.")
                 {
                     // Clear the current leaderboard
                     LeaderboardItem.Clear();
@@ -90,14 +92,13 @@ namespace Bladiator.Leaderboard
                     }
                 }
                 // This gets executed when there are no players on the leaderboard
-                catch (Exception e)
+                else
                 {
-                    LeaderboardItemData leaderboardItemData = new LeaderboardItemData();
-                    leaderboardItemData.name = leaderboardItemData.GetEmptyLeaderboardName();
-
                     LeaderboardItem.Add(new LeaderboardItemData()
                     {
-                        name = leaderboardItemData.GetEmptyLeaderboardName()
+                        name = "No man has fought yet.",
+                        score = 0,
+                        wave = 0
                     });
                 }
 
@@ -136,7 +137,11 @@ namespace Bladiator.Leaderboard
         /// <param name="data"></param>
         private IEnumerator SendDatabaseRequest(string url, LeaderboardItemData data)
         {
-            string json = JsonConvert.SerializeObject(data);
+            Debug.Log("DATA!!!!" + data);
+            
+            string json = JsonUtility.ToJson(data);
+            
+            Debug.Log("JSON!!!!" + json);
 
             Debug.Log("serialized json in \"SendDatabaseRequest\"");
 
