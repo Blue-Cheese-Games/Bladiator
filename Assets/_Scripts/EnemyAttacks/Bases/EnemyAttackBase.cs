@@ -41,7 +41,10 @@ public class EnemyAttackBase : MonoBehaviour
         }
 
         Activate(enemy, player);
-        PlayActivationSound(m_attackActivateAudioClip[Random.Range(0, m_attackActivateAudioClip.Length)], enemy);
+        if(m_attackActivateAudioClip.Length > 0)
+        {
+            PlayActivationSound(m_attackActivateAudioClip[Random.Range(0, m_attackActivateAudioClip.Length)], enemy);
+        }
         OnActivate?.Invoke(enemy);
 
         return true;
