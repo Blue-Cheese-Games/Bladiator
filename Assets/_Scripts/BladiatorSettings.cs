@@ -1,5 +1,6 @@
 using System;
 using _Scripts;
+using Bladiator.UI;
 using UnityEngine;
 
 namespace Bladiator.Settings
@@ -24,11 +25,12 @@ namespace Bladiator.Settings
 		}
 		
 		public void OnVolumeChanged(Single value)
-		{ 
+		{
+			VolumeTest.Volume = value;
 			float.TryParse(value.ToString(), out m_Settings.Volume);
 			SaveSettings();
 		}
-
+		
 		private void SaveSettings()
 		{
 			//TODO Save this as a json
