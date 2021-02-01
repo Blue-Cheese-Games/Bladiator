@@ -106,7 +106,6 @@ namespace Bladiator.Entities
 
 		public void PlaySound(AudioClip clip)
 		{
-			m_audioSource.volume = BladiatorSettings.Instance.Settings.Volume;
 			m_audioSource.clip = clip;
 
 			if (m_Health <= 0)
