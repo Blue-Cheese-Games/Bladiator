@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Net;
 using System.Text;
 using Bladiator.Leaderboard.Struct;
 using Bladiator.Managers;
-using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -79,9 +76,10 @@ namespace Bladiator.Leaderboard
                 {
                     // Clear the current leaderboard
                     LeaderboardItem.Clear();
-
+                    LeadboardObjectWrapper leaderboardDataWrapper = JsonUtility.FromJson<LeadboardObjectWrapper>(json);
+                    
                     // Add each player from the leaderboard to a list
-                    foreach (LeaderboardItemData data in JsonConvert.DeserializeObject<List<LeaderboardItemData>>(json))
+                    foreach (LeaderboardItemData data in leaderboardDataWrapper.LeaderboardData)
                     {
                         LeaderboardItem.Add(new LeaderboardItemData()
                         {
