@@ -38,32 +38,32 @@ namespace Bladiator.Entities.Enemies
 				case EnemyState.MOVE_TOWARDS_PLAYER:
 					MoveTowardsPlayer();
 					StuckDetection();
-					//m_Animator.Play("run");
-					break;
+                    m_Animator.Play("run");
+                    break;
 
 				case EnemyState.FOLLOWING_PATH:
 					FollowAlongPath();
 					StuckDetection();
-					//m_Animator.Play("run");
-					break;
+                    m_Animator.Play("run");
+                    break;
 
 				case EnemyState.GROUP_WITH_OTHERS:
 					GroupUpWithGroup();
 					StuckDetection();
-					//m_Animator.Play("run");
-					break;
+                    m_Animator.Play("run");
+                    break;
 
 				// -- Grouping --
 				case EnemyState.LOOKING_FOR_GROUP:
 					InitializeGroup();
-					//m_Animator.Play("idle");
-					break;
+                    m_Animator.Play("idle");
+                    break;
 
 				// -- Attacking --
 				case EnemyState.RECOVERING_FROM_ATTACK:
 					RecoverFromAttack();
-					//m_Animator.Play("idle");
-					break;
+                    m_Animator.Play("idle");
+                    break;
 			}
 
 			AttackCheck();
@@ -86,8 +86,8 @@ namespace Bladiator.Entities.Enemies
 					SetExtraState(GrenadeLobberExtraState.MOVE_TOWARDS_PLAYER);
 				}
 
-				//m_Animator.Play("idle");
-				return;
+                m_Animator.Play("idle");
+                return;
 			}
 
 			LookAtTarget(target);
