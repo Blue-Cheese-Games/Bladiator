@@ -77,6 +77,7 @@ namespace Bladiator.Entities
 
 		public virtual void Knockback(Vector3 knockback, float knockbackDuration)
 		{
+			Debug.LogError("This method should be overriden to apply the knockback to the entity.");
 		}
 
 		protected virtual IEnumerator ResetAllowedToMove(float delay)
