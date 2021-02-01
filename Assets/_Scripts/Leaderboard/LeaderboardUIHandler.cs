@@ -25,6 +25,14 @@ namespace Bladiator.Leaderboard
             m_LeaderboardHandler = GetComponent<LeaderboardHandler>();
             
             m_TotalContentItemDistance = m_ContentItemStartY;
+
+            SetPlayerNameSettings();
+        }
+
+        private void SetPlayerNameSettings()
+        {
+            m_PlayerName.characterLimit = 16;
+            m_PlayerName.characterValidation = TMP_InputField.CharacterValidation.Name;
         }
 
         public void BTN_Continue()
