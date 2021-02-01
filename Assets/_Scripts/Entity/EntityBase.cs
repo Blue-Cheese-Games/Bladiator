@@ -112,8 +112,10 @@ namespace Bladiator.Entities
 			{
 				AudioSource source = Instantiate(m_tempAudioPrefab, transform.position, Quaternion.identity)
 					.GetComponent<AudioSource>();
+				source.volume = BladiatorSettings.Instance.Settings.Volume / 4;
 				source.clip = clip;
 				source.Play();
+
 			}
 			else
 			{
