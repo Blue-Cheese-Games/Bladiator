@@ -81,7 +81,7 @@ namespace Bladiator.Entities.Enemies
 
 			if (Vector3.Distance(transform.position, target) < 0.05f)
 			{
-				if(m_ExtraState == GrenadeLobberExtraState.MOVE_AWAY_FROM_PLAYER)
+				if(m_ExtraState == GrenadeLobberExtraState.MOVE_AWAY_FROM_PLAYER || m_ExtraState == GrenadeLobberExtraState.MOVE_AWAY_FROM_GRENADE)
 				{
 					SetExtraState(GrenadeLobberExtraState.MOVE_TOWARDS_PLAYER);
 				}
