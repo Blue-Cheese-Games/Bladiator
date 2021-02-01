@@ -46,7 +46,6 @@ namespace Bladiator.Leaderboard
             Debug.Log("BtnContinue call");
             if (!string.IsNullOrEmpty(m_PlayerName.text))
             {
-                Debug.Log("m_LeaderboardHandler creation and \"AddPlayerToLeaderboard\" call");
                 m_LeaderboardHandler.AddPlayerToLeaderboard(new LeaderboardItemData()
                 {
                     name = m_PlayerName.text,
@@ -55,7 +54,6 @@ namespace Bladiator.Leaderboard
                 });
             }
 
-            Debug.Log("Change State to Ending");
             GameManager.Instance.ChangeState(GameState.Ending);
         }
 

@@ -34,13 +34,10 @@ namespace Bladiator.Leaderboard
 
         private void ShowHideLeaderboard(GameState state)
         {
-            Debug.Log("Call to \"Show hide leaderboard\"");
             if (state == GameState.Leaderboard)
             {
-                Debug.Log("Set leaderboard to active");
                 m_LeaderboardObject.SetActive(true);
-
-                Debug.Log("Call to \"GetLeaderboard\"");
+                
                 GetLeaderboard();
             }
             else
@@ -56,9 +53,7 @@ namespace Bladiator.Leaderboard
         public void AddPlayerToLeaderboard(LeaderboardItemData itemData)
         {
             const string databaseUrl = "https://bladiator.larsbeijaard.com/scripts/add_leaderboard_item.php";
-            Debug.Log("Call to \"SendDatabaseRequest\"");
             StartCoroutine(SendDatabaseRequest(databaseUrl, itemData));
-            Debug.Log("Coroutine \"SendDatabaseRequest\" started");
         }
 
         /// <summary>
@@ -66,11 +61,9 @@ namespace Bladiator.Leaderboard
         /// </summary>
         public void GetLeaderboard()
         {
-            Debug.Log("Called \"GetLeaderBaord\"");
             const string databaseUrl = "https://bladiator.larsbeijaard.com/scripts/get_leaderboard.php";
 
             StartCoroutine(GetLeaderboardRequest(databaseUrl, (json) => {
-                Debug.Log("JSON RESPONSE:" + json);
             
                 if (json != "There are currently no players on the leaderboard.")
                 {
@@ -135,25 +128,15 @@ namespace Bladiator.Leaderboard
         /// <param name="data"></param>
         private IEnumerator SendDatabaseRequest(string url, LeaderboardItemData data)
         {
-            Debug.Log("DATA!!!!" + data);
-            
             string json = JsonUtility.ToJson(data);
             
-            Debug.Log("JSON!!!!" + json);
-
-            Debug.Log("serialized json in \"SendDatabaseRequest\"");
-
             WWWForm form = new WWWForm();
 
             form.AddField("data", json);
 
-            Debug.Log("Created WWWForm");
-
             using (UnityWebRequest client = UnityWebRequest.Post(url, form))
             {
-                Debug.Log("Created \"UnityWebRequest\" in using, sending request:");
                 yield return client.SendWebRequest();
-                Debug.Log("Request has been sent.");
             }
         }
 
@@ -164,8 +147,6 @@ namespace Bladiator.Leaderboard
         /// <returns> All the players in the database </returns>
         private IEnumerator GetLeaderboardRequest(string url, Action<string> callback)
         {
-            Debug.Log("inside \"GetLeaderboardRequest\" coroutine");
-
             using (UnityWebRequest client = UnityWebRequest.Get(url))
             {
                 Debug.Log("UnityWebRequest created, sending request.");
