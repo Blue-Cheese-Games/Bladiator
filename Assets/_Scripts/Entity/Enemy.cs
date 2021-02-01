@@ -471,7 +471,6 @@ namespace Bladiator.Entities.Enemies
 					m_Animator.speed = 0;
 
 					break;
-
 				case GameState.Fighting:
 					m_Animator.speed = m_orgiginalAnimationSpeed;
 
