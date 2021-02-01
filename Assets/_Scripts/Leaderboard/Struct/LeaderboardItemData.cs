@@ -13,7 +13,7 @@
         /// <returns> Default data </returns>
         public string GetEmptyLeaderboardName()
         {
-            const string emptyLeaderboardName = "Nothing on the leaderboard.";
+            const string emptyLeaderboardName = "No man has fought yet. Are you the first?";
             return emptyLeaderboardName;
         }
     }
