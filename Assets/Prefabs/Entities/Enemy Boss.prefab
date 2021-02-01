@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Stats: {fileID: 11400000, guid: 824be2e33ea3b5344a23b0f59a4663d6, type: 2}
   m_ActivationConditions:
   - {fileID: 11400000, guid: 435d9ecd15398a646b999d3bec5958a4, type: 2}
-  - {fileID: 11400000, guid: 74817196f4a3ff748beb88290436a681, type: 2}
+  - {fileID: 11400000, guid: 237f43e438ec7284eb609bb958156cc4, type: 2}
   m_attackActivateAudioClip: []
 --- !u!114 &7183070943029671522
 MonoBehaviour:

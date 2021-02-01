@@ -16,7 +16,7 @@ namespace Bladiator.Entities.Enemies
 
 		[Tooltip("How far away from the target player can this enemy move before it walks towards the player again.")]
 		[SerializeField] private float m_MaximumDistanceFromPlayer = 14;
-
+		
 		private GrenadeLobberExtraState m_ExtraState = GrenadeLobberExtraState.MOVE_TOWARDS_PLAYER;
 
 		private Grenade m_ThrownGrenade;
