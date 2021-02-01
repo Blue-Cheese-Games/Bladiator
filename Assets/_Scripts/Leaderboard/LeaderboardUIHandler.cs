@@ -32,7 +32,7 @@ namespace Bladiator.Leaderboard
         private void SetPlayerNameSettings()
         {
             m_PlayerName.characterLimit = 16;
-            m_PlayerName.characterValidation = TMP_InputField.CharacterValidation.Name;
+            m_PlayerName.characterValidation = TMP_InputField.CharacterValidation.Alphanumeric;
         }
 
         public void BTN_Continue()
