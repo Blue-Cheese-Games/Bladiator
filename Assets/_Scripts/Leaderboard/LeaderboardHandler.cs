@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Net;
@@ -7,6 +8,7 @@ using Bladiator.Leaderboard.Struct;
 using Bladiator.Managers;
 using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Bladiator.Leaderboard
 {
@@ -39,7 +41,6 @@ namespace Bladiator.Leaderboard
             {
                 m_LeaderboardObject.SetActive(true);
                 GetLeaderboard();
-                LeaderboardUIHandler.Instance.SetAllContentForLeaderboard();
             }
             else
             {
@@ -54,7 +55,7 @@ namespace Bladiator.Leaderboard
         public void AddPlayerToLeaderboard(LeaderboardItemData itemData)
         {
             const string databaseUrl = "https://bladiator.larsbeijaard.com/scripts/add_leaderboard_item.php";
-            SendDatabaseRequest(databaseUrl, itemData);
+            StartCoroutine(SendDatabaseRequest(databaseUrl, itemData));
         }
 
         /// <summary>
@@ -63,37 +64,39 @@ namespace Bladiator.Leaderboard
         public void GetLeaderboard()
         {
             const string databaseUrl = "https://bladiator.larsbeijaard.com/scripts/get_leaderboard.php";
-            
-            string json = GetLeaderboardRequest(databaseUrl);
-            try
-            {
-                // Clear the current leaderboard
-                LeaderboardItem.Clear();
-                
-                // Add each player from the leaderboard to a list
-                foreach (LeaderboardItemData data in JsonConvert.DeserializeObject<List<LeaderboardItemData>>(json))
+
+            StartCoroutine(GetLeaderboardRequest(databaseUrl, (json) => {
+                try
                 {
+                    // Clear the current leaderboard
+                    LeaderboardItem.Clear();
+
+                    // Add each player from the leaderboard to a list
+                    foreach (LeaderboardItemData data in JsonConvert.DeserializeObject<List<LeaderboardItemData>>(json))
+                    {
+                        LeaderboardItem.Add(new LeaderboardItemData()
+                        {
+                            name = data.name,
+                            score = data.score,
+                            wave = data.wave
+                        });
+                    }
+                }
+                // This gets executed when there are no players on the leaderboard
+                catch (Exception e)
+                {
+                    LeaderboardItemData leaderboardItemData = new LeaderboardItemData();
+                    leaderboardItemData.name = leaderboardItemData.GetEmptyLeaderboardName();
+
                     LeaderboardItem.Add(new LeaderboardItemData()
                     {
-                        name = data.name,
-                        score = data.score,
-                        wave = data.wave
+                        name = leaderboardItemData.GetEmptyLeaderboardName()
                     });
                 }
-            }
-            // This gets executed when there are no players on the leaderboard
-            catch (Exception e)
-            {
-                LeaderboardItemData leaderboardItemData = new LeaderboardItemData();
-                leaderboardItemData.name = leaderboardItemData.GetEmptyLeaderboardName();
-                
-                LeaderboardItem.Add(new LeaderboardItemData()
-                {
-                    name = leaderboardItemData.GetEmptyLeaderboardName()
-                });
-            }
-            
-            SortLeaderboard(LeaderboardSortingType.SORT_ON_SCORE);
+
+                SortLeaderboard(LeaderboardSortingType.SORT_ON_SCORE);
+                LeaderboardUIHandler.Instance.SetAllContentForLeaderboard();
+            }));
         }
         
         /// <summary>
@@ -124,30 +127,34 @@ namespace Bladiator.Leaderboard
         /// </summary>
         /// <param name="url"></param>
         /// <param name="data"></param>
-        private void SendDatabaseRequest(string url, LeaderboardItemData data)
+        private IEnumerator SendDatabaseRequest(string url, LeaderboardItemData data)
         {
             string json = JsonConvert.SerializeObject(data);
-            
-            NameValueCollection nvc = new NameValueCollection();
-            nvc.Add("data", json);
 
-            using (WebClient client = new WebClient())
+            WWWForm form = new WWWForm();
+
+            form.AddField("data", json);
+
+            using (UnityWebRequest client = UnityWebRequest.Post(url, form))
             {
-                string result = Encoding.UTF8.GetString(client.UploadValues(url, nvc));
-                Debug.Log(result);
+                yield return client.SendWebRequest();
             }
         }
-        
+
         /// <summary>
         /// Request the players from the leaderboard from the database
         /// </summary>
         /// <param name="url"> Url to the database </param>
         /// <returns> All the players in the database </returns>
-        private string GetLeaderboardRequest(string url)
+        private IEnumerator GetLeaderboardRequest(string url, Action<string> callback)
         {
-            using (WebClient client = new WebClient())
+            using (UnityWebRequest client = UnityWebRequest.Get(url))
             {
-                return client.DownloadString(url);
+                yield return client.SendWebRequest();
+
+                string s = Encoding.ASCII.GetString(client.downloadHandler.data);
+                
+                callback.Invoke(s);
             }
         }
     }   
