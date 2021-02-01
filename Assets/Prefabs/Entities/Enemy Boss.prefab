@@ -47,7 +47,9 @@ MonoBehaviour:
   m_ActivationConditions:
   - {fileID: 11400000, guid: 435d9ecd15398a646b999d3bec5958a4, type: 2}
   - {fileID: 11400000, guid: 237f43e438ec7284eb609bb958156cc4, type: 2}
-  m_attackActivateAudioClip: []
+  m_attackActivateAudioClip:
+  - {fileID: 8300000, guid: b857b6f9d2293ce4c957f9740c39f9b4, type: 3}
+  - {fileID: 8300000, guid: 20f497b67c275be4ea541a5d9ceceec5, type: 3}
 --- !u!114 &7183070943029671522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +169,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b857b6f9d2293ce4c957f9740c39f9b4, type: 3}
   m_HitAudioClip:
   - {fileID: 8300000, guid: 20f497b67c275be4ea541a5d9ceceec5, type: 3}
+  - {fileID: 8300000, guid: b857b6f9d2293ce4c957f9740c39f9b4, type: 3}
   m_RandomIntervalAudioClip: []
   m_MaxIntervalOfAudioPlay: 0
   m_MinIntervalOfAudioPlay: 0

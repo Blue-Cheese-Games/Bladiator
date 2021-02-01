@@ -49,7 +49,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 15b447b32e73ba3499be9eadee53bfd9, type: 2}
   - {fileID: 11400000, guid: b3a9c6bec8531664b9cd1885abc0f623, type: 2}
   m_attackActivateAudioClip:
-  - {fileID: 8300000, guid: 8355130103c2fe5448d392a379f40b12, type: 3}
+  - {fileID: 8300000, guid: a374914ff64e35440ba2d7908c90ac60, type: 3}
   m_GrenadePrefab: {fileID: 5746351300740725109, guid: f5af306758ec7224fb6935f46d8a863e, type: 3}
   m_GrenadeAoERange: 3
   m_GrenadeArmDelay: 0.5
@@ -213,11 +213,14 @@ MonoBehaviour:
   m_SpawnAudioClip:
   - {fileID: 8300000, guid: 8355130103c2fe5448d392a379f40b12, type: 3}
   m_HitAudioClip:
-  - {fileID: 8300000, guid: 8355130103c2fe5448d392a379f40b12, type: 3}
+  - {fileID: 8300000, guid: c95b611c43dc6744e864288f127e48eb, type: 3}
+  - {fileID: 8300000, guid: 307e271de654f754fbe8516a3f2c6dcd, type: 3}
   m_RandomIntervalAudioClip:
-  - {fileID: 8300000, guid: 8355130103c2fe5448d392a379f40b12, type: 3}
-  m_MaxIntervalOfAudioPlay: 8
-  m_MinIntervalOfAudioPlay: 12
+  - {fileID: 8300000, guid: 312bb82efbb698746875b34f565e1f9d, type: 3}
+  - {fileID: 8300000, guid: 991abdcf2668f8c4cbd552acd183e803, type: 3}
+  - {fileID: 8300000, guid: b52d765304e589443a0ba0c9c02ca26e, type: 3}
+  m_MaxIntervalOfAudioPlay: 2
+  m_MinIntervalOfAudioPlay: 4
   m_Maxhealth: 1
   m_Health: 1
   m_Movespeed: 3
