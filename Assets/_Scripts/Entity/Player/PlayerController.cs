@@ -36,7 +36,7 @@ namespace Bladiator.Entities.Players
 				m_Rig.isKinematic = true;
 				m_Animator.speed = 0;
 			}
-			else if (state == GameState.Ending)
+			else if (state == GameState.Ending || state == GameState.Leaderboard)
 			{
 				m_AllowedToMove = false;
 				m_Rig.velocity = Vector3.zero;

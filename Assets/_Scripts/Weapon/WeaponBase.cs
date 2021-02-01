@@ -84,6 +84,7 @@ namespace Bladiator.Weapons
 			if (GameManager.Instance.GameState == GameState.Pause ||
 			    GameManager.Instance.GameState == GameState.MainMenu ||
 			    GameManager.Instance.GameState == GameState.PlayersDied ||
+			    GameManager.Instance.GameState == GameState.Leaderboard ||
 			    GameManager.Instance.GameState == GameState.Ending) return;
 
 			if (MouseManager.Instance.HasHit())

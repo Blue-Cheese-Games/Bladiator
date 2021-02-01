@@ -32,9 +32,12 @@ namespace Bladiator.Entities.Enemies
 		[Tooltip("The score to be added to the total score when this enemy dies.")]
 		[SerializeField] private int m_ScoreOnDeath;
 
+		// Animation.
 		protected Animator m_Animator;
 
 		public Animator Animator => m_Animator;
+
+		protected float m_orgiginalAnimationSpeed;
 		
 		// Attacks
 		protected List<EnemyAttackBase> m_Attacks = new List<EnemyAttackBase>();
@@ -80,6 +83,9 @@ namespace Bladiator.Entities.Enemies
 			FindNearsestPlayerAndSetAsTarget();
 
 			m_Animator = GetComponentInChildren<Animator>();
+			m_orgiginalAnimationSpeed = m_Animator.speed;
+
+			GameManager.Instance.OnGameStateChange += GameStateChangeEvent;
 
 			// Get all the attacks from the "m_AttacksParent" object.
 			m_AttacksParent.GetComponentsInChildren<EnemyAttackBase>(m_Attacks);
@@ -99,12 +105,14 @@ namespace Bladiator.Entities.Enemies
 		private void OnDestroy()
 		{
 			GameManager.Instance.ResetEvent -= ResetEvent;
+			GameManager.Instance.OnGameStateChange -= GameStateChangeEvent;
 		}
 
 		protected virtual void Update()
 		{
 			if (GameManager.Instance.GameState == GameState.Pause ||
 			    GameManager.Instance.GameState == GameState.Ending ||
+			    GameManager.Instance.GameState == GameState.Leaderboard ||
 			    GameManager.Instance.GameState == GameState.PlayersDied) return;
 
 			switch (m_State)
@@ -451,6 +459,25 @@ namespace Bladiator.Entities.Enemies
 			yield return new WaitForSeconds(delay);
 			SetState(EnemyState.MOVE_TOWARDS_PLAYER);
 		}
+
+		public void GameStateChangeEvent(GameState state)
+        {
+            switch (state)
+            {
+				//case GameState.PlayersDied:
+				case GameState.Ending:
+				case GameState.Leaderboard:
+				case GameState.Pause:
+					m_Animator.speed = 0;
+
+					break;
+
+				case GameState.Fighting:
+					m_Animator.speed = m_orgiginalAnimationSpeed;
+
+					break;
+            }
+        }
 	}
 
 	public enum EnemyState
