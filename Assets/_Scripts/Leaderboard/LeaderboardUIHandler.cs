@@ -8,14 +8,20 @@ namespace Bladiator.Leaderboard
     {
         public static LeaderboardUIHandler Instance = null;
         
-        [SerializeField] private Transform m_LeaderboardContentParent = null;
-        [SerializeField] private GameObject m_LeaderboardContentPrefab = null;
+        [Header("Leaderboard content")]
+        [SerializeField] private Transform m_LeaderboardContentParent;
+        [SerializeField] private GameObject m_LeaderboardContentPrefab;
 
+        [Header("Leaderboard player name")]
         [SerializeField] private TMP_InputField m_PlayerName;
-
+        
+        [Header("Displayed on leaderboard")]
+        [SerializeField] private TextMeshProUGUI m_FinalScore;
+        [SerializeField] private TextMeshProUGUI m_FinalWave;
+        
         private const int m_ContentItemStartY = -50;
         private const int m_IncrementContentYBy = -100;
-        private int m_TotalContentItemDistance = 0;
+        private int m_TotalContentItemDistance;
 
         private LeaderboardHandler m_LeaderboardHandler;
 
@@ -49,12 +55,20 @@ namespace Bladiator.Leaderboard
             
             GameManager.Instance.ChangeState(GameState.Ending);
         }
+
+        private void SetFinalScore()
+        {
+            m_FinalScore.text = $"Score: {ScoreManager.Instance.GetScore()}";
+            m_FinalWave.text = $"Wave: {WaveSystem.Instance.WaveCount}";
+        }
         
         /// <summary>
         /// Place all the players from the database onto the leaderboard
         /// </summary>
         public void SetAllContentForLeaderboard()
         {
+            SetFinalScore();
+
             RemoveAllContentItemsFromLeaderboard();
             
             foreach (LeaderboardItemData itemData in LeaderboardHandler.INSTANCE.LeaderboardItem)
