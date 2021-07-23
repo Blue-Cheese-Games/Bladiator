@@ -9,6 +9,7 @@ using UnityEngine.Networking;
 
 namespace Bladiator.Leaderboard
 {
+    [Obsolete("This class will be removed in the future because the current api is not working")]
     public class LeaderboardHandler : MonoBehaviour
     {
         public static LeaderboardHandler INSTANCE = null;
@@ -52,6 +53,8 @@ namespace Bladiator.Leaderboard
         /// <param name="itemData"> Data of the player </param>
         public void AddPlayerToLeaderboard(LeaderboardItemData itemData)
         {
+            return; // The api used is no longer active
+
             const string databaseUrl = "https://bladiator.larsbeijaard.com/scripts/add_leaderboard_item.php";
             StartCoroutine(SendDatabaseRequest(databaseUrl, itemData));
         }
@@ -61,6 +64,8 @@ namespace Bladiator.Leaderboard
         /// </summary>
         public void GetLeaderboard()
         {
+            return; // The api used is no longer active
+            
             const string databaseUrl = "https://bladiator.larsbeijaard.com/scripts/get_leaderboard.php";
 
             StartCoroutine(GetLeaderboardRequest(databaseUrl, (json) => {
