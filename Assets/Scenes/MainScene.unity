@@ -2500,6 +2500,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3808665045219081676}
     - target: {fileID: 243517165, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
+      propertyPath: m_HideObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 243517165, guid: c4cdb3d31b1dac846bf084a3dcab7041, type: 3}
       propertyPath: m_HideObjects.Array.data[1]
       value: 
       objectReference: {fileID: 0}
