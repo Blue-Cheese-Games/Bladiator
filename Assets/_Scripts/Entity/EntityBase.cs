@@ -104,6 +104,7 @@ namespace Bladiator.Entities
 			}
 		}
 
+		// TODO Move this to the audio manager
 		public void PlaySound(AudioClip clip)
 		{
 			m_audioSource.clip = clip;
@@ -112,13 +113,14 @@ namespace Bladiator.Entities
 			{
 				AudioSource source = Instantiate(m_tempAudioPrefab, transform.position, Quaternion.identity)
 					.GetComponent<AudioSource>();
-				source.volume = BladiatorSettings.Instance.Settings.Volume / 4;
+				source.volume = BladiatorSettings.Instance.Settings.Volume;
 				source.clip = clip;
 				source.Play();
 
 			}
 			else
 			{
+				m_audioSource.volume = BladiatorSettings.Instance.Settings.Volume;
 				m_audioSource.Play();
 			}
 		}
