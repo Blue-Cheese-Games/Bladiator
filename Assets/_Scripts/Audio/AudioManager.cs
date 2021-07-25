@@ -3,6 +3,7 @@ using _Scripts;
 using Bladiator.Managers;
 using Bladiator.Settings;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Bladiator.Sound
 {
@@ -13,17 +14,24 @@ namespace Bladiator.Sound
 		[SerializeField] private AudioData m_Idle, m_Main, m_Ending;
 		[SerializeField] private float m_FadeSpeed = 5;
 
+		[SerializeField] private Slider m_Slider;
+
 		private AudioData m_Current, m_CrossFade;
 		private Queue<AudioData> m_CrossfadeQueue = new Queue<AudioData>();
 
 		private GameState m_LastState = GameState.Ending; // Ending is unused
 		private float m_OldVolume, m_OldCrossVolume;
 
+		private void Awake()
+		{
+		}
+		
 		// Start is called before the first frame update
 		void Start()
 		{
 			GameManager.Instance.OnGameStateChange += OnGameStateChange;
 			GameManager.Instance.ResetEvent += ResetEvent;
+			BladiatorSettings.Instance.OnSettingsChanged += data => { m_Slider.value = data.Volume; };
 		}
 
 		private void ResetEvent()
